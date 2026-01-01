@@ -1,116 +1,109 @@
-import React from 'react';
-import { Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, CheckCircle } from 'lucide-react';
 
 const ContactSection = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'ajayithewriter@gmail.com',
-      href: 'mailto:ajayithewriter@gmail.com',
-      ariaLabel: 'Send email to ajayithewriter@gmail.com'
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+234 091 3162 3617',
-      href: 'tel:+2349131623617',
-      ariaLabel: 'Call +234 091 3162 3617'
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: '/precious-ajayi-soul',
-      href: 'https://www.linkedin.com/in/precious-ajayi-soul',
-      ariaLabel: 'Visit LinkedIn profile'
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Lagos, Nigeria',
-      subtext: '(Available for remote work globally)',
-      ariaLabel: 'Located in Lagos, Nigeria, available for remote work globally'
-    }
-  ];
+  // Status can be: "" (idle), "submitting", "succeeded", or "error"
+  const [status, setStatus] = useState("");
 
-  const steps = [
-    {
-      number: 1,
-      title: 'Initial Contact',
-      description: 'Reach out via email or phone'
-    },
-    {
-      number: 2,
-      title: 'Discovery Call',
-      description: '15-minute call to assess fit'
-    },
-    {
-      number: 3,
-      title: 'Proposal',
-      description: 'Custom proposal within 24 hours'
-    },
-    {
-      number: 4,
-      title: 'Let\'s Go',
-      description: 'Agreement, deposit, and kickoff'
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mkogneay", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus("succeeded");
+        form.reset(); // Clear the form fields
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
     }
-  ];
+  };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gray-50" aria-labelledby="contact-heading">
+    <section id="contact" className="py-20 px-6 bg-gray-900">
       <div className="max-w-4xl mx-auto">
-        <h2 id="contact-heading" className="text-4xl font-bold text-gray-900 mb-4">Let's Work Together</h2>
-        <p className="text-xl text-gray-600 mb-12">Currently taking on 2 Strategic Content Partnership clients for Q1 2025</p>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">Let's Talk Strategy</h2>
+          <p className="text-gray-400">Ready to refine your positioning? Drop a message below.</p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6" role="region" aria-label="Contact information">
-            {contactInfo.map((contact, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <contact.icon className="text-emerald-600" size={20} aria-hidden="true" />
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl transition-all">
+          {status === "succeeded" ? (
+            <div className="text-center py-12 animate-in fade-in zoom-in duration-500">
+              <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900">Message Sent!</h3>
+              <p className="text-gray-600 mb-6">Thanks for reaching out. I'll get back to you within 24-48 hours.</p>
+              <button 
+                onClick={() => setStatus("")}
+                className="text-emerald-600 font-semibold hover:text-emerald-700 underline"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Full Name</label>
+                  <input 
+                    name="name" 
+                    type="text" 
+                    required 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" 
+                    placeholder="Your Name"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 mb-1">{contact.label}</div>
-                  {contact.href ? (
-                    <a
-                      href={contact.href}
-                      target={contact.label === 'LinkedIn' ? '_blank' : undefined}
-                      rel={contact.label === 'LinkedIn' ? 'noopener noreferrer' : undefined}
-                      className="text-emerald-600 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                      aria-label={contact.ariaLabel}
-                    >
-                      {contact.value}
-                    </a>
-                  ) : (
-                    <div aria-label={contact.ariaLabel}>
-                      <p className="text-gray-600">{contact.value}</p>
-                      {contact.subtext && <p className="text-sm text-gray-500">{contact.subtext}</p>}
-                    </div>
-                  )}
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                  <input 
+                    name="email" 
+                    type="email" 
+                    required 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" 
+                    placeholder="email@example.com"
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                <textarea 
+                  name="message" 
+                  required 
+                  rows="5" 
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" 
+                  placeholder="Tell me about your project or inquiry..."
+                ></textarea>
+              </div>
+              
+              <button 
+                type="submit" 
+                disabled={status === "submitting"}
+                className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-emerald-900/10"
+              >
+                {status === "submitting" ? "Sending..." : "Send Message"}
+                <Send size={18} className={status === "submitting" ? "animate-pulse" : ""} />
+              </button>
 
-          <div className="bg-white p-8 rounded-xl shadow-lg" role="region" aria-label="Process overview">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">What to Expect</h3>
-            <ol className="space-y-4" role="list">
-              {steps.map((step, index) => (
-                <li key={index} className="flex gap-3" role="listitem">
-                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold" aria-label={`Step ${step.number}`}>
-                    {step.number}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{step.title}</div>
-                    <p className="text-gray-600 text-sm">{step.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 text-sm text-gray-600 italic" role="status">
-              I reply within 24 hours to all inquiries
-            </p>
-          </div>
+              {status === "error" && (
+                <p className="text-red-500 text-center text-sm font-medium">
+                  Oops! There was a problem submitting your form. Please try again.
+                </p>
+              )}
+            </form>
+          )}
         </div>
       </div>
     </section>
