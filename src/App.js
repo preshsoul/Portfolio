@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -8,6 +8,7 @@ import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import PostDetail from './pages/PostDetail';
+import ProjectDetail from './pages/ProjectDetail'; // New Page Import
 import ChatWidget from './components/ChatWidget';
 
 // Main Portfolio Page Component
@@ -29,7 +30,7 @@ const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const scrollToSection = (sectionId) => {
-    // If we're on a blog post page, navigate to home first
+    // If we're on a blog post or project page, navigate to home first
     if (window.location.pathname !== '/') {
       window.location.href = `/#${sectionId}`;
       return;
@@ -59,13 +60,22 @@ const Portfolio = () => {
         />
 
         <Routes>
+          {/* Landing Page Route */}
           <Route 
             path="/" 
             element={<MainPortfolio scrollToSection={scrollToSection} />} 
           />
+          
+          {/* Individual Blog Article Route */}
           <Route 
             path="/blog/:slug" 
             element={<PostDetail />} 
+          />
+
+          {/* Individual Case Study/Project Route */}
+          <Route 
+            path="/portfolio/:slug" 
+            element={<ProjectDetail />} 
           />
         </Routes>
 
