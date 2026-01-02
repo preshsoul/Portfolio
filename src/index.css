@@ -2,42 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --header-font: 'Amulya', sans-serif;
-    --body-font: 'Synonym', sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--body-font);
-    @apply antialiased text-gray-900;
-  }
-
-  /* Headings use Amulya */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--header-font);
-    @apply font-bold tracking-tight;
-  }
-
-  /* Paragraphs and general text use Synonym */
-  p, span, li, a, button {
-    font-family: var(--body-font);
-  }
+/* 1. Force the font on the root */
+html, body {
+  font-family: 'Synonym', sans-serif !important;
+  scroll-behavior: smooth;
 }
 
-/* Custom Utilities for your Brand */
-@layer components {
-  .hero-title {
-    @apply font-bold leading-[1.1] tracking-[-0.04em];
-  }
-  
-  .stat-number {
-    @apply font-bold tracking-tighter;
-  }
+/* 2. Force the font on all headers */
+h1, h2, h3, h4, h5, h6, .amulya-font {
+  font-family: 'Amulya', sans-serif !important;
 }
 
 * {
