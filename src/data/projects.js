@@ -1,32 +1,47 @@
 export const projects = [
   {
     slug: "revenue-growth",
+    title: "Driving 200% Revenue Growth through Strategic Positioning",
+    client: "E-commerce Startup",
+    duration: "6 Months",
     stat: "200%",
     label: "Revenue Growth",
-    title: "Doubling SaaS Revenue Through Content Positioning",
-    client: "TechStream Solutions",
-    duration: "6 Months",
-    challenge: "Despite having a superior product, TechStream was losing market share to competitors with bigger marketing budgets. Their content was technical but lacked a 'hook' that resonated with CEOs.",
-    strategy: "We shifted the narrative from 'features' to 'business outcomes.' By developing a proprietary positioning framework, we created 12 high-impact whitepapers that targeted C-suite pain points.",
+    challenge: "The client was struggling with high customer acquisition costs and a brand voice that was indistinguishable from competitors.",
+    strategy: "We shifted the focus from features to outcomes, rebuilding the brand narrative around 'expertise-driven value' rather than price.",
     results: [
-      "200% increase in inbound revenue within two quarters.",
-      "45% reduction in Customer Acquisition Cost (CAC).",
-      "Featured in three major industry publications."
+      "200% increase in quarterly revenue",
+      "40% reduction in customer acquisition cost",
+      "Successful Series A funding round"
     ]
   },
   {
     slug: "grant-success",
+    title: "Securing $30k in Grant Funding for Social Enterprise",
+    client: "Non-Profit Tech",
+    duration: "3 Months",
     stat: "$30k",
-    label: "Grant Funding",
-    title: "Securing $30,000 via Narrative Reframing",
-    client: "EcoImpact NGO",
-    duration: "3 Weeks",
-    challenge: "The NGO had the data, but their grant applications were dry and failed to create an emotional connection with the funder's mission.",
-    strategy: "We reframed their impact report into a 'Strategic Narrative.' We shifted the focus from activities (what they do) to systemic change (why it matters).",
+    label: "Grant Secured",
+    challenge: "The organization had the impact data but lacked a compelling story that resonated with grant evaluators.",
+    strategy: "I developed a strategic impact framework and a narrative deck that clearly visualized their long-term social ROI.",
     results: [
-      "Successfully secured $30,000 in unrestricted funding.",
-      "Developed a reusable narrative template for future applications.",
-      "100% funder alignment score on first review."
+      "Fully funded $30,000 grant application",
+      "Partnership with 2 major NGOs",
+      "Streamlined reporting process for future grants"
+    ]
+  },
+  {
+    slug: "audience-expansion",
+    title: "Scaling Content Operations: 180+ High-Value Assets",
+    client: "B2B Consultancy",
+    duration: "Ongoing",
+    stat: "180+",
+    label: "Content Assets",
+    challenge: "A team of experts was too busy to write, causing their LinkedIn and Blog presence to stall.",
+    strategy: "Implemented a 'Content Engine' where 1-hour interviews were transformed into a month's worth of strategic assets.",
+    results: [
+      "180+ unique content assets delivered",
+      "30% improvement in content ops efficiency",
+      "5x increase in inbound leads via LinkedIn"
     ]
   }
 ];
