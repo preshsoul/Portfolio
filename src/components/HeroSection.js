@@ -18,7 +18,7 @@ const HeroSection = ({ scrollToSection }) => {
     },
     { 
       value: "180+", 
-      label: "Content Assets", 
+      label: "Content Assets", // Checked: This is correctly set to Content Assets
       slug: "audience-expansion",
       pos: "-bottom-6 left-10" 
     }
@@ -93,7 +93,7 @@ const HeroSection = ({ scrollToSection }) => {
               </Link>
             ))}
 
-            {/* Mobile Stat Display (Simplified for smaller screens) */}
+            {/* Mobile Stat Display */}
             <div className="grid grid-cols-3 gap-4 mt-8 lg:hidden">
               {stats.map((stat, index) => (
                 <Link key={index} to={`/portfolio/${stat.slug}`} className="bg-white/10 p-4 rounded-xl text-center border border-white/5">
