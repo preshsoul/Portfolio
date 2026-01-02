@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Target, Zap } from 'lucide-react';
+import { TrendingUp, Target, Zap, FileDown } from 'lucide-react';
 
 const AboutSection = () => {
   const stats = [
@@ -35,16 +35,29 @@ const AboutSection = () => {
             I work at the intersection of brand strategy and content execution. Most strategists don't write. Most writers don't strategize. I do both—which means clients get strategic positioning frameworks AND the content that brings those frameworks to life. My work has secured $30,000+ in funding for social enterprises, grown brand visibility by 200% during product launches, and improved content operations efficiency by 30% for consultancies.
           </p>
           <p>
-            I specialize in working with funded startups, mission-driven organizations, and service businesses that compete on expertise (not price). If your brand sounds like everyone else in your space, if your content is consistent but not converting, if you're posting but not positioning—that's where I come in. I currently take on 2-4 clients at a time through Strategic Content Partnerships, ensuring each receives the strategic attention and custom thinking their business deserves.
+            I specialize in working with funded startups, mission-driven organizations, and service businesses that compete on expertise (not price). If your brand sounds like everyone else in your space, if your content is consistent but not converting, if you're posting but not positioning—that's where I come in.
           </p>
+          
+          {/* Resume Download Button */}
+          <div className="pt-4">
+            <a 
+              href="/Precious_Ajayi_CV.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-bold hover:bg-emerald-600 transition-all duration-300 shadow-lg hover:shadow-emerald-900/20"
+            >
+              <FileDown size={20} />
+              Download Full Resume
+            </a>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12" role="region" aria-label="Key achievements and statistics">
+        <div className="grid md:grid-cols-3 gap-6 mt-16" role="region" aria-label="Key achievements and statistics">
           {stats.map((stat, index) => (
-            <div key={index} className="p-6 bg-emerald-50 rounded-xl" role="article" aria-label={stat.ariaLabel}>
+            <div key={index} className="p-6 bg-emerald-50 rounded-xl border border-emerald-100/50 hover:border-emerald-200 transition-colors" role="article" aria-label={stat.ariaLabel}>
               <stat.icon className="text-emerald-600 mb-3" size={32} aria-hidden="true" />
               <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-600 text-sm font-medium uppercase tracking-wide">{stat.label}</div>
             </div>
           ))}
         </div>
