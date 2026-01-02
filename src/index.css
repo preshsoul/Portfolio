@@ -2,15 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Force the font on the root */
-html, body {
-  font-family: 'Synonym', sans-serif !important;
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-/* 2. Force the font on all headers */
-h1, h2, h3, h4, h5, h6, .amulya-font {
-  font-family: 'Amulya', sans-serif !important;
+  body {
+    /* Synonym/Bespoke Serif for body text */
+    font-family: 'Bespoke Serif', serif !important;
+    @apply antialiased text-gray-900 bg-white;
+    line-height: 1.7; /* Serifs need more breathing room */
+  }
+
+  /* Tanker for the big "Shouting" headers */
+  h1, h2, .tanker-font {
+    font-family: 'Tanker', sans-serif !important;
+    text-transform: uppercase; /* Tanker looks best in all caps */
+    letter-spacing: 0.02em;
+    @apply font-normal leading-[0.9]; /* Tanker is thick even at "normal" weight */
+  }
+
+  /* Bespoke Serif for subheaders and UI elements */
+  h3, h4, p, span, a, button {
+    font-family: 'Bespoke Serif', serif !important;
+  }
 }
 
 * {
