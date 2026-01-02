@@ -18,7 +18,7 @@ const HeroSection = ({ scrollToSection }) => {
     },
     { 
       value: "180+", 
-      label: "Global Clients", 
+      label: "Content Assets", 
       slug: "audience-expansion",
       pos: "-bottom-6 left-10" 
     }
