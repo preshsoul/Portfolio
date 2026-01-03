@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Added for cross-page navigation
+import { Link } from 'react-router-dom';
 import { Menu, X, FileDown } from 'lucide-react';
 
 const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection }) => {
@@ -21,20 +21,34 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize bespoke-serif font-medium transition-colors text-lg ${
-                  activeSection === section ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'
-                }`}
-                aria-current={activeSection === section ? 'page' : undefined}
-              >
-                {section}
-              </button>
-            ))}
+            {navItems.map((section) => {
+              // CHANGE: If it's the blog, use Link instead of button
+              if (section === 'blog') {
+                return (
+                  <Link
+                    key={section}
+                    to="/blog"
+                    className="capitalize bespoke-serif font-medium text-lg text-gray-600 hover:text-emerald-600 transition-colors"
+                  >
+                    {section}
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`capitalize bespoke-serif font-medium transition-colors text-lg ${
+                    activeSection === section ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'
+                  }`}
+                  aria-current={activeSection === section ? 'page' : undefined}
+                >
+                  {section}
+                </button>
+              );
+            })}
             
-            {/* CV Download Button - Desktop */}
             <a 
               href="/Precious_Ajayi_CV.pdf" 
               target="_blank" 
@@ -49,31 +63,42 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
           <button
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-6 space-y-4 animate-in slide-in-from-top duration-300" role="menu">
-            {navItems.map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`block w-full text-left capitalize py-2 bespoke-serif font-medium text-xl ${
-                  activeSection === section ? 'text-emerald-600' : 'text-gray-600'
-                }`}
-                role="menuitem"
-                aria-current={activeSection === section ? 'page' : undefined}
-              >
-                {section}
-              </button>
-            ))}
+            {navItems.map((section) => {
+              // CHANGE: Apply the same Link logic for Mobile
+              if (section === 'blog') {
+                return (
+                  <Link
+                    key={section}
+                    to="/blog"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full text-left capitalize py-2 bespoke-serif font-medium text-xl text-gray-600"
+                  >
+                    {section}
+                  </Link>
+                );
+              }
+
+              return (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`block w-full text-left capitalize py-2 bespoke-serif font-medium text-xl ${
+                    activeSection === section ? 'text-emerald-600' : 'text-gray-600'
+                  }`}
+                >
+                  {section}
+                </button>
+              );
+            })}
             
-            {/* CV Download Button - Mobile */}
             <div className="pt-2 border-t border-gray-100">
               <a 
                 href="/Precious_Ajayi_CV.pdf" 
