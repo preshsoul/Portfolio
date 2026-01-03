@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Base Layout Fixes */
+.min-h-screen {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* --- Blog Content Styling --- */
+/* This styles the HTML strings injected via dangerouslySetInnerHTML */
+
+.blog-content-area h1, 
+.blog-content-area h2, 
+.blog-content-area h3 {
+  font-family: 'Tanker', sans-serif; /* Ensuring Tanker is used for headers */
+  text-transform: uppercase;
+  color: #111827; /* Gray 900 */
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
 }
 
-@keyframes App-logo-spin {
+.blog-content-area h3 {
+  font-size: 1.875rem; /* text-3xl */
+}
+
+.blog-content-area p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #374151; /* Gray 700 */
+}
+
+.blog-content-area ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.blog-content-area li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.blog-content-area strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.blog-content-area blockquote {
+  border-left: 4px solid #059669; /* Emerald 600 */
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin: 2.5rem 0;
+  font-size: 1.5rem;
+  color: #4b5563;
+  font-family: 'Bespoke Serif', serif;
+}
+
+/* Responsive Image Handling in Blog */
+.blog-content-area img {
+  border-radius: 1rem;
+  margin: 2.5rem 0;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
