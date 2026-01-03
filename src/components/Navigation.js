@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Added for cross-page navigation
 import { Menu, X, FileDown } from 'lucide-react';
 
 const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection }) => {
@@ -8,9 +9,15 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50" role="navigation" aria-label="Main navigation">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-gray-900">
+          
+          {/* Brand Name - Link to Home */}
+          <Link 
+            to="/" 
+            className="text-2xl tanker-font uppercase tracking-tight text-gray-900"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Precious <span className="text-emerald-600">Ajayi</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -18,7 +25,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize font-medium transition-colors ${
+                className={`capitalize bespoke-serif font-medium transition-colors text-lg ${
                   activeSection === section ? 'text-emerald-600' : 'text-gray-600 hover:text-emerald-600'
                 }`}
                 aria-current={activeSection === section ? 'page' : undefined}
@@ -56,7 +63,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, activeSection, scrollToSection 
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`block w-full text-left capitalize py-2 font-medium ${
+                className={`block w-full text-left capitalize py-2 bespoke-serif font-medium text-xl ${
                   activeSection === section ? 'text-emerald-600' : 'text-gray-600'
                 }`}
                 role="menuitem"
