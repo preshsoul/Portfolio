@@ -1,3 +1,13 @@
+/* Add this at the top of App.css */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* --- Global Layout Fixes --- */
 .min-h-screen {
   min-height: 100vh;
