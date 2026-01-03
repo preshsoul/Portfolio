@@ -4,62 +4,70 @@
 }
 
 /* --- Blog Content Styling --- */
-/* This styles the HTML strings injected via dangerouslySetInnerHTML */
+/* We use !important to ensure these margins apply to the raw HTML injected into the blog */
 
 .blog-content-area h1, 
 .blog-content-area h2, 
 .blog-content-area h3 {
-  font-family: 'Tanker', sans-serif; /* Ensuring Tanker is used for headers */
-  text-transform: uppercase;
-  color: #111827; /* Gray 900 */
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.1;
+  font-family: 'Tanker', sans-serif !important;
+  text-transform: uppercase !important;
+  color: #111827 !important;
+  margin-top: 3.5rem !important; /* Increased top margin for better section breathing */
+  margin-bottom: 1.5rem !important;
+  line-height: 1.1 !important;
+  display: block !important;
 }
 
 .blog-content-area h3 {
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 2.25rem !important; /* text-4xl equivalent */
 }
 
 .blog-content-area p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-  color: #374151; /* Gray 700 */
+  margin-bottom: 2rem !important; /* Larger gap between paragraphs */
+  line-height: 1.8 !important;
+  color: #374151 !important;
+  display: block !important;
 }
 
 .blog-content-area ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin-bottom: 2.5rem !important;
+  display: block !important;
 }
 
 .blog-content-area li {
-  margin-bottom: 0.75rem;
-  padding-left: 0.5rem;
+  margin-bottom: 1rem !important;
+  padding-left: 0.5rem !important;
+  color: #374151 !important;
 }
 
 .blog-content-area strong {
-  font-weight: 700;
-  color: #111827;
+  font-weight: 700 !important;
+  color: #111827 !important;
 }
 
 .blog-content-area blockquote {
-  border-left: 4px solid #059669; /* Emerald 600 */
-  padding-left: 1.5rem;
-  font-style: italic;
-  margin: 2.5rem 0;
-  font-size: 1.5rem;
-  color: #4b5563;
-  font-family: 'Bespoke Serif', serif;
+  border-left: 5px solid #059669 !important; /* Emerald 600 */
+  padding: 2rem !important;
+  background-color: #f9fafb !important; /* Gray 50 background */
+  font-style: italic !important;
+  margin: 3rem 0 !important;
+  font-size: 1.75rem !important;
+  line-height: 1.4 !important;
+  color: #1f2937 !important;
+  font-family: 'Bespoke Serif', serif !important;
+  border-radius: 0 1rem 1rem 0;
 }
 
 /* Responsive Image Handling in Blog */
 .blog-content-area img {
-  border-radius: 1rem;
-  margin: 2.5rem 0;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem !important;
+  margin: 3rem 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
 }
 
 /* Animations */

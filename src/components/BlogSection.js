@@ -11,7 +11,7 @@ const BlogSection = () => {
     <section id="blog" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div>
+          <div className="animate-in">
             <h2 className="text-5xl md:text-7xl tanker-font uppercase mb-4">
               Latest <span className="text-emerald-600">Insights</span>
             </h2>
@@ -20,7 +20,6 @@ const BlogSection = () => {
             </p>
           </div>
           
-          {/* This link takes them to your full BlogPage.js */}
           <Link 
             to="/blog" 
             className="group flex items-center gap-2 font-bold uppercase tracking-widest text-sm border-b-2 border-black pb-1 hover:text-emerald-600 hover:border-emerald-600 transition-all"
@@ -31,20 +30,30 @@ const BlogSection = () => {
 
         <div className="grid md:grid-cols-3 gap-12">
           {recentArticles.map((article) => (
-            <Link key={article.slug} to={`/blog/${article.slug}`} className="group">
-              <div className="overflow-hidden mb-6 bg-gray-100 aspect-video rounded-xl">
-                {/* Optional: Add article images here later */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400 tanker-font text-2xl uppercase opacity-20">
-                  {article.label || "Strategy"}
-                </div>
+            <Link key={article.slug} to={`/blog/${article.slug}`} className="group animate-in">
+              {/* IMAGE CONTAINER */}
+              <div className="overflow-hidden mb-6 bg-gray-100 aspect-video rounded-xl relative border border-gray-100">
+                {article.image ? (
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400 tanker-font text-2xl uppercase opacity-20">
+                    {article.category || "Strategy"}
+                  </div>
+                )}
               </div>
+
+              {/* TEXT CONTENT */}
               <span className="text-emerald-600 font-bold text-xs uppercase tracking-widest">
-                {article.date}
+                {article.category} • {article.date}
               </span>
-              <h3 className="text-2xl tanker-font uppercase mt-2 group-hover:text-emerald-600 transition-colors">
+              <h3 className="text-2xl tanker-font uppercase mt-2 group-hover:text-emerald-600 transition-colors leading-tight">
                 {article.title}
               </h3>
-              <p className="mt-3 bespoke-serif text-gray-600 line-clamp-2">
+              <p className="mt-3 bespoke-serif text-gray-600 line-clamp-2 italic">
                 {article.excerpt}
               </p>
             </Link>

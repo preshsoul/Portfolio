@@ -6,7 +6,7 @@ export const articles = [
     category: "Brand Strategy",
     // This is a real image URL to test visibility
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
-    readTime: "6 min read",
+    readTime: "2 min read",
     excerpt: "Most businesses blame 'the algorithm' when their content doesn't perform. But the real problem isn't distribution—it's positioning.",
     content: `
       <p>Most businesses blame "the algorithm" when their content doesn't perform. But the real problem isn't distribution—it's positioning.</p>
@@ -25,7 +25,7 @@ export const articles = [
     date: "January 9, 2025",
     category: "Case Studies",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200",
-    readTime: "8 min read",
+    readTime: "2 min read",
     excerpt: "The problem wasn't their work—it was how they talked about their work. Here's what we changed to secure the bag.",
     content: `
       <p>When a social enterprise came to me, they had a solid program but kept getting rejected by funders. The problem wasn't their work—it was how they talked about their work.</p>
