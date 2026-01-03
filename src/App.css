@@ -5,28 +5,32 @@
 
 /* --- Blog Content Area: The Fix for Spacing --- */
 
-/* 1. Universal Block Fix: Ensures no elements "merge" together */
-.blog-content-area > * {
+/* 1. Resetting the container to ensure block flow */
+.blog-content-area {
   display: block !important;
-  width: 100% !important;
+  text-align: left;
 }
 
-/* 2. Paragraph Spacing */
+/* 2. Nuclear Paragraph Spacing */
+/* Using the descendant selector to override Tailwind Preflight */
 .blog-content-area p {
-  margin-bottom: 2.5rem !important; 
+  display: block !important;
+  margin-top: 0 !important;
+  margin-bottom: 2.5rem !important; /* The Gap */
   line-height: 1.9 !important;      
-  color: #374151;                   
-  font-family: 'Bespoke Serif', serif;
+  color: #374151 !important;                   
+  font-family: 'Bespoke Serif', serif !important;
 }
 
-/* 3. Headline Spacing (The Section Breaks) */
+/* 3. Headline Spacing */
 .blog-content-area h1,
 .blog-content-area h2,
 .blog-content-area h3 {
+  display: block !important;
   font-family: 'Tanker', sans-serif !important;
   text-transform: uppercase !important;
   color: #111827 !important;
-  margin-top: 5rem !important;    /* Increased for long-form breathing room */
+  margin-top: 5rem !important;    
   margin-bottom: 1.75rem !important; 
   line-height: 1.1 !important;
 }
@@ -35,39 +39,43 @@
   font-size: 2.5rem !important;     
 }
 
-/* 4. Strategic List Spacing */
+/* 4. List Spacing Fix */
 .blog-content-area ul {
+  display: block !important;
   margin-bottom: 3rem !important;
-  padding-left: 2rem !important; /* Slightly more indentation for clarity */
+  padding-left: 2rem !important; 
+  list-style-type: disc !important; /* Force bullets to show */
 }
 
 .blog-content-area li {
+  display: list-item !important; /* Critical for bullets */
   margin-bottom: 1.25rem !important;
-  list-style-type: disc !important;
   line-height: 1.6 !important;
 }
 
-/* 5. The Blockquote (The "Case Study" Look) */
+/* 5. Blockquote Spacing */
 .blog-content-area blockquote {
+  display: block !important;
   margin: 4.5rem 0 !important;
   padding: 3rem !important;
-  background-color: #f9fafb;        
-  border-left: 6px solid #059669;   
+  background-color: #f9fafb !important;        
+  border-left: 6px solid #059669 !important;   
   font-style: italic !important;
   font-size: 1.85rem !important;
   line-height: 1.4 !important;
   color: #111827 !important;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 0 1rem 1rem 0 !important;
 }
 
-/* 6. Emphasized Text */
+/* 6. Strong/Bold Text */
 .blog-content-area strong {
   font-weight: 700 !important;
   color: #000000 !important;
 }
 
-/* 7. Responsive Image Spacing */
+/* 7. Images */
 .blog-content-area img {
+  display: block !important;
   border-radius: 1.5rem !important;
   margin: 4rem 0 !important;
   width: 100% !important;
