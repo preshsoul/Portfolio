@@ -2,7 +2,7 @@ export const articles = [
   {
     slug: "creator-economy-house-of-cards",
     title: "Why the Creator Economy is a House of Cards Built on Shaky SaaS",
-    date: "January 20, 2026",
+    date: "January 3, 2026",
     category: "Industry Insights",
     image: "/images/blog/creator-economy.jpg",
     readTime: "7 min read",
