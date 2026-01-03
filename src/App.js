@@ -7,30 +7,30 @@ import ServicesSection from './components/ServicesSection';
 import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import BlogPage from './pages/BlogPage'; // New Page for all articles
 import PostDetail from './pages/PostDetail';
-import ProjectDetail from './pages/ProjectDetail'; // New Page Import
+import ProjectDetail from './pages/ProjectDetail'; 
 import ChatWidget from './components/ChatWidget';
 
-// Main Portfolio Page Component
+// Main Portfolio Page Component (The Landing Page)
 const MainPortfolio = ({ scrollToSection }) => {
   return (
     <main>
       <HeroSection scrollToSection={scrollToSection} />
       <AboutSection />
       <ServicesSection scrollToSection={scrollToSection} />
+      {/* This component likely shows the "Latest 3" posts */}
       <BlogSection />
       <ContactSection />
     </main>
   );
 };
 
-// Main App Component
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   const scrollToSection = (sectionId) => {
-    // If we're on a blog post or project page, navigate to home first
     if (window.location.pathname !== '/') {
       window.location.href = `/#${sectionId}`;
       return;
@@ -60,19 +60,25 @@ const Portfolio = () => {
         />
 
         <Routes>
-          {/* Landing Page Route */}
+          {/* 1. Landing Page Route */}
           <Route 
             path="/" 
             element={<MainPortfolio scrollToSection={scrollToSection} />} 
           />
+
+          {/* 2. New: Full Blog Listing Page (Great for SEO) */}
+          <Route 
+            path="/blog" 
+            element={<BlogPage />} 
+          />
           
-          {/* Individual Blog Article Route */}
+          {/* 3. Individual Blog Article Route */}
           <Route 
             path="/blog/:slug" 
             element={<PostDetail />} 
           />
 
-          {/* Individual Case Study/Project Route */}
+          {/* 4. Individual Case Study/Project Route */}
           <Route 
             path="/portfolio/:slug" 
             element={<ProjectDetail />} 
