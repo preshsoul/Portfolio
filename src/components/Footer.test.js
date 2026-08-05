@@ -15,18 +15,15 @@ describe('Footer Component', () => {
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 
-  test('renders brand name', () => {
+  test('renders copyright with name and location', () => {
     renderWithRouter();
-    expect(screen.getByText('Precious Ajayi')).toBeInTheDocument();
+    expect(screen.getByText(/Precious Ajayi/)).toBeInTheDocument();
+    expect(screen.getByText(/Lagos, Nigeria/)).toBeInTheDocument();
   });
 
-  test('renders external social links', () => {
+  test('renders typeset credit', () => {
     renderWithRouter();
-
-    const substack = screen.getByRole('link', { name: 'Substack' });
-    expect(substack).toHaveAttribute('href', 'https://thermopresh.substack.com');
-
-    const linkedin = screen.getByRole('link', { name: 'LinkedIn' });
-    expect(linkedin).toHaveAttribute('href', 'https://www.linkedin.com/in/precious-ajayi-soul');
+    expect(screen.getByText(/Designed and typeset by the author/)).toBeInTheDocument();
+    expect(screen.getByText(/Newsreader and Plus Jakarta Sans/)).toBeInTheDocument();
   });
 });

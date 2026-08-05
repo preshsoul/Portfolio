@@ -4,119 +4,58 @@ export default function Footer() {
   return (
     <footer
       style={{
-        padding: "48px 28px 32px",
-        borderTop: `1px solid ${T.accentLight}4D`,
-        background: T.bgAlt,
+        padding: "clamp(40px, 7vw, 64px) max(16px, 5vw) clamp(32px, 5vw, 48px)",
+        borderTop: `1px solid ${T.accentLight}66`,
+        background: T.bg,
+        textAlign: "center",
       }}
     >
       <div
         style={{
-          maxWidth: 960,
+          maxWidth: 720,
           margin: "0 auto",
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          flexWrap: "wrap",
-          gap: 24,
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "clamp(8px, 1.2vw, 12px)",
         }}
       >
-        <div>
-          <p
-            style={{
-              fontFamily: T.display,
-              fontSize: 16,
-              fontWeight: 600,
-              color: T.text,
-              marginBottom: 4,
-            }}
-          >
-            Precious Ajayi
-          </p>
-          <p
-            style={{
-              fontFamily: T.body,
-              fontSize: 13,
-              color: T.textMuted,
-              maxWidth: 280,
-              lineHeight: 1.6,
-            }}
-          >
-            Writer, researcher, and strategic operator based in Lagos, Nigeria.
-          </p>
-        </div>
+        {/* Brand */}
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          <span
-            style={{
-              fontFamily: T.mono,
-              fontSize: 11,
-              fontWeight: 500,
-              color: T.textMuted,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              marginBottom: 4,
-            }}
-          >
-            Connect
-          </span>
-          <a
-            href="mailto:ajayithewriter@gmail.com"
-            style={{
-              fontFamily: T.body,
-              fontSize: 14,
-              color: T.link,
-              textDecoration: "none",
-            }}
-          >
-            Email
-          </a>
-          <a
-            href="https://www.linkedin.com/in/precious-ajayi-soul"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: T.body,
-              fontSize: 14,
-              color: T.link,
-              textDecoration: "none",
-            }}
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://thermopresh.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: T.body,
-              fontSize: 14,
-              color: T.link,
-              textDecoration: "none",
-            }}
-          >
-            Substack
-          </a>
-        </div>
-      </div>
+        {/* Divider */}
+        <div
+          style={{
+            width: "clamp(32px, 5vw, 48px)",
+            height: 1,
+            background: T.accent,
+            marginBottom: 4,
+          }}
+        />
 
-      <div
-        style={{
-          maxWidth: 960,
-          margin: "24px auto 0",
-          paddingTop: 16,
-          borderTop: `1px solid ${T.accentLight}66`,
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 8,
-        }}
-      >
-        <span style={{ fontFamily: T.mono, fontSize: 11, color: T.textMuted }}>
-          © 2026 Precious Ajayi. All rights reserved.
-        </span>
-        <span style={{ fontFamily: T.mono, fontSize: 11, color: T.textMuted }}>
-          Lagos, Nigeria
-        </span>
+        {/* Tagline */}
+        <p
+          style={{
+            fontFamily: T.body,
+            fontSize: "clamp(13px, 1.5vw, 14px)",
+            color: T.textMuted,
+            lineHeight: 1.6,
+            maxWidth: 340,
+          }}
+        >
+          Designed and typeset by the author. Set in Newsreader and Plus Jakarta Sans.
+        </p>
+
+        {/* Copyright */}
+        <p
+          style={{
+            fontFamily: T.mono,
+            fontSize: "clamp(10px, 1.1vw, 11px)",
+            color: T.textMuted,
+            letterSpacing: "0.06em",
+          }}
+        >
+          © 2026 Precious Ajayi. Lagos, Nigeria. All rights reserved.
+        </p>
       </div>
     </footer>
   );
