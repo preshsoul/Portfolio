@@ -1,55 +1,92 @@
-import React from 'react';
-import { Mail, Linkedin, Phone } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+import T from "../lib/tokens";
 
-const Footer = () => {
-  const socialLinks = [
-    {
-      icon: Mail,
-      href: 'mailto:ajayithewriter@gmail.com',
-      ariaLabel: 'Send email to Precious Ajayi'
-    },
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/precious-ajayi-soul',
-      ariaLabel: 'Visit Precious Ajayi\'s LinkedIn profile'
-    },
-    {
-      icon: Phone,
-      href: 'tel:+2349131623617',
-      ariaLabel: 'Call Precious Ajayi'
-    }
-  ];
+const NAV_ITEMS = [
+  { path: "/work", label: "Work" },
+  { path: "/writing", label: "Writing" },
+  { path: "/products", label: "Products" },
+  { path: "/about", label: "About" },
+  { path: "/connect", label: "Connect" },
+];
+
+export default function Footer() {
+  const navigate = useNavigate();
 
   return (
-    <footer className="bg-gray-900 text-white py-12 px-6" role="contentinfo">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="text-2xl font-bold mb-4">
-          Precious <span className="text-emerald-400">Ajayi</span>
+    <footer style={{ padding: "40px 28px 32px", borderTop: `1px solid ${T.border}`, background: T.bg }}>
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 16,
+        }}
+      >
+        <div>
+          <p style={{ fontFamily: T.font, fontSize: 15, fontWeight: 600, color: T.text, marginBottom: 4 }}>
+            Precious Ajayi
+          </p>
+          <p style={{ fontFamily: T.font, fontSize: 13, color: T.textMuted, fontStyle: "italic" }}>
+            Structure is everywhere. Language is how we find it.
+          </p>
         </div>
-        <p className="text-gray-400 mb-6">Brand Strategist & Content Lead</p>
-        <nav aria-label="Social media links">
-          <ul className="flex justify-center gap-6 mb-8" role="list">
-            {socialLinks.map((link, index) => (
-              <li key={index} role="listitem">
-                <a
-                  href={link.href}
-                  target={link.icon === Linkedin ? '_blank' : undefined}
-                  rel={link.icon === Linkedin ? 'noopener noreferrer' : undefined}
-                  className="hover:text-emerald-400 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-gray-900 p-2 rounded"
-                  aria-label={link.ariaLabel}
-                >
-                  <link.icon size={24} aria-hidden="true" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <p className="text-gray-500 text-sm">
-          © 2025 Precious Ajayi. All rights reserved.
-        </p>
+        <div style={{ display: "flex", gap: 20 }}>
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => { navigate(item.path); window.scrollTo(0, 0); }}
+              style={{
+                fontFamily: T.sans,
+                fontSize: 12,
+                color: T.textMuted,
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: "16px auto 0",
+          paddingTop: 16,
+          borderTop: `1px solid ${T.border}`,
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 8,
+        }}
+      >
+        <span style={{ fontFamily: T.sans, fontSize: 11, color: T.textMuted }}>
+          © 2026 Precious Ajayi. Lagos, Nigeria.
+        </span>
+        <div style={{ display: "flex", gap: 14 }}>
+          <a
+            href="https://thermopresh.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: T.sans, fontSize: 11, color: T.textMuted, textDecoration: "none" }}
+          >
+            Substack
+          </a>
+          <a
+            href="https://www.linkedin.com/in/precious-ajayi-bb96b51b4/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: T.sans, fontSize: 11, color: T.textMuted, textDecoration: "none" }}
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
