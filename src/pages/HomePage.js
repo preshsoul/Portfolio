@@ -29,11 +29,11 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════════════════════════════════════════
-          HERO
+          01 — HERO
           ═══════════════════════════════════════════ */}
       <section
         style={{
-          minHeight: "85vh",
+          minHeight: "88vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -45,143 +45,135 @@ export default function HomePage() {
           transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
-        {/* Name + role inline */}
+        {/* Section number */}
+        <span
+          style={{
+            fontFamily: T.mono,
+            fontSize: "clamp(10px, 1.2vw, 11px)",
+            color: T.accent,
+            letterSpacing: "0.15em",
+            marginBottom: "clamp(32px, 6vw, 52px)",
+          }}
+        >
+          01
+        </span>
+
+        {/* Name — confident, standalone */}
         <p
           style={{
             fontFamily: T.display,
-            fontSize: "clamp(22px, 3.2vw, 30px)",
+            fontSize: "clamp(42px, 8vw, 80px)",
             fontWeight: 600,
             color: T.text,
-            lineHeight: 1.25,
-            letterSpacing: "-0.01em",
-            marginBottom: "clamp(28px, 5vw, 44px)",
+            lineHeight: 1.05,
+            letterSpacing: "-0.025em",
+            marginBottom: "clamp(10px, 1.5vw, 16px)",
           }}
         >
-          Precious Ajayi{" "}
-          <span style={{ fontWeight: 400, color: T.textMuted }}>
-            — writer, researcher &amp; strategic&nbsp;operator
-          </span>
+          Precious Ajayi
         </p>
 
-        {/* Thesis */}
-        <h1
-          style={{
-            fontFamily: T.display,
-            fontSize: "clamp(34px, 6.5vw, 64px)",
-            fontWeight: 400,
-            color: T.text,
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            marginBottom: "clamp(28px, 5vw, 40px)",
-            maxWidth: 780,
-          }}
-        >
-          I research how organisations actually work — their behavioural assumptions,
-          editorial architectures, stakeholder maps — and build systems that make complex
-          ideas reach the right&nbsp;people.
-        </h1>
-
-        {/* Supporting line — single sentence, tight */}
+        {/* Role line — understated below the name */}
         <p
           style={{
             fontFamily: T.body,
-            fontSize: "clamp(16px, 2vw, 18px)",
+            fontSize: "clamp(16px, 2vw, 20px)",
             color: T.textMuted,
-            lineHeight: 1.65,
-            maxWidth: 520,
+            lineHeight: 1.5,
             marginBottom: "clamp(36px, 6vw, 52px)",
           }}
         >
-          Two published books. Thirteen tailored grant proposals clearing $30,000. Executive
-          operations for an infrastructure finance firm. Outreach systems producing verified
-          replies from filmmakers, researchers and policy&nbsp;stakeholders.
+          Writer, researcher &amp; strategic operator
         </p>
 
-        {/* CTAs — airy spacing */}
-        <div
+        {/* Thesis — the core argument */}
+        <h1
           style={{
-            display: "flex",
-            gap: "clamp(10px, 1.6vw, 16px)",
-            flexWrap: "wrap",
+            fontFamily: T.display,
+            fontSize: "clamp(26px, 4.5vw, 48px)",
+            fontWeight: 400,
+            color: T.text,
+            lineHeight: 1.2,
+            letterSpacing: "-0.015em",
+            marginBottom: "clamp(24px, 4vw, 36px)",
+            maxWidth: 740,
           }}
         >
-          <button
-            onClick={() => go("/work")}
-            style={{
-              fontFamily: T.mono,
-              fontSize: "clamp(11px, 1.3vw, 12px)",
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: T.white,
-              background: T.text,
-              border: "none",
-              padding: "15px 30px",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              minHeight: 50,
-            }}
-          >
+          I research how organisations actually work — and build systems that make complex ideas
+          reach the right&nbsp;people.
+        </h1>
+
+        {/* Deck */}
+        <p
+          style={{
+            fontFamily: T.body,
+            fontSize: "clamp(16px, 1.8vw, 18px)",
+            color: T.textMuted,
+            lineHeight: 1.7,
+            maxWidth: 520,
+            marginBottom: "clamp(40px, 6vw, 56px)",
+          }}
+        >
+          Two published books. Thirteen tailored grant proposals clearing $30,000. Executive
+          operations for an infrastructure finance firm. Outreach systems producing verified replies
+          from filmmakers, researchers and policy&nbsp;stakeholders.
+        </p>
+
+        {/* CTAs */}
+        <div style={{ display: "flex", gap: "clamp(10px, 1.6vw, 16px)", flexWrap: "wrap" }}>
+          <button onClick={() => go("/work")} style={filledBtn}>
             See the work
           </button>
-          <button
-            onClick={() => go("/research")}
-            style={{
-              fontFamily: T.mono,
-              fontSize: "clamp(11px, 1.3vw, 12px)",
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: T.text,
-              background: "transparent",
-              border: `1.5px solid ${T.accent}`,
-              padding: "14px 28px",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              minHeight: 50,
-            }}
-          >
+          <button onClick={() => go("/research")} style={outlinedBtn}>
             Read the research
           </button>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          SELECTED WORK
+          02 — SELECTED WORK
           ═══════════════════════════════════════════ */}
       <section
         style={{
-          padding: "clamp(72px, 11vw, 120px) max(16px, 5vw)",
+          padding: "clamp(80px, 12vw, 128px) max(16px, 5vw)",
           background: T.bgAlt,
         }}
       >
         <div style={{ maxWidth: 920, margin: "0 auto" }}>
           <ScrollReveal>
+            <span
+              style={{
+                fontFamily: T.mono,
+                fontSize: "clamp(10px, 1.2vw, 11px)",
+                color: T.accent,
+                letterSpacing: "0.15em",
+                display: "block",
+                marginBottom: "clamp(22px, 3vw, 32px)",
+              }}
+            >
+              02
+            </span>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "flex-end",
-                marginBottom: "clamp(32px, 6vw, 52px)",
+                marginBottom: "clamp(36px, 6vw, 56px)",
                 flexWrap: "wrap",
-                gap: 10,
+                gap: 12,
               }}
             >
               <h2
                 style={{
                   fontFamily: T.display,
-                  fontSize: "clamp(26px, 4.5vw, 38px)",
+                  fontSize: "clamp(28px, 5vw, 42px)",
                   fontWeight: 500,
                   color: T.text,
                   lineHeight: 1.15,
                   letterSpacing: "-0.01em",
                 }}
               >
-                Selected work.
-                <br />
-                <span style={{ color: T.textMuted, fontWeight: 400 }}>
-                  Four projects that demonstrate&nbsp;range.
-                </span>
+                Selected work
               </h2>
               <span
                 style={{
@@ -193,12 +185,12 @@ export default function HomePage() {
                   flexShrink: 0,
                 }}
               >
-                Vol. I – IV
+                Four projects that demonstrate range
               </span>
             </div>
           </ScrollReveal>
 
-          {/* Cards — 2-col grid, generous gaps */}
+          {/* Cards */}
           <div
             style={{
               display: "grid",
@@ -210,36 +202,42 @@ export default function HomePage() {
               <ScrollReveal key={w.slug} delay={i * 70}>
                 <article
                   onClick={() => go("/work")}
+                  className="work-card"
                   style={{
-                    padding: "clamp(24px, 3.5vw, 36px) clamp(22px, 3vw, 30px)",
+                    padding: "clamp(26px, 3.5vw, 38px) clamp(22px, 3vw, 32px)",
                     background: T.bg,
-                    border: `1px solid transparent`,
                     cursor: "pointer",
                     display: "flex",
                     flexDirection: "column",
-                    transition: "border-color 0.25s, box-shadow 0.25s",
+                    transition: "box-shadow 0.3s, transform 0.3s",
                     minHeight: "100%",
+                    position: "relative",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = T.accentLight;
-                    e.currentTarget.style.boxShadow = `0 1px 0 ${T.accent}, 0 4px 16px ${T.accentLight}55`;
+                    e.currentTarget.style.boxShadow = `0 0 0 1px ${T.accent}, 0 8px 32px ${T.accentLight}66`;
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    const arrow = e.currentTarget.querySelector(".card-arrow");
+                    if (arrow) arrow.style.opacity = "1";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "transparent";
                     e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.transform = "none";
+                    const arrow = e.currentTarget.querySelector(".card-arrow");
+                    if (arrow) arrow.style.opacity = "0";
                   }}
                 >
-                  {/* Top: proof badge + arrow */}
+                  {/* Top line: proof badge + arrow */}
                   <div
                     style={{
                       display: "flex",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      marginBottom: "clamp(16px, 2vw, 20px)",
+                      marginBottom: "clamp(18px, 2.5vw, 24px)",
                     }}
                   >
                     <ProofBadge status={w.proof} />
                     <span
+                      className="card-arrow"
                       style={{
                         fontFamily: T.mono,
                         fontSize: "clamp(10px, 1.1vw, 11px)",
@@ -248,7 +246,6 @@ export default function HomePage() {
                         opacity: 0,
                         transition: "opacity 0.25s",
                       }}
-                      className="card-arrow"
                     >
                       &rarr;
                     </span>
@@ -258,12 +255,12 @@ export default function HomePage() {
                   <h3
                     style={{
                       fontFamily: T.display,
-                      fontSize: "clamp(20px, 2.6vw, 26px)",
+                      fontSize: "clamp(20px, 2.8vw, 28px)",
                       fontWeight: 600,
                       color: T.text,
-                      lineHeight: 1.25,
+                      lineHeight: 1.22,
                       letterSpacing: "-0.01em",
-                      marginBottom: 12,
+                      marginBottom: 14,
                     }}
                   >
                     {w.title}
@@ -275,9 +272,9 @@ export default function HomePage() {
                       fontFamily: T.body,
                       fontSize: "clamp(14px, 1.6vw, 15px)",
                       color: T.textMuted,
-                      lineHeight: 1.7,
+                      lineHeight: 1.75,
                       flex: 1,
-                      marginBottom: 20,
+                      marginBottom: 22,
                     }}
                   >
                     {w.description.length > 200
@@ -285,7 +282,7 @@ export default function HomePage() {
                       : w.description}
                   </p>
 
-                  {/* Read link */}
+                  {/* CTA */}
                   <span
                     style={{
                       fontFamily: T.mono,
@@ -316,7 +313,7 @@ export default function HomePage() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                marginTop: "clamp(22px, 3vw, 32px)",
+                marginTop: "clamp(24px, 3.5vw, 36px)",
                 padding: "8px 0",
               }}
             >
@@ -327,33 +324,32 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          CAPABILITY MAP
+          03 — CAPABILITY MAP
           ═══════════════════════════════════════════ */}
       <section
         style={{
-          padding: "clamp(72px, 11vw, 120px) max(16px, 5vw)",
+          padding: "clamp(80px, 12vw, 128px) max(16px, 5vw)",
           background: T.bg,
         }}
       >
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <ScrollReveal>
-            <p
+            <span
               style={{
                 fontFamily: T.mono,
                 fontSize: "clamp(10px, 1.2vw, 11px)",
-                fontWeight: 600,
                 color: T.accent,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                marginBottom: 12,
+                letterSpacing: "0.15em",
+                display: "block",
+                marginBottom: "clamp(22px, 3vw, 32px)",
               }}
             >
-              Capability-to-Evidence Map
-            </p>
+              03
+            </span>
             <h2
               style={{
                 fontFamily: T.display,
-                fontSize: "clamp(24px, 4vw, 36px)",
+                fontSize: "clamp(26px, 4vw, 38px)",
                 fontWeight: 500,
                 color: T.text,
                 lineHeight: 1.2,
@@ -369,14 +365,16 @@ export default function HomePage() {
                 fontSize: "clamp(15px, 1.6vw, 16px)",
                 color: T.textMuted,
                 lineHeight: 1.6,
-                marginBottom: "clamp(36px, 5vw, 48px)",
+                marginBottom: "clamp(40px, 6vw, 60px)",
+                maxWidth: 480,
               }}
             >
-              Not a list of skills. An index of verified&nbsp;applications.
+              Not a list of skills. An index of verified applications — capability mapped directly to
+              evidence.
             </p>
           </ScrollReveal>
 
-          {/* Clean index layout */}
+          {/* Index */}
           <div>
             {CAPABILITIES.map((row, i) => (
               <ScrollReveal key={i} delay={i * 30}>
@@ -385,11 +383,26 @@ export default function HomePage() {
                     display: "flex",
                     flexDirection: "row",
                     flexWrap: "wrap",
-                    padding: "clamp(14px, 2vw, 20px) 0",
-                    borderBottom: `1px solid ${T.accentLight}55`,
-                    gap: "clamp(10px, 2vw, 24px)",
+                    padding: "clamp(16px, 2.2vw, 22px) 0",
+                    borderBottom: `1px solid ${T.accentLight}44`,
+                    gap: "clamp(12px, 2vw, 28px)",
+                    alignItems: "baseline",
                   }}
                 >
+                  {/* Left: index number */}
+                  <span
+                    style={{
+                      fontFamily: T.mono,
+                      fontSize: "clamp(9px, 1vw, 10px)",
+                      color: T.accent,
+                      flexShrink: 0,
+                      width: 20,
+                    }}
+                  >
+                    {(i + 1).toString().padStart(2, "0")}
+                  </span>
+
+                  {/* Capability */}
                   <div style={{ flex: "0 0 clamp(170px, 24vw, 230px)" }}>
                     <span
                       style={{
@@ -405,6 +418,8 @@ export default function HomePage() {
                       {row.capability}
                     </span>
                   </div>
+
+                  {/* Evidence */}
                   <div style={{ flex: 1, minWidth: 200 }}>
                     <span
                       style={{
@@ -425,20 +440,32 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          CONTACT
+          04 — CONTACT
           ═══════════════════════════════════════════ */}
       <section
         style={{
-          padding: `0 max(16px, 5vw) clamp(56px, 9vw, 80px)`,
+          padding: `0 max(16px, 5vw) clamp(64px, 10vw, 88px)`,
           maxWidth: 780,
           margin: "0 auto",
         }}
       >
         <ScrollReveal>
+          <span
+            style={{
+              fontFamily: T.mono,
+              fontSize: "clamp(10px, 1.2vw, 11px)",
+              color: T.accent,
+              letterSpacing: "0.15em",
+              display: "block",
+              marginBottom: "clamp(20px, 3vw, 28px)",
+            }}
+          >
+            04
+          </span>
           <div
             style={{
               display: "flex",
-              gap: "clamp(16px, 3vw, 36px)",
+              gap: "clamp(16px, 3.5vw, 40px)",
               flexWrap: "wrap",
               alignItems: "baseline",
               borderTop: `1px solid ${T.accentLight}`,
@@ -456,7 +483,7 @@ export default function HomePage() {
                 flexShrink: 0,
               }}
             >
-              Contact
+              Get in touch
             </span>
             <a
               href="mailto:preciousayomide147@gmail.com"
@@ -483,18 +510,38 @@ export default function HomePage() {
           </div>
         </ScrollReveal>
       </section>
-
-      {/* Card hover arrow reveal */}
-      <style>{`
-        article:hover .card-arrow { opacity: 1 !important; }
-      `}</style>
     </>
   );
 }
 
+/* ── Shared styles ── */
+
+const filledBtn = {
+  fontFamily: "'JetBrains Mono', 'IBM Plex Mono', monospace",
+  fontSize: "clamp(11px, 1.3vw, 12px)",
+  fontWeight: 500,
+  letterSpacing: "0.1em",
+  textTransform: "uppercase",
+  color: "#FAF8F5",
+  background: "#0A1628",
+  border: "none",
+  padding: "15px 30px",
+  cursor: "pointer",
+  whiteSpace: "nowrap",
+  minHeight: 50,
+};
+
+const outlinedBtn = {
+  ...filledBtn,
+  color: "#0A1628",
+  background: "transparent",
+  border: "1.5px solid #C4973B",
+  padding: "14px 28px",
+};
+
 const contactLink = {
-  fontFamily: T.body,
+  fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   fontSize: "clamp(14px, 1.6vw, 15px)",
-  color: T.link,
+  color: "#1A365D",
   textDecoration: "none",
 };
