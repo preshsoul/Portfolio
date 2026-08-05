@@ -4,13 +4,13 @@ export default function Label({ children }) {
   return (
     <p
       style={{
-        fontFamily: T.sans,
-        fontSize: 11,
-        fontWeight: 600,
+        fontFamily: T.mono,
+        fontSize: 12,
+        fontWeight: 500,
         color: T.accent,
-        letterSpacing: "0.14em",
+        letterSpacing: "0.12em",
         textTransform: "uppercase",
-        marginBottom: 18,
+        marginBottom: 16,
       }}
     >
       {children}

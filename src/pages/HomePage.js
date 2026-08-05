@@ -3,17 +3,19 @@ import { useNavigate } from "react-router-dom";
 import T from "../lib/tokens";
 import ScrollReveal from "../components/ScrollReveal";
 import Label from "../components/Label";
-import Badge from "../components/Badge";
-import WorkCard from "../components/WorkCard";
-import WritingRow from "../components/WritingRow";
+import ProofBadge from "../components/ProofBadge";
 import { WORKS } from "../data/works";
-import { WRITINGS } from "../data/writings";
 
-const AREAS = [
-  ["Mathematical Translation", "Probability theory → decision frameworks"],
-  ["Research & Data Synthesis", "Behavioural datasets → structured analysis"],
-  ["Editorial Strategy & Grants", "Funder scepticism → approved proposals"],
-  ["Systems Thinking", "Structure in apparent chaos → working frameworks"],
+const CAPABILITIES = [
+  { capability: "Research synthesis", evidence: "PiggyVest model, TSOC, Cowrywise audit" },
+  { capability: "Personalised outreach", evidence: "Filmmaker outreach system" },
+  { capability: "CRM and workflow design", evidence: "Filmmaker pipeline, Dutum operations" },
+  { capability: "Long-form editorial writing", evidence: "TSOC, Substack essays" },
+  { capability: "Concise correspondence", evidence: "Selected outreach emails with replies" },
+  { capability: "Campaign translation", evidence: "Behavioural campaign architecture" },
+  { capability: "Deadline-driven production", evidence: "Thirteen grant proposals in five weeks" },
+  { capability: "Executive coordination", evidence: "Infrastructure firm EA/Brand Manager role" },
+  { capability: "Audience growth", evidence: "Product/film-launch content coordination (reported)" },
 ];
 
 export default function HomePage() {
@@ -24,17 +26,19 @@ export default function HomePage() {
 
   const go = (path) => { navigate(path); window.scrollTo(0, 0); };
 
+  const featured = WORKS.filter((w) => w.featured);
+
   return (
     <>
       {/* Hero */}
       <section
         style={{
-          minHeight: "100vh",
+          minHeight: "90vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "110px 28px 80px",
-          maxWidth: 840,
+          padding: "120px 28px 80px",
+          maxWidth: 960,
           margin: "0 auto",
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(22px)",
@@ -43,308 +47,324 @@ export default function HomePage() {
       >
         <p
           style={{
-            fontFamily: T.sans,
+            fontFamily: T.mono,
             fontSize: 12,
-            fontWeight: 600,
+            fontWeight: 500,
             color: T.accent,
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            marginBottom: 18,
+            marginBottom: 32,
           }}
         >
-          Precious Ajayi
+          Writer, Researcher &amp; Strategic Operator
         </p>
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 22 }}>
-          {["Research", "Editorial Strategy", "Operations"].map((a, i) => (
-            <Badge key={i}>{a}</Badge>
-          ))}
-        </div>
+
         <h1
           style={{
-            fontFamily: T.font,
-            fontSize: "clamp(34px, 6vw, 58px)",
+            fontFamily: T.display,
+            fontSize: "clamp(32px, 6vw, 56px)",
             fontWeight: 400,
             color: T.text,
             lineHeight: 1.12,
-            letterSpacing: "-0.025em",
-            marginBottom: 26,
+            letterSpacing: "-0.02em",
+            marginBottom: 24,
+            maxWidth: 800,
           }}
         >
-          I turn evidence into
-          <br />
-          <span style={{ color: T.textMuted }}>things that work.</span>
+          I research how organisations actually work — their behavioural assumptions, editorial architectures,
+          stakeholder maps — and build systems that make complex ideas reach the right people.
         </h1>
+
         <p
           style={{
-            fontFamily: T.font,
-            fontSize: "clamp(17px, 2.2vw, 20px)",
+            fontFamily: T.body,
+            fontSize: "clamp(16px, 2vw, 18px)",
             color: T.textMuted,
             lineHeight: 1.75,
-            maxWidth: 560,
+            maxWidth: 600,
             marginBottom: 40,
           }}
         >
-          I study how language and data move through systems — behavioural datasets, funder narratives,
-          published analysis, belief systems. I turn what I find into publications, proposals, and frameworks
-          that hold up under scrutiny. Sometimes that's a mathematical framework. Sometimes it's a 96-page
-          analysis. Sometimes it's a strategy that changes how an organisation sees itself.
+          Two published books. Thirteen tailored grant proposals clearing $30,000. Executive operations for
+          an infrastructure finance firm. Outreach systems producing verified replies from filmmakers,
+          researchers and policy stakeholders.
         </p>
-        <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+
+        <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
           <button
             onClick={() => go("/work")}
             style={{
-              fontFamily: T.sans,
-              fontSize: 13,
+              fontFamily: T.mono,
+              fontSize: 12,
               fontWeight: 500,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
               color: T.white,
-              background: T.accent,
-              padding: "13px 28px",
-              borderRadius: 8,
+              background: T.text,
+              padding: "14px 28px",
+              borderRadius: 4,
               border: "none",
               cursor: "pointer",
             }}
           >
-            See my work
+            See the work
           </button>
-          <a
-            href="https://thermopresh.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => go("/research")}
             style={{
-              fontFamily: T.sans,
-              fontSize: 13,
+              fontFamily: T.mono,
+              fontSize: 12,
               fontWeight: 500,
-              color: T.accent,
-              border: `1.5px solid ${T.accent}`,
-              padding: "12px 28px",
-              borderRadius: 8,
-              textDecoration: "none",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: T.text,
               background: "transparent",
+              border: `1.5px solid ${T.accent}`,
+              padding: "13px 28px",
+              borderRadius: 4,
+              cursor: "pointer",
             }}
           >
-            Read my essays
-          </a>
-        </div>
-      </section>
-
-      {/* About */}
-      <section style={{ padding: "80px 28px", background: T.bgAlt }}>
-        <div style={{ maxWidth: 840, margin: "0 auto" }}>
-          <ScrollReveal>
-            <Label>About</Label>
-            <p
-              style={{
-                fontFamily: T.font,
-                fontSize: "clamp(18px, 2.4vw, 22px)",
-                color: T.text,
-                lineHeight: 1.75,
-                marginBottom: 18,
-              }}
-            >
-              I've always been drawn to the kind of thinking that makes people pause — not because it's loud,
-              but because it lands somewhere quiet.
-            </p>
-            <p
-              style={{
-                fontFamily: T.font,
-                fontSize: "clamp(16px, 2vw, 18px)",
-                color: T.textMuted,
-                lineHeight: 1.75,
-                marginBottom: 32,
-              }}
-            >
-              My work sits at the intersection of mathematical thinking, research synthesis, and editorial
-              operations. The thread connecting all of it is language — as the mechanism that turns raw data
-              into structure, funder scepticism into approved proposals, and scattered evidence into something
-              a reader can act on.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
-                gap: 12,
-              }}
-            >
-              {AREAS.map(([label, desc], i) => (
-                <div
-                  key={i}
-                  style={{
-                    padding: "20px 22px",
-                    background: T.white,
-                    borderRadius: 10,
-                    border: `1px solid ${T.border}`,
-                  }}
-                >
-                  <p style={{ fontFamily: T.sans, fontSize: 13, fontWeight: 600, color: T.text, marginBottom: 4 }}>
-                    {label}
-                  </p>
-                  <p style={{ fontFamily: T.font, fontSize: 13, color: T.textMuted, lineHeight: 1.5 }}>{desc}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
+            Read the research
+          </button>
         </div>
       </section>
 
       {/* Featured Work */}
-      <section style={{ padding: "80px 28px", background: T.bg }}>
-        <div style={{ maxWidth: 840, margin: "0 auto" }}>
+      <section style={{ padding: "80px 28px", background: T.bgAlt, borderTop: `1px solid ${T.accentLight}4D` }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <ScrollReveal>
-            <Label>Featured Work</Label>
-            <h2
-              style={{
-                fontFamily: T.font,
-                fontSize: "clamp(26px, 3.5vw, 38px)",
-                fontWeight: 400,
-                color: T.text,
-                marginBottom: 36,
-              }}
-            >
-              One mind, many registers.
-            </h2>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 36 }}>
+              <div>
+                <Label>Selected Work</Label>
+                <h2
+                  style={{
+                    fontFamily: T.display,
+                    fontSize: "clamp(26px, 3.5vw, 36px)",
+                    fontWeight: 500,
+                    color: T.text,
+                  }}
+                >
+                  Four projects that demonstrate range.
+                </h2>
+              </div>
+              <span style={{ fontFamily: T.mono, fontSize: 11, color: T.textMuted, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Vol. I–IV
+              </span>
+            </div>
           </ScrollReveal>
-          {WORKS.filter((w) => w.featured).map((w, i) => (
-            <ScrollReveal key={w.slug} delay={i * 90}>
-              <WorkCard work={w} />
-            </ScrollReveal>
-          ))}
-          <ScrollReveal delay={280}>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 440px), 1fr))",
+              gap: 20,
+            }}
+          >
+            {featured.map((w, i) => (
+              <ScrollReveal key={w.slug} delay={i * 80}>
+                <div
+                  onClick={() => go(`/work`)}
+                  style={{
+                    padding: "30px 28px",
+                    background: T.white,
+                    borderRadius: 6,
+                    border: `1px solid ${T.accentLight}66`,
+                    cursor: "pointer",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    transition: "border-color 0.2s",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = T.accent; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${T.accentLight}66`; }}
+                >
+                  <div style={{ marginBottom: 12 }}>
+                    <ProofBadge status={w.proof} />
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: T.display,
+                      fontSize: 22,
+                      fontWeight: 600,
+                      color: T.text,
+                      lineHeight: 1.3,
+                      marginBottom: 10,
+                    }}
+                  >
+                    {w.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: T.body,
+                      fontSize: 15,
+                      color: T.textMuted,
+                      lineHeight: 1.7,
+                      flex: 1,
+                    }}
+                  >
+                    {w.description.length > 160 ? w.description.slice(0, 157) + "..." : w.description}
+                  </p>
+                  <span
+                    style={{
+                      fontFamily: T.mono,
+                      fontSize: 11,
+                      color: T.link,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      marginTop: 16,
+                      display: "inline-block",
+                    }}
+                  >
+                    Examine case study &rarr;
+                  </span>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal delay={300}>
             <button
               onClick={() => go("/work")}
               style={{
-                fontFamily: T.sans,
-                fontSize: 13,
+                fontFamily: T.mono,
+                fontSize: 12,
                 fontWeight: 500,
-                color: T.accent,
+                color: T.link,
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                marginTop: 12,
+                marginTop: 24,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
               }}
             >
-              View all work &rarr;
+              All projects &rarr;
             </button>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Writing */}
-      <section style={{ padding: "80px 28px", background: T.bgAlt }}>
-        <div style={{ maxWidth: 840, margin: "0 auto" }}>
+      {/* Capability-to-Evidence Map */}
+      <section style={{ padding: "80px 28px", background: T.bg }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
           <ScrollReveal>
-            <Label>Writing</Label>
+            <Label>Capability-to-Evidence Map</Label>
             <h2
               style={{
-                fontFamily: T.font,
-                fontSize: "clamp(26px, 3.5vw, 38px)",
-                fontWeight: 400,
-                color: T.text,
-                marginBottom: 6,
-              }}
-            >
-              Ebbs and Flow
-            </h2>
-            <p
-              style={{
-                fontFamily: T.font,
-                fontSize: 16,
-                color: T.textMuted,
-                marginBottom: 32,
-                maxWidth: 460,
-              }}
-            >
-              Personal essays on culture, identity, language, and what it means to think carefully in a noisy
-              world.
-            </p>
-          </ScrollReveal>
-          {WRITINGS.slice(0, 5).map((w, i) => (
-            <ScrollReveal key={i} delay={i * 50}>
-              <WritingRow item={w} />
-            </ScrollReveal>
-          ))}
-          <ScrollReveal delay={300}>
-            <button
-              onClick={() => go("/writing")}
-              style={{
-                fontFamily: T.sans,
-                fontSize: 13,
+                fontFamily: T.display,
+                fontSize: "clamp(26px, 3.5vw, 36px)",
                 fontWeight: 500,
-                color: T.accent,
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                marginTop: 20,
-              }}
-            >
-              All essays &rarr;
-            </button>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Connect CTA */}
-      <section style={{ padding: "80px 28px", background: T.bg, textAlign: "center" }}>
-        <div style={{ maxWidth: 840, margin: "0 auto" }}>
-          <ScrollReveal>
-            <Label>Connect</Label>
-            <h2
-              style={{
-                fontFamily: T.font,
-                fontSize: "clamp(26px, 3.5vw, 38px)",
-                fontWeight: 400,
                 color: T.text,
                 marginBottom: 12,
               }}
             >
-              Let's think together.
+              Every claim points to something specific.
             </h2>
             <p
               style={{
-                fontFamily: T.font,
-                fontSize: 17,
+                fontFamily: T.body,
+                fontSize: 16,
                 color: T.textMuted,
-                maxWidth: 420,
-                margin: "0 auto 32px",
+                marginBottom: 40,
+                maxWidth: 540,
               }}
             >
-              I'm open to consulting, writing commissions, speaking, and conversations that go somewhere
-              interesting.
+              This is not a list of skills. It is an index of verified applications.
             </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-              <button
-                onClick={() => go("/connect")}
+          </ScrollReveal>
+
+          <div style={{ borderTop: `1px solid ${T.accentLight}` }}>
+            {CAPABILITIES.map((row, i) => (
+              <ScrollReveal key={i} delay={i * 40}>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "16px 0",
+                    borderBottom: `1px solid ${T.accentLight}66`,
+                    gap: 24,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <div style={{ minWidth: 200, flex: "0 0 220px" }}>
+                    <span
+                      style={{
+                        fontFamily: T.mono,
+                        fontSize: 12,
+                        fontWeight: 600,
+                        color: T.text,
+                        letterSpacing: "0.05em",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {row.capability}
+                    </span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontFamily: T.body, fontSize: 15, color: T.textMuted }}>
+                      {row.evidence}
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Strip */}
+      <section style={{ padding: "48px 28px 64px", background: T.bg }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <ScrollReveal>
+            <div
+              style={{
+                display: "flex",
+                gap: 32,
+                flexWrap: "wrap",
+                alignItems: "baseline",
+                borderTop: `1px solid ${T.accentLight}`,
+                paddingTop: 32,
+              }}
+            >
+              <span style={{ fontFamily: T.mono, fontSize: 11, fontWeight: 500, color: T.textMuted, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Contact
+              </span>
+              <a
+                href="mailto:ajayithewriter@gmail.com"
                 style={{
-                  fontFamily: T.sans,
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: T.white,
-                  background: T.accent,
-                  padding: "13px 28px",
-                  borderRadius: 8,
-                  border: "none",
-                  cursor: "pointer",
+                  fontFamily: T.body,
+                  fontSize: 15,
+                  color: T.link,
+                  textDecoration: "none",
                 }}
               >
-                Get in touch
-              </button>
+                ajayithewriter@gmail.com
+              </a>
               <a
-                href="https://www.linkedin.com/in/precious-ajayi-bb96b51b4/"
+                href="https://www.linkedin.com/in/precious-ajayi-soul"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontFamily: T.sans,
-                  fontSize: 13,
-                  fontWeight: 500,
-                  color: T.accent,
-                  border: `1.5px solid ${T.accent}`,
-                  padding: "12px 28px",
-                  borderRadius: 8,
+                  fontFamily: T.body,
+                  fontSize: 15,
+                  color: T.link,
                   textDecoration: "none",
                 }}
               >
                 LinkedIn
+              </a>
+              <a
+                href="https://thermopresh.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: T.body,
+                  fontSize: 15,
+                  color: T.link,
+                  textDecoration: "none",
+                }}
+              >
+                Substack
               </a>
             </div>
           </ScrollReveal>

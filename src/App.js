@@ -5,30 +5,23 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import WorkPage from "./pages/WorkPage";
 import WritingPage from "./pages/WritingPage";
-import ProductsPage from "./pages/ProductsPage";
+import ResearchPage from "./pages/ResearchPage";
 import AboutPage from "./pages/AboutPage";
-import ConnectPage from "./pages/ConnectPage";
 
 export default function App() {
   return (
     <Router>
       <div style={{ background: T.bg, minHeight: "100vh" }}>
-        <style>{`
-          * { margin: 0; padding: 0; box-sizing: border-box; }
-          html { scroll-behavior: smooth; }
-          body { background: ${T.bg}; -webkit-font-smoothing: antialiased; }
-          ::selection { background: ${T.accentLight}; color: ${T.text}; }
-          input:focus, textarea:focus, select:focus { border-color: ${T.accent} !important; }
-        `}</style>
         <Navigation />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/writing" element={<WritingPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/connect" element={<ConnectPage />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/research" element={<ResearchPage />} />
+            <Route path="/writing" element={<WritingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>

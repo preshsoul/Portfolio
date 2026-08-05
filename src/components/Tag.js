@@ -4,12 +4,12 @@ export default function Tag({ children }) {
   return (
     <span
       style={{
-        fontFamily: T.sans,
+        fontFamily: T.mono,
         fontSize: 11,
         color: T.textMuted,
-        border: `1px solid ${T.border}`,
+        border: `1px solid ${T.accentLight}`,
         padding: "3px 10px",
-        borderRadius: 20,
+        borderRadius: 4,
       }}
     >
       {children}

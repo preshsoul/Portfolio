@@ -8,8 +8,8 @@ describe('App Component', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 
-    // Name appears in both nav and hero kicker
-    expect(screen.getAllByText('Precious Ajayi').length).toBeGreaterThan(0);
+    // Name appears in nav
+    expect(screen.getByRole('button', { name: 'Precious Ajayi' })).toBeInTheDocument();
   });
 
   test('renders navigation links', () => {
@@ -17,7 +17,7 @@ describe('App Component', () => {
 
     const nav = screen.getByRole('navigation');
     expect(nav).toBeInTheDocument();
-    ['Work', 'Writing', 'Products', 'About', 'Connect'].forEach((label) => {
+    ['Work', 'Research', 'Writing', 'About'].forEach((label) => {
       expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
     });
   });

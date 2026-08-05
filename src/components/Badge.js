@@ -1,16 +1,19 @@
 import T from "../lib/tokens";
 
-export default function Badge({ children, color = T.accent, bg = T.accentLight }) {
+export default function Badge({ children, color, bg, style = {} }) {
   return (
     <span
       style={{
-        fontFamily: T.sans,
+        fontFamily: T.mono,
         fontSize: 11,
         fontWeight: 500,
-        color,
-        background: bg,
-        padding: "3px 10px",
-        borderRadius: 20,
+        letterSpacing: "0.05em",
+        color: color || T.text,
+        background: bg || T.accentLight,
+        padding: "4px 10px",
+        borderRadius: 4,
+        display: "inline-block",
+        ...style,
       }}
     >
       {children}

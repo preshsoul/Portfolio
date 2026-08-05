@@ -15,43 +15,47 @@ export default function WritingPage() {
         <Label>Writing</Label>
         <h1
           style={{
-            fontFamily: T.font,
+            fontFamily: T.display,
             fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 400,
+            fontWeight: 500,
             color: T.text,
-            marginBottom: 6,
+            marginBottom: 8,
           }}
         >
-          Ebbs and Flow
+          Writing
         </h1>
         <p
           style={{
-            fontFamily: T.font,
+            fontFamily: T.body,
             fontSize: 17,
             color: T.textMuted,
             marginBottom: 40,
-            maxWidth: 480,
+            maxWidth: 520,
+            lineHeight: 1.6,
           }}
         >
-          Personal essays on culture, identity, language, and what it means to think carefully in a noisy
-          world.
+          Analytical research, editorial essays, and institutional writing. Writing is central to how I work —
+          it clarifies arguments, exposes weak assumptions, and makes complex subjects easier to understand.
         </p>
       </ScrollReveal>
 
       <ScrollReveal delay={40}>
-        <div style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 8, marginBottom: 32, flexWrap: "wrap" }}>
           {Object.entries(WRITING_CATEGORY_LABELS).map(([key, label]) => (
             <button
               key={key}
               onClick={() => setFilter(key)}
               style={{
-                fontFamily: T.sans,
-                fontSize: 13,
-                padding: "7px 18px",
-                borderRadius: 24,
-                border: `1.5px solid ${filter === key ? T.accent : T.border}`,
-                background: filter === key ? T.accent : "transparent",
-                color: filter === key ? T.white : T.textMuted,
+                fontFamily: T.mono,
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                padding: "8px 18px",
+                borderRadius: 4,
+                border: `1.5px solid ${filter === key ? T.accent : T.accentLight}`,
+                background: filter === key ? T.accentLight : "transparent",
+                color: filter === key ? T.text : T.textMuted,
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}
@@ -76,16 +80,18 @@ export default function WritingPage() {
           style={{
             display: "inline-block",
             marginTop: 28,
-            fontFamily: T.sans,
-            fontSize: 13,
+            fontFamily: T.mono,
+            fontSize: 12,
             fontWeight: 500,
-            color: T.accent,
+            color: T.link,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
             textDecoration: "none",
-            borderBottom: `1px solid ${T.accent}`,
-            paddingBottom: 2,
+            borderBottom: `1px solid ${T.link}`,
+            paddingBottom: 4,
           }}
         >
-          Read all on Substack &rarr;
+          Read more on Substack &rarr;
         </a>
       </ScrollReveal>
     </section>

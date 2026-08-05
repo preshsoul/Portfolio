@@ -1,18 +1,16 @@
 // Every item carries a `proof` key from src/lib/proofStatus.js so a reader always
-// knows what kind of evidence they're looking at. Items still missing confirmed
-// figures are marked with a bracketed placeholder in `description` and a short
-// `proofNote` — never with an invented number.
+// knows what kind of evidence they're looking at.
 export const WORKS = [
-  // --- Case studies: real client / partner work -----------------------------
+  // --- Flagship case studies ---
   {
     slug: "piggyvest",
-    title: "PiggyVest Savings-Behaviour Dataset Analysis",
+    title: "From 26,000 Savings Responses to a Behavioural Decision System",
     client: "PiggyVest (independent analysis)",
     description:
-      "An independent analysis of a 26,000+-respondent PiggyVest dataset, translating raw survey data into a structured savings-behaviour framework.",
+      "Analysed a Savings Report covering more than 26,000 respondents across 12 states and six geopolitical zones. Reframed financial behaviour as movement between states rather than a linear marketing funnel. Developed a five-state belief-transition architecture, eight constraint archetypes, and a four-arm experimental plan.",
     register: "CASE_STUDY",
     proof: "INTELLECTUAL",
-    tags: ["Behavioural Data", "Fintech", "Research Synthesis"],
+    tags: ["Behavioural Data", "Fintech", "Research Synthesis", "Markov Models"],
     year: 2025,
     stat: "26,000+ respondents",
     featured: true,
@@ -20,112 +18,138 @@ export const WORKS = [
   },
   {
     slug: "tsoc",
-    title: "TSOC",
-    client: "TSOC",
-    // TODO: add subject-matter description once confirmed — publishing only the
-    // one verified fact here rather than guessing at what the book covers.
-    description: "A 96-page applied-analysis book, researched and published.",
+    title: "The Shape of Choice: Engineering Decision Spaces",
+    description:
+      "A 96-page, ten-chapter applied-analysis book. Independently published and typeset in LaTeX. A synthesis of constrained choice, Markov processes, topology, fixed points, information capacity, dominance, impossibility and binding constraints.",
     register: "CASE_STUDY",
     proof: "INTELLECTUAL",
-    tags: ["Applied Analysis", "Published Book"],
+    tags: ["Applied Analysis", "Published Book", "Choice Architecture"],
     year: 2025,
     stat: "96 pages",
     featured: true,
     status: "PUBLISHED",
   },
   {
-    slug: "limpiar",
-    title: "Limpiar Grant Proposal Sprint",
-    client: "Limpiar",
+    slug: "outreach",
+    title: "Building a Research-Led Creator Outreach System",
     description:
-      "Thirteen tailored funding proposals developed and submitted in five weeks, resulting in $30,000+ in approvals.",
+      "Designed and partially executed a multi-market creator acquisition pipeline for a short-film subscription platform. Covers creator discovery, rights and fit verification, personalised messaging, follow-up scheduling, and reply classification.",
+    register: "CASE_STUDY",
+    proof: "LIVE",
+    tags: ["Outreach Systems", "CRM Design", "Pipeline Architecture"],
+    year: 2026,
+    stat: "Multi-market pipeline",
+    featured: true,
+    status: "PENDING_AUDIT",
+  },
+  {
+    slug: "limpiar",
+    title: "Thirteen Tailored Grant Proposals in Five Weeks",
+    description:
+      "Thirteen tailored grant proposals in a five-week production period. More than $30,000 in approvals. Work included funder/opportunity research, eligibility screening, narrative adaptation, deadline management, and proposal tracking.",
     register: "CASE_STUDY",
     proof: "MEASURED",
-    tags: ["Grant Writing", "Proposal Strategy"],
+    tags: ["Grant Writing", "Proposal Strategy", "Funder Research"],
     year: 2025,
     stat: "$30,000+ approved",
     featured: true,
     status: "PUBLISHED",
   },
-  {
-    slug: "aroba",
-    title: "Aroba Product/Film Launch",
-    client: "Aroba",
-    description: "Reported a notable rise in Instagram traffic during a product/film-launch period.",
-    proofNote: "Reported by client; original analytics not independently verified.",
-    register: "CASE_STUDY",
-    proof: "REPORTED",
-    tags: ["Launch Strategy", "Social Growth"],
-    year: 2025,
-    status: "PUBLISHED",
-  },
+
+  // --- Supporting case studies ---
   {
     slug: "cowrywise",
-    title: "Cowrywise Editorial & Behavioural Audit",
-    client: "Cowrywise (independent audit)",
-    // TODO: add specifics of the audit's findings once confirmed.
+    title: "Reverse-Engineering Three Years of Editorial and Behavioural Strategy",
+    client: "Cowrywise (independent strategic research)",
     description:
-      "An independent editorial and behavioural audit of Cowrywise's user-facing content and communication.",
+      "Independent analysis of a fintech platform's content corpus across three years. Classification by topic, audience, behavioural function and product relationship. Editorial gaps identified. Constraint analysis and campaign concepts derived from research.",
     register: "CASE_STUDY",
     proof: "INTELLECTUAL",
     tags: ["Behavioural Audit", "Fintech", "Editorial Review"],
     year: 2025,
     status: "PUBLISHED",
   },
+  {
+    slug: "dutum",
+    title: "Building an Executive Editorial and Operating System for an Infrastructure Company",
+    description:
+      "EA and Brand Manager role encompassing multi-sheet content calendar, LinkedIn and website editorial tracks, performance-comparison reports, research-led infrastructure and bankability content, manuscript editing and executive ghostwriting, speaking-opportunity pipelines, and claims verification before publication.",
+    register: "OPERATIONS",
+    proof: "ACTIVE_PROFESSIONAL",
+    tags: ["Executive Operations", "Editorial Systems", "Infrastructure"],
+    year: 2026,
+    status: "ACTIVE",
+  },
+  {
+    slug: "aroba",
+    title: "Content Coordination During a Product and Film Launch",
+    description:
+      "Content-team coordination during a combined product and film launch. Reported 200% Instagram traffic growth during the launch period.",
+    proofNote: "Reported by client; original analytics not independently verified.",
+    register: "CASE_STUDY",
+    proof: "REPORTED",
+    tags: ["Launch Strategy", "Social Growth", "Content Coordination"],
+    year: 2025,
+    status: "PUBLISHED",
+  },
 
-  // --- Live operations: real, ongoing, results not yet fully audited --------
+  // --- Live implementation ---
   {
     slug: "all-at-once",
-    title: "All at Once",
-    client: "All at Once",
-    // TODO: replace with a real description once the design-stage scope is finalised.
-    description: "[Live implementation, currently in design stage — full description pending.]",
+    title: "Moving a Behavioural Strategy into Campaign Production",
+    description:
+      "Research and strategic foundation completed. Campaign architecture completed. Designer brief delivered. Design collaboration initiated. First asset delivered. Four-arm test plan designed.",
     register: "OPERATIONS",
     proof: "LIVE",
-    tags: ["Product Design", "Live Implementation"],
+    tags: ["Campaign Architecture", "Behavioural Strategy", "In Progress"],
     year: 2026,
     status: "PENDING_AUDIT",
   },
 
-  // --- Frameworks & essays: existing intellectual work -----------------------
+  // --- Frameworks & intellectual work ---
   {
     slug: "markov",
     title: "Markov Chains for Marketing Decisions",
-    description: "A state-based framework combining probability theory with Wittgenstein's philosophy of language to explain why customer journeys fail and what replaces them.",
+    description:
+      "A state-based framework combining probability theory with Wittgenstein's philosophy of language to explain why customer journeys fail and what replaces them. Published through Selar.",
     register: "FRAMEWORK",
     proof: "INTELLECTUAL",
     tags: ["Markov Chains", "Wittgenstein", "Brand Strategy"],
     year: 2026,
-    stat: "6,500 words",
-    featured: true,
+    stat: "Published book",
+    featured: false,
     status: "PUBLISHED",
   },
   {
     slug: "pl5",
-    title: "The PL-5 Model: Predictive Literacy",
-    description: "State, Signal, Transition, Reinforcement, Decay — a 50-principle strategy and essay architecture for predicting how belief systems evolve under uncertainty.",
+    title: "PL-5 Essay Series: Predictive Literacy",
+    description:
+      "A research programme of five essays grounding predictive literacy in mathematics: Percolation Theory, Catastrophe Theory, Optimal Transport, Shannon Channel Capacity, and Lyapunov Stability — applied to marketing and organisational decision-making.",
     register: "FRAMEWORK",
     proof: "INTELLECTUAL",
     tags: ["Predictive Literacy", "Systems Thinking", "Decision Science"],
     year: 2026,
-    stat: "50 principles",
+    stat: "5 essays",
     status: "PUBLISHED",
   },
+
+  // --- Essays ---
   {
     slug: "love",
     title: "Have You Ever Seen A Man In Love?",
-    description: "An essay on love, vulnerability, and the performance of tenderness — written for people who've felt it but couldn't name it.",
+    description:
+      "An essay on love, vulnerability, and the performance of tenderness — written for people who've felt it but couldn't name it.",
     register: "ESSAY",
     tags: ["Personal Essay", "Love", "Culture"],
     year: 2025,
     stat: "800+ likes",
-    featured: true,
     status: "PUBLISHED",
   },
   {
     slug: "politicians",
     title: "The Politicians and the Masses",
-    description: "The hen-and-egg riddle applied to Nigerian governance — corrupt leaders from corrupt systems, and vice versa.",
+    description:
+      "The hen-and-egg riddle applied to Nigerian governance — corrupt leaders from corrupt systems, and vice versa.",
     register: "ESSAY",
     tags: ["Political Commentary", "Nigeria", "Systems"],
     year: 2025,
@@ -134,47 +158,12 @@ export const WORKS = [
   {
     slug: "geometry",
     title: "Geometry of Beliefs",
-    description: "On the distance between who we are and who we believe ourselves to be — measured not in kilometres, but in fear.",
+    description:
+      "On the distance between who we are and who we believe ourselves to be — measured not in kilometres, but in fear.",
     register: "ESSAY",
     tags: ["Philosophy", "Identity", "Faith"],
     year: 2024,
     status: "PUBLISHED",
-  },
-  {
-    slug: "minicourse",
-    title: "Mathematical Principles Mini-Course",
-    description: "Translating operations research and probability theory into decision frameworks for practitioners.",
-    register: "STRATEGY",
-    tags: ["Course Design", "OR", "Business Strategy"],
-    year: 2026,
-    status: "PUBLISHED",
-  },
-  {
-    slug: "sme",
-    title: "SME Digital Transformation Guide",
-    description: "What small and medium enterprises should know when transitioning to the cloud.",
-    register: "STRATEGY",
-    tags: ["Digital Strategy", "SME"],
-    year: 2025,
-    status: "PUBLISHED",
-  },
-  {
-    slug: "sports",
-    title: "Sports Commentary as Cultural Fingerprint",
-    description: "How the style of calling a game reveals as much about history and audience as the sport itself.",
-    register: "VIDEO",
-    tags: ["Sports", "Culture", "Media"],
-    year: 2025,
-    status: "PUBLISHED",
-  },
-  {
-    slug: "sportbet",
-    title: "Sportbetting in Nigeria's Fractured Society",
-    description: "A video essay on betting as both moral crisis and economic lifeline.",
-    register: "VIDEO",
-    tags: ["Video Essay", "Nigeria", "Economics"],
-    year: 2026,
-    status: "COMING_SOON",
   },
 ];
 
@@ -184,6 +173,4 @@ export const REGISTER_LABELS = {
   OPERATIONS: "Operations",
   FRAMEWORK: "Frameworks",
   ESSAY: "Essays",
-  STRATEGY: "Strategy",
-  VIDEO: "Video",
 };

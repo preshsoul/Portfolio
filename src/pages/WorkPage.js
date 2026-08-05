@@ -17,62 +17,66 @@ export default function WorkPage() {
         <Label>Work</Label>
         <h1
           style={{
-            fontFamily: T.font,
+            fontFamily: T.display,
             fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 400,
+            fontWeight: 500,
             color: T.text,
-            marginBottom: 6,
+            marginBottom: 8,
           }}
         >
-          Everything I've made,
+          Selected Work
         </h1>
         <p
           style={{
-            fontFamily: T.font,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 400,
+            fontFamily: T.body,
+            fontSize: 17,
             color: T.textMuted,
-            marginBottom: 32,
+            marginBottom: 36,
+            maxWidth: 520,
+            lineHeight: 1.6,
           }}
         >
-          organised by how I think.
+          Research systems, editorial analysis, and high-context outreach for organisations working with
+          complex ideas.
         </p>
       </ScrollReveal>
 
+      {/* Proof classification legend */}
       <ScrollReveal delay={40}>
         <div
           style={{
             background: T.bgAlt,
-            border: `1px solid ${T.border}`,
-            borderRadius: 10,
-            padding: "16px 20px",
-            marginBottom: 28,
+            border: `1px solid ${T.accentLight}66`,
+            borderRadius: 8,
+            padding: "18px 22px",
+            marginBottom: 32,
           }}
         >
           <p
             style={{
-              fontFamily: T.sans,
+              fontFamily: T.mono,
               fontSize: 11,
               fontWeight: 600,
               color: T.textMuted,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              marginBottom: 10,
+              marginBottom: 12,
             }}
           >
             How to read the badges
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {PROOF_STATUS_LIST.map((s) => (
               <div key={s.key} style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap" }}>
                 <ProofBadge status={s.key} full />
-                <span style={{ fontFamily: T.font, fontSize: 13, color: T.textMuted }}>{s.description}</span>
+                <span style={{ fontFamily: T.body, fontSize: 13, color: T.textMuted }}>{s.description}</span>
               </div>
             ))}
           </div>
         </div>
       </ScrollReveal>
 
+      {/* Filter pills */}
       <ScrollReveal delay={80}>
         <div style={{ display: "flex", gap: 8, marginBottom: 32, flexWrap: "wrap" }}>
           {Object.entries(REGISTER_LABELS).map(([key, label]) => (
@@ -80,13 +84,16 @@ export default function WorkPage() {
               key={key}
               onClick={() => setFilter(key)}
               style={{
-                fontFamily: T.sans,
-                fontSize: 13,
-                padding: "7px 18px",
-                borderRadius: 24,
-                border: `1.5px solid ${filter === key ? T.accent : T.border}`,
-                background: filter === key ? T.accent : "transparent",
-                color: filter === key ? T.white : T.textMuted,
+                fontFamily: T.mono,
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+                padding: "8px 18px",
+                borderRadius: 4,
+                border: `1.5px solid ${filter === key ? T.accent : T.accentLight}`,
+                background: filter === key ? T.accentLight : "transparent",
+                color: filter === key ? T.text : T.textMuted,
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}
@@ -98,7 +105,7 @@ export default function WorkPage() {
       </ScrollReveal>
 
       {items.map((w, i) => (
-        <ScrollReveal key={w.slug} delay={i * 70}>
+        <ScrollReveal key={w.slug} delay={i * 60}>
           <WorkCard work={w} />
         </ScrollReveal>
       ))}
