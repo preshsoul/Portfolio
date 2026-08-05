@@ -88,6 +88,17 @@ export default function Navigation() {
               </button>
             );
           })}
+          <img
+            src="/my-photo.jpg"
+            alt="Precious Ajayi"
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: "50%",
+              objectFit: "cover",
+              border: `1.5px solid ${T.accentLight}`,
+            }}
+          />
         </div>
       </div>
     </nav>

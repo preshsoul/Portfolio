@@ -165,49 +165,21 @@ export default function ResearchPage() {
               style={{
                 width: "100%",
                 aspectRatio: "3/4",
-                background: `linear-gradient(135deg, ${T.link} 0%, #0A1628 100%)`,
                 borderRadius: 4,
                 marginBottom: 20,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
+                overflow: "hidden",
                 border: `1px solid ${T.accentLight}`,
-                padding: "24px",
               }}
             >
-              <span
+              <img
+                src="/markov-cover.png"
+                alt="Markov Chains for Marketing Decisions book cover by Precious Ajayi"
                 style={{
-                  fontFamily: T.display,
-                  fontSize: "clamp(16px, 2.2vw, 20px)",
-                  fontWeight: 600,
-                  color: T.white,
-                  textAlign: "center",
-                  lineHeight: 1.2,
-                }}
-              >
-                Markov Chains for Marketing Decisions
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  width: 40,
-                  height: 1,
-                  background: T.accent,
-                  margin: "14px 0",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                 }}
               />
-              <span
-                style={{
-                  fontFamily: T.mono,
-                  fontSize: 10,
-                  color: T.accentLight,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Precious Ajayi
-              </span>
             </div>
             <h3
               style={{
