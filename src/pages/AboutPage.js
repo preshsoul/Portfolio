@@ -78,7 +78,7 @@ export default function AboutPage() {
                 marginBottom: "clamp(18px, 2.5vw, 24px)",
               }}
             >
-              About Precious Ajayi
+              Who even LIKES maths <span style={{color: T.accent}}>&amp;</span> marketing? ME of course.
             </h1>
             <p
               style={{
@@ -381,7 +381,7 @@ export default function AboutPage() {
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <a
-              href="mailto:ajayithewriter@gmail.com"
+              href="mailto:preciousayomide147@gmail.com"
               style={{
                 fontFamily: T.body,
                 fontSize: "clamp(14px, 1.5vw, 15px)",
@@ -389,7 +389,7 @@ export default function AboutPage() {
                 textDecoration: "none",
               }}
             >
-              ajayithewriter@gmail.com
+              preciousayomide147@gmail.com
             </a>
             <a
               href="https://www.linkedin.com/in/precious-ajayi-soul"

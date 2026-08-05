@@ -7,7 +7,7 @@ import Badge from "../components/Badge";
 const SOCIAL_LINKS = [
   { label: "Substack", desc: "Personal essays & cultural writing", url: "https://thermopresh.substack.com" },
   { label: "LinkedIn", desc: "Professional work & connections", url: "https://www.linkedin.com/in/precious-ajayi-bb96b51b4/" },
-  { label: "Email", desc: "Collaborations & inquiries", url: "mailto:hello@preciousajayi.com" },
+  { label: "Email", desc: "Collaborations & inquiries", url: "mailto:preciousayomide147@gmail.com" },
 ];
 
 export default function ConnectPage() {
