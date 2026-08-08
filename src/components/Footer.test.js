@@ -21,9 +21,8 @@ describe('Footer Component', () => {
     expect(screen.getByText(/Lagos, Nigeria/)).toBeInTheDocument();
   });
 
-  test('renders typeset credit', () => {
+  test('renders footer bio', () => {
     renderWithRouter();
     expect(screen.getByText(/Researcher, strategist and writer based in Lagos/)).toBeInTheDocument();
-    expect(screen.getByText(/Newsreader and Plus Jakarta Sans/)).toBeInTheDocument();
   });
 });

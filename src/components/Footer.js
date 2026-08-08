@@ -42,7 +42,7 @@ export default function Footer() {
             maxWidth: 340,
           }}
         >
-          Researcher, strategist and writer based in Lagos. Set in Newsreader and Plus Jakarta Sans.
+          Researcher, strategist and writer based in Lagos.
         </p>
 
         {/* Copyright */}
