@@ -5,8 +5,10 @@ import EngagementGrid from "../components/EngagementGrid";
 import Label from "../components/Label";
 import MethodTimeline from "../components/MethodTimeline";
 import MetricStrip from "../components/MetricStrip";
+import ProofPanel from "../components/ProofPanel";
 import ScrollReveal from "../components/ScrollReveal";
 import { CASE_STUDIES } from "../data/caseStudies";
+import { PROOF_ARTIFACTS } from "../data/proofArtifacts";
 import { METHOD_STEPS, POSITIONING, PROOF_METRICS, SELECTED_ENGAGEMENTS } from "../data/siteContent";
 
 const featuredStudies = CASE_STUDIES.filter((study) =>
@@ -142,6 +144,19 @@ export default function HomePage() {
         </ScrollReveal>
         <ScrollReveal delay={80}>
           <MetricStrip metrics={PROOF_METRICS} />
+        </ScrollReveal>
+      </section>
+
+      <section style={sectionStyle}>
+        <ScrollReveal>
+          <Label>Artifact layer</Label>
+          <h2 style={headingStyle}>The work is strongest when the evidence is visible.</h2>
+          <p style={introStyle}>
+            A portfolio for research, writing and strategy should not only display outcomes. It should show the operating material behind the claim: models, trackers, excerpts, workflows and proof boundaries.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={80}>
+          <ProofPanel artifacts={PROOF_ARTIFACTS.slice(0, 3)} />
         </ScrollReveal>
       </section>
 

@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { path: "/work", label: "Work" },
   { path: "/research", label: "Research" },
   { path: "/writing", label: "Writing" },
+  { path: "/products", label: "Products" },
   { path: "/about", label: "About" },
   { path: "/connect", label: "Contact", featured: true },
 ];

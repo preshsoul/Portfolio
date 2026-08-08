@@ -4,6 +4,8 @@ export const PRODUCTS = [
     description: "The complete 6,500-word framework with 4 case studies, 8 diagrams, and a diagnostic worksheet.",
     tier: "free",
     platform: "Gumroad",
+    url: "https://selar.com/markov-market",
+    cta: "Read the framework",
     features: ["6,500-word essay (PDF)", "4 worked case studies", "8 visual diagrams", "Diagnostic worksheet"],
   },
   {
@@ -12,6 +14,8 @@ export const PRODUCTS = [
     tier: "paid",
     price: "₦30,000",
     platform: "Selar",
+    url: "mailto:preciousayomide147@gmail.com?subject=Mini-course%20purchase%20inquiry",
+    cta: "Ask about access",
     features: ["Multiple modules", "15+ case studies", "Visual frameworks", "Worksheets"],
   },
   {
@@ -21,6 +25,8 @@ export const PRODUCTS = [
     price: "₦75,000",
     platform: "Selar",
     status: "coming_soon",
+    url: "mailto:preciousayomide147@gmail.com?subject=PL-5%20Field%20Manual%20waitlist",
+    cta: "Join waitlist",
     features: ["5 essay series", "Integration framework", "Diagnostic tools", "Strategy audit template"],
   },
 ];

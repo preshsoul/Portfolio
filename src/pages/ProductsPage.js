@@ -6,38 +6,43 @@ import { PRODUCTS } from "../data/products";
 
 export default function ProductsPage() {
   return (
-    <section style={{ padding: "120px 28px 80px", maxWidth: 840, margin: "0 auto" }}>
+    <section style={{ padding: "120px 28px 88px", maxWidth: 1120, margin: "0 auto" }}>
       <ScrollReveal>
         <Label>Products</Label>
         <h1
           style={{
-            fontFamily: T.font,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 400,
+            fontFamily: T.display,
+            fontSize: "clamp(42px, 7vw, 78px)",
+            lineHeight: 0.98,
+            letterSpacing: "-0.045em",
             color: T.text,
-            marginBottom: 8,
+            marginBottom: 18,
+            maxWidth: 820,
           }}
         >
-          Frameworks you can use today.
+          Frameworks, field manuals and decision tools.
         </h1>
         <p
           style={{
-            fontFamily: T.font,
-            fontSize: 17,
+            fontFamily: T.body,
+            fontSize: 18,
             color: T.textMuted,
+            lineHeight: 1.75,
             marginBottom: 40,
-            maxWidth: 500,
+            maxWidth: 700,
           }}
         >
-          Mathematical principles translated into practical decision tools. Rigour without false certainty.
+          Mathematical and strategic ideas translated into practical material: essays, worksheets, courses and operating tools. Rigour without false certainty.
         </p>
       </ScrollReveal>
 
-      {PRODUCTS.map((p, i) => (
-        <ScrollReveal key={i} delay={i * 100}>
-          <ProductCard product={p} />
-        </ScrollReveal>
-      ))}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+        {PRODUCTS.map((p, i) => (
+          <ScrollReveal key={p.title} delay={i * 80}>
+            <ProductCard product={p} />
+          </ScrollReveal>
+        ))}
+      </div>
     </section>
   );
 }

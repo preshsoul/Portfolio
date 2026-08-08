@@ -10,6 +10,7 @@ import WritingPage from "./pages/WritingPage";
 import ResearchPage from "./pages/ResearchPage";
 import AboutPage from "./pages/AboutPage";
 import ConnectPage from "./pages/ConnectPage";
+import ProductsPage from "./pages/ProductsPage";
 import CaseStudyPage from "./pages/CaseStudyPage";
 
 export default function App() {
@@ -40,6 +41,7 @@ function PageRoutes() {
         <Route path="/work/:slug" element={<CaseStudyPage />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/writing" element={<WritingPage />} />
+        <Route path="/products" element={<ProductsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/connect" element={<ConnectPage />} />
       </Routes>

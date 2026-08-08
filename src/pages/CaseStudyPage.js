@@ -3,9 +3,11 @@ import T from "../lib/tokens";
 import Badge from "../components/Badge";
 import Label from "../components/Label";
 import ProofBadge from "../components/ProofBadge";
+import ProofPanel from "../components/ProofPanel";
 import ScrollReveal from "../components/ScrollReveal";
 import Tag from "../components/Tag";
 import { getCaseStudyBySlug } from "../data/caseStudies";
+import { getArtifactsForCaseStudy } from "../data/proofArtifacts";
 
 const sectionTitle = {
   fontFamily: T.mono,
@@ -19,6 +21,7 @@ const sectionTitle = {
 export default function CaseStudyPage() {
   const { slug } = useParams();
   const study = getCaseStudyBySlug(slug);
+  const artifacts = getArtifactsForCaseStudy(slug);
 
   if (!study) {
     return (
@@ -199,6 +202,13 @@ export default function CaseStudyPage() {
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={190}>
+              <section style={{ marginTop: 18 }}>
+                <p style={sectionTitle}>Artifact boundary</p>
+                <ProofPanel artifacts={artifacts} compact />
+              </section>
             </ScrollReveal>
           </aside>
         </div>

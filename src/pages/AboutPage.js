@@ -44,7 +44,7 @@ export default function AboutPage() {
                   maxWidth: 760,
                 }}
               >
-                Who even likes Writing, Strategy, Mathes &amp; Marketing? ME, of course
+                Who even likes Writing, Strategy, Maths &amp; Marketing? ME, of course
               </h1>
               <div style={{ display: "grid", gap: 18, maxWidth: 740 }}>
                 <p style={leadStyle}>
