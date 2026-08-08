@@ -13,9 +13,10 @@ function Route() {
   return null;
 }
 
-function NavLink({ children, to, style, ...props }) {
+function NavLink({ children, to, style, className, ...props }) {
   const resolvedStyle = typeof style === "function" ? style({ isActive: false }) : style;
-  return React.createElement("a", { href: to, style: resolvedStyle, ...props }, children);
+  const resolvedClassName = typeof className === "function" ? className({ isActive: false }) : className;
+  return React.createElement("a", { href: to, style: resolvedStyle, className: resolvedClassName, ...props }, children);
 }
 
 function Link({ children, to, ...props }) {
@@ -26,6 +27,10 @@ function useParams() {
   return {};
 }
 
+function useLocation() {
+  return { pathname: "/", search: "", hash: "", key: "test" };
+}
+
 module.exports = {
   BrowserRouter: Router,
   Link,
@@ -33,5 +38,6 @@ module.exports = {
   NavLink,
   Route,
   Routes,
+  useLocation,
   useParams,
 };
