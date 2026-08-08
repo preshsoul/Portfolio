@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const renderWithRouter = () =>
   render(
-    <MemoryRouter>
+    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Footer />
     </MemoryRouter>
   );
@@ -23,7 +23,7 @@ describe('Footer Component', () => {
 
   test('renders typeset credit', () => {
     renderWithRouter();
-    expect(screen.getByText(/Designed and typeset by the author/)).toBeInTheDocument();
+    expect(screen.getByText(/Researcher, strategist and writer based in Lagos/)).toBeInTheDocument();
     expect(screen.getByText(/Newsreader and Plus Jakarta Sans/)).toBeInTheDocument();
   });
 });

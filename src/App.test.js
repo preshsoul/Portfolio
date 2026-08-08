@@ -9,7 +9,7 @@ describe('App Component', () => {
     expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 
     // Name appears in nav
-    expect(screen.getByRole('button', { name: 'Precious Ajayi' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Precious Ajayi' })).toBeInTheDocument();
   });
 
   test('renders navigation links', () => {
@@ -17,8 +17,8 @@ describe('App Component', () => {
 
     const nav = screen.getByRole('navigation');
     expect(nav).toBeInTheDocument();
-    ['Work', 'Research', 'Writing', 'About'].forEach((label) => {
-      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
+    ['Work', 'Research', 'Writing', 'About', 'Contact'].forEach((label) => {
+      expect(screen.getByRole('link', { name: label })).toBeInTheDocument();
     });
   });
 });

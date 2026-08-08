@@ -42,7 +42,7 @@ export default function Footer() {
             maxWidth: 340,
           }}
         >
-          Designed and typeset by the author. Set in Newsreader and Plus Jakarta Sans.
+          Researcher, strategist and writer based in Lagos. Set in Newsreader and Plus Jakarta Sans.
         </p>
 
         {/* Copyright */}

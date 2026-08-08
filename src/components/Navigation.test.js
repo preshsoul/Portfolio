@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 
 const renderWithRouter = (path = '/') =>
   render(
-    <MemoryRouter initialEntries={[path]}>
+    <MemoryRouter initialEntries={[path]} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Navigation />
     </MemoryRouter>
   );
@@ -17,13 +17,13 @@ describe('Navigation Component', () => {
 
   test('renders brand name', () => {
     renderWithRouter();
-    expect(screen.getByRole('button', { name: 'Precious Ajayi' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Precious Ajayi' })).toBeInTheDocument();
   });
 
   test('renders all nav links', () => {
     renderWithRouter();
-    ['Work', 'Research', 'Writing', 'About'].forEach((label) => {
-      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
+    ['Work', 'Research', 'Writing', 'About', 'Contact'].forEach((label) => {
+      expect(screen.getByRole('link', { name: label })).toBeInTheDocument();
     });
   });
 });

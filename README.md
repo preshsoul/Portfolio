@@ -1,8 +1,10 @@
-# Getting Started with Create React App
+# Precious Ajayi Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Portfolio site for Precious Ajayi — research, strategy and editorial operations for work that has to hold up.
 
-## Available Scripts
+The site presents selected work through proof-aware case studies, published research, writing shelves and a direct inquiry path.
+
+## Available scripts
 
 In the project directory, you can run:
 

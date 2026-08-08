@@ -1,87 +1,61 @@
 import { useState } from "react";
 import T from "../lib/tokens";
-import ScrollReveal from "../components/ScrollReveal";
+import CaseStudyCard from "../components/CaseStudyCard";
 import Label from "../components/Label";
-import WorkCard from "../components/WorkCard";
 import ProofBadge from "../components/ProofBadge";
-import { WORKS, REGISTER_LABELS } from "../data/works";
+import ScrollReveal from "../components/ScrollReveal";
+import { CASE_STUDIES } from "../data/caseStudies";
 import { PROOF_STATUS_LIST } from "../lib/proofStatus";
+
+const FILTERS = {
+  All: "All",
+  MEASURED: "Measured",
+  INTELLECTUAL: "Published / Intellectual",
+  ACTIVE_PROFESSIONAL: "Active professional",
+  LIVE: "Live implementation",
+};
 
 export default function WorkPage() {
   const [filter, setFilter] = useState("All");
-  const items = filter === "All" ? WORKS : WORKS.filter((w) => w.register === filter);
+  const studies = filter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((study) => study.proof === filter);
 
   return (
-    <section style={{ padding: "120px 28px 80px", maxWidth: 840, margin: "0 auto" }}>
+    <section style={{ padding: "120px 28px 88px", maxWidth: 1120, margin: "0 auto" }}>
       <ScrollReveal>
-        <Label>Work</Label>
+        <Label>Selected work</Label>
         <h1
           style={{
             fontFamily: T.display,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 500,
+            fontSize: "clamp(42px, 7vw, 78px)",
+            lineHeight: 0.98,
+            letterSpacing: "-0.045em",
             color: T.text,
-            marginBottom: 8,
+            marginBottom: 18,
+            maxWidth: 840,
           }}
         >
-          Selected Work
+          Work that shows the situation, the decision and the evidence.
         </h1>
         <p
           style={{
             fontFamily: T.body,
-            fontSize: 17,
+            fontSize: 18,
             color: T.textMuted,
-            marginBottom: 36,
-            maxWidth: 520,
-            lineHeight: 1.6,
+            lineHeight: 1.75,
+            maxWidth: 720,
+            marginBottom: 30,
           }}
         >
-          Research systems, editorial analysis, and high-context outreach for organisations working with
-          complex ideas.
+          Research systems, proposal work, executive editorial operations and independent analysis. Each item carries a proof boundary so the claim does not outrun the evidence.
         </p>
       </ScrollReveal>
 
-      {/* Proof classification legend */}
-      <ScrollReveal delay={40}>
-        <div
-          style={{
-            background: T.bgAlt,
-            border: `1px solid ${T.accentLight}66`,
-            borderRadius: 8,
-            padding: "18px 22px",
-            marginBottom: 32,
-          }}
-        >
-          <p
-            style={{
-              fontFamily: T.mono,
-              fontSize: 11,
-              fontWeight: 600,
-              color: T.textMuted,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              marginBottom: 12,
-            }}
-          >
-            How to read the badges
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {PROOF_STATUS_LIST.map((s) => (
-              <div key={s.key} style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap" }}>
-                <ProofBadge status={s.key} full />
-                <span style={{ fontFamily: T.body, fontSize: 13, color: T.textMuted }}>{s.description}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
-
-      {/* Filter pills */}
-      <ScrollReveal delay={80}>
+      <ScrollReveal delay={60}>
         <div style={{ display: "flex", gap: 8, marginBottom: 32, flexWrap: "wrap" }}>
-          {Object.entries(REGISTER_LABELS).map(([key, label]) => (
+          {Object.entries(FILTERS).map(([key, label]) => (
             <button
               key={key}
+              type="button"
               onClick={() => setFilter(key)}
               style={{
                 fontFamily: T.mono,
@@ -89,11 +63,11 @@ export default function WorkPage() {
                 fontWeight: 500,
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
-                padding: "8px 18px",
-                borderRadius: 4,
-                border: `1.5px solid ${filter === key ? T.accent : T.accentLight}`,
-                background: filter === key ? T.accentLight : "transparent",
-                color: filter === key ? T.text : T.textMuted,
+                padding: "10px 16px",
+                borderRadius: 999,
+                border: `1.5px solid ${filter === key ? T.text : T.border}`,
+                background: filter === key ? T.text : T.bgAlt,
+                color: filter === key ? T.bg : T.textMuted,
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}
@@ -104,11 +78,54 @@ export default function WorkPage() {
         </div>
       </ScrollReveal>
 
-      {items.map((w, i) => (
-        <ScrollReveal key={w.slug} delay={i * 60}>
-          <WorkCard work={w} />
-        </ScrollReveal>
-      ))}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))",
+          gap: 18,
+        }}
+      >
+        {studies.map((study, index) => (
+          <ScrollReveal key={study.slug} delay={index * 55}>
+            <CaseStudyCard study={study} compact />
+          </ScrollReveal>
+        ))}
+      </div>
+
+      <ScrollReveal delay={160}>
+        <section
+          style={{
+            marginTop: 56,
+            padding: "30px",
+            background: T.cardAlt,
+            borderRadius: 22,
+            border: `1px solid ${T.border}`,
+          }}
+        >
+          <h2 style={{ fontFamily: T.display, fontSize: 30, color: T.text, marginBottom: 18 }}>
+            How to read the badges
+          </h2>
+          <div style={{ display: "grid", gap: 12 }}>
+            {PROOF_STATUS_LIST.map((status) => (
+              <div
+                key={status.key}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "minmax(170px, 240px) 1fr",
+                  gap: 16,
+                  alignItems: "start",
+                }}
+                className="badge-row"
+              >
+                <ProofBadge status={status.key} full />
+                <p style={{ fontFamily: T.body, fontSize: 14, color: T.textMuted, lineHeight: 1.65 }}>
+                  {status.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
     </section>
   );
 }

@@ -1,547 +1,240 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import T from "../lib/tokens";
+import CaseStudyCard from "../components/CaseStudyCard";
+import EngagementGrid from "../components/EngagementGrid";
+import Label from "../components/Label";
+import MethodTimeline from "../components/MethodTimeline";
+import MetricStrip from "../components/MetricStrip";
 import ScrollReveal from "../components/ScrollReveal";
-import ProofBadge from "../components/ProofBadge";
-import { WORKS } from "../data/works";
+import { CASE_STUDIES } from "../data/caseStudies";
+import { METHOD_STEPS, POSITIONING, PROOF_METRICS, SELECTED_ENGAGEMENTS } from "../data/siteContent";
 
-const CAPABILITIES = [
-  { capability: "Research synthesis", evidence: "PiggyVest model, TSOC, Cowrywise audit" },
-  { capability: "Personalised outreach", evidence: "Filmmaker outreach system" },
-  { capability: "CRM and workflow design", evidence: "Filmmaker pipeline, Dutum operations" },
-  { capability: "Long-form editorial writing", evidence: "TSOC, Substack essays" },
-  { capability: "Concise correspondence", evidence: "Selected outreach emails with replies" },
-  { capability: "Campaign translation", evidence: "Behavioural campaign architecture" },
-  { capability: "Deadline-driven production", evidence: "Thirteen grant proposals in five weeks" },
-  { capability: "Executive coordination", evidence: "Infrastructure firm EA/Brand Manager role" },
-  { capability: "Audience growth", evidence: "Product/film-launch content coordination (reported)" },
-];
+const featuredStudies = CASE_STUDIES.filter((study) =>
+  ["piggyvest-decision-model", "limpiar-grant-proposals", "dutum-editorial-research-system", "minflix-creator-outreach"].includes(
+    study.slug
+  )
+);
 
 export default function HomePage() {
-  const [visible, setVisible] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => { setTimeout(() => setVisible(true), 60); }, []);
-
-  const go = (path) => { navigate(path); window.scrollTo(0, 0); };
-  const featured = WORKS.filter((w) => w.featured);
-
   return (
     <>
-      {/* ═══════════════════════════════════════════
-          01 — HERO
-          ═══════════════════════════════════════════ */}
-      <section
-        style={{
-          minHeight: "88vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "clamp(96px, 15vh, 160px) max(16px, 5vw) clamp(56px, 8vw, 96px)",
-          maxWidth: 860,
-          margin: "0 auto",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(18px)",
-          transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)",
-        }}
-      >
-        {/* Section number */}
-        <span
+      <section style={{ padding: "132px 28px 86px" }}>
+        <div
           style={{
-            fontFamily: T.mono,
-            fontSize: "clamp(10px, 1.2vw, 11px)",
-            color: T.accent,
-            letterSpacing: "0.15em",
-            marginBottom: "clamp(32px, 6vw, 52px)",
+            maxWidth: 1120,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 1.15fr) minmax(280px, 0.85fr)",
+            gap: 42,
+            alignItems: "end",
           }}
+          className="hero-grid"
         >
-          01
-        </span>
-
-        {/* Name — confident, standalone */}
-        <p
-          style={{
-            fontFamily: T.display,
-            fontSize: "clamp(42px, 8vw, 80px)",
-            fontWeight: 600,
-            color: T.text,
-            lineHeight: 1.05,
-            letterSpacing: "-0.025em",
-            marginBottom: "clamp(10px, 1.5vw, 16px)",
-          }}
-        >
-          Precious Ajayi
-        </p>
-
-        {/* Role line — understated below the name */}
-        <p
-          style={{
-            fontFamily: T.body,
-            fontSize: "clamp(16px, 2vw, 20px)",
-            color: T.textMuted,
-            lineHeight: 1.5,
-            marginBottom: "clamp(36px, 6vw, 52px)",
-          }}
-        >
-          Writer, researcher &amp; strategic operator
-        </p>
-
-        {/* Thesis — the core argument */}
-        <h1
-          style={{
-            fontFamily: T.display,
-            fontSize: "clamp(26px, 4.5vw, 48px)",
-            fontWeight: 400,
-            color: T.text,
-            lineHeight: 1.2,
-            letterSpacing: "-0.015em",
-            marginBottom: "clamp(24px, 4vw, 36px)",
-            maxWidth: 740,
-          }}
-        >
-          I research how organisations actually work — and build systems that make complex ideas
-          reach the right&nbsp;people.
-        </h1>
-
-        {/* Deck */}
-        <p
-          style={{
-            fontFamily: T.body,
-            fontSize: "clamp(16px, 1.8vw, 18px)",
-            color: T.textMuted,
-            lineHeight: 1.7,
-            maxWidth: 520,
-            marginBottom: "clamp(40px, 6vw, 56px)",
-          }}
-        >
-          Two published books. Thirteen tailored grant proposals clearing $30,000. Executive
-          operations for an infrastructure finance firm. Outreach systems producing verified replies
-          from filmmakers, researchers and policy&nbsp;stakeholders.
-        </p>
-
-        {/* CTAs */}
-        <div style={{ display: "flex", gap: "clamp(10px, 1.6vw, 16px)", flexWrap: "wrap" }}>
-          <button onClick={() => go("/work")} style={filledBtn}>
-            See the work
-          </button>
-          <button onClick={() => go("/research")} style={outlinedBtn}>
-            Read the research
-          </button>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          02 — SELECTED WORK
-          ═══════════════════════════════════════════ */}
-      <section
-        style={{
-          padding: "clamp(80px, 12vw, 128px) max(16px, 5vw)",
-          background: T.bgAlt,
-        }}
-      >
-        <div style={{ maxWidth: 920, margin: "0 auto" }}>
           <ScrollReveal>
-            <span
+            <p
               style={{
                 fontFamily: T.mono,
-                fontSize: "clamp(10px, 1.2vw, 11px)",
-                color: T.accent,
-                letterSpacing: "0.15em",
-                display: "block",
-                marginBottom: "clamp(22px, 3vw, 32px)",
-              }}
-            >
-              02
-            </span>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-end",
-                marginBottom: "clamp(36px, 6vw, 56px)",
-                flexWrap: "wrap",
-                gap: 12,
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: T.display,
-                  fontSize: "clamp(28px, 5vw, 42px)",
-                  fontWeight: 500,
-                  color: T.text,
-                  lineHeight: 1.15,
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                Selected work
-              </h2>
-              <span
-                style={{
-                  fontFamily: T.mono,
-                  fontSize: "clamp(10px, 1.2vw, 11px)",
-                  color: T.textMuted,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  flexShrink: 0,
-                }}
-              >
-                Four projects that demonstrate range
-              </span>
-            </div>
-          </ScrollReveal>
-
-          {/* Cards */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 430px), 1fr))",
-              gap: "clamp(16px, 2vw, 24px)",
-            }}
-          >
-            {featured.map((w, i) => (
-              <ScrollReveal key={w.slug} delay={i * 70}>
-                <article
-                  onClick={() => go("/work")}
-                  className="work-card"
-                  style={{
-                    padding: "clamp(26px, 3.5vw, 38px) clamp(22px, 3vw, 32px)",
-                    background: T.bg,
-                    cursor: "pointer",
-                    display: "flex",
-                    flexDirection: "column",
-                    transition: "box-shadow 0.3s, transform 0.3s",
-                    minHeight: "100%",
-                    position: "relative",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 0 0 1px ${T.accent}, 0 8px 32px ${T.accentLight}66`;
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    const arrow = e.currentTarget.querySelector(".card-arrow");
-                    if (arrow) arrow.style.opacity = "1";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.transform = "none";
-                    const arrow = e.currentTarget.querySelector(".card-arrow");
-                    if (arrow) arrow.style.opacity = "0";
-                  }}
-                >
-                  {/* Top line: proof badge + arrow */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginBottom: "clamp(18px, 2.5vw, 24px)",
-                    }}
-                  >
-                    <ProofBadge status={w.proof} />
-                    <span
-                      className="card-arrow"
-                      style={{
-                        fontFamily: T.mono,
-                        fontSize: "clamp(10px, 1.1vw, 11px)",
-                        color: T.accent,
-                        letterSpacing: "0.06em",
-                        opacity: 0,
-                        transition: "opacity 0.25s",
-                      }}
-                    >
-                      &rarr;
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    style={{
-                      fontFamily: T.display,
-                      fontSize: "clamp(20px, 2.8vw, 28px)",
-                      fontWeight: 600,
-                      color: T.text,
-                      lineHeight: 1.22,
-                      letterSpacing: "-0.01em",
-                      marginBottom: 14,
-                    }}
-                  >
-                    {w.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    style={{
-                      fontFamily: T.body,
-                      fontSize: "clamp(14px, 1.6vw, 15px)",
-                      color: T.textMuted,
-                      lineHeight: 1.75,
-                      flex: 1,
-                      marginBottom: 22,
-                    }}
-                  >
-                    {w.description.length > 200
-                      ? w.description.slice(0, 197) + "..."
-                      : w.description}
-                  </p>
-
-                  {/* CTA */}
-                  <span
-                    style={{
-                      fontFamily: T.mono,
-                      fontSize: "clamp(10px, 1.2vw, 11px)",
-                      fontWeight: 500,
-                      color: T.link,
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Examine case study &rarr;
-                  </span>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal delay={280}>
-            <button
-              onClick={() => go("/work")}
-              style={{
-                fontFamily: T.mono,
-                fontSize: "clamp(10px, 1.2vw, 11px)",
-                fontWeight: 500,
-                color: T.link,
-                letterSpacing: "0.08em",
+                fontSize: 12,
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                marginTop: "clamp(24px, 3.5vw, 36px)",
-                padding: "8px 0",
+                color: T.link,
+                marginBottom: 18,
               }}
             >
-              All projects &rarr;
-            </button>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          03 — CAPABILITY MAP
-          ═══════════════════════════════════════════ */}
-      <section
-        style={{
-          padding: "clamp(80px, 12vw, 128px) max(16px, 5vw)",
-          background: T.bg,
-        }}
-      >
-        <div style={{ maxWidth: 780, margin: "0 auto" }}>
-          <ScrollReveal>
-            <span
-              style={{
-                fontFamily: T.mono,
-                fontSize: "clamp(10px, 1.2vw, 11px)",
-                color: T.accent,
-                letterSpacing: "0.15em",
-                display: "block",
-                marginBottom: "clamp(22px, 3vw, 32px)",
-              }}
-            >
-              03
-            </span>
-            <h2
+              {POSITIONING.title}
+            </p>
+            <h1
               style={{
                 fontFamily: T.display,
-                fontSize: "clamp(26px, 4vw, 38px)",
-                fontWeight: 500,
+                fontSize: "clamp(48px, 8vw, 104px)",
+                lineHeight: 0.92,
+                letterSpacing: "-0.055em",
                 color: T.text,
-                lineHeight: 1.2,
-                letterSpacing: "-0.01em",
-                marginBottom: 10,
+                maxWidth: 920,
+                marginBottom: 24,
+                fontWeight: 650,
               }}
             >
-              Every claim points to something&nbsp;specific.
-            </h2>
+              {POSITIONING.heroHeadline}
+            </h1>
             <p
               style={{
                 fontFamily: T.body,
-                fontSize: "clamp(15px, 1.6vw, 16px)",
+                fontSize: "clamp(18px, 2vw, 22px)",
+                lineHeight: 1.7,
                 color: T.textMuted,
-                lineHeight: 1.6,
-                marginBottom: "clamp(40px, 6vw, 60px)",
-                maxWidth: 480,
+                maxWidth: 760,
+                marginBottom: 30,
               }}
             >
-              Not a list of skills. An index of verified applications — capability mapped directly to
-              evidence.
+              {POSITIONING.heroSubheading}
             </p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <Link className="primary-cta" to="/work">
+                View selected work
+              </Link>
+              <Link className="secondary-cta" to="/research">
+                Read books and essays
+              </Link>
+              <Link className="secondary-cta" to="/connect">
+                Start a conversation
+              </Link>
+            </div>
           </ScrollReveal>
 
-          {/* Index */}
-          <div>
-            {CAPABILITIES.map((row, i) => (
-              <ScrollReveal key={i} delay={i * 30}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    flexWrap: "wrap",
-                    padding: "clamp(16px, 2.2vw, 22px) 0",
-                    borderBottom: `1px solid ${T.accentLight}44`,
-                    gap: "clamp(12px, 2vw, 28px)",
-                    alignItems: "baseline",
-                  }}
-                >
-                  {/* Left: index number */}
-                  <span
-                    style={{
-                      fontFamily: T.mono,
-                      fontSize: "clamp(9px, 1vw, 10px)",
-                      color: T.accent,
-                      flexShrink: 0,
-                      width: 20,
-                    }}
-                  >
-                    {(i + 1).toString().padStart(2, "0")}
-                  </span>
-
-                  {/* Capability */}
-                  <div style={{ flex: "0 0 clamp(170px, 24vw, 230px)" }}>
-                    <span
-                      style={{
-                        fontFamily: T.mono,
-                        fontSize: "clamp(10px, 1.2vw, 11px)",
-                        fontWeight: 600,
-                        color: T.text,
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {row.capability}
-                    </span>
-                  </div>
-
-                  {/* Evidence */}
-                  <div style={{ flex: 1, minWidth: 200 }}>
-                    <span
-                      style={{
-                        fontFamily: T.body,
-                        fontSize: "clamp(14px, 1.6vw, 15px)",
-                        color: T.textMuted,
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {row.evidence}
-                    </span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <ScrollReveal delay={120}>
+            <aside
+              style={{
+                padding: "clamp(26px, 4vw, 36px)",
+                borderRadius: 28,
+                background: T.text,
+                color: T.bg,
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  width: 220,
+                  height: 220,
+                  borderRadius: "50%",
+                  background: "rgba(232, 213, 168, 0.18)",
+                  top: -88,
+                  right: -80,
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: T.display,
+                  fontSize: "clamp(27px, 4vw, 42px)",
+                  lineHeight: 1.1,
+                  marginBottom: 22,
+                  position: "relative",
+                }}
+              >
+                {POSITIONING.identity}
+              </p>
+              <p
+                style={{
+                  fontFamily: T.body,
+                  fontSize: 15,
+                  lineHeight: 1.75,
+                  opacity: 0.82,
+                  position: "relative",
+                }}
+              >
+                {POSITIONING.undercurrent}
+              </p>
+            </aside>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          04 — CONTACT
-          ═══════════════════════════════════════════ */}
-      <section
-        style={{
-          padding: `0 max(16px, 5vw) clamp(64px, 10vw, 88px)`,
-          maxWidth: 780,
-          margin: "0 auto",
-        }}
-      >
+      <section style={sectionStyle}>
         <ScrollReveal>
-          <span
-            style={{
-              fontFamily: T.mono,
-              fontSize: "clamp(10px, 1.2vw, 11px)",
-              color: T.accent,
-              letterSpacing: "0.15em",
-              display: "block",
-              marginBottom: "clamp(20px, 3vw, 28px)",
-            }}
-          >
-            04
-          </span>
-          <div
-            style={{
-              display: "flex",
-              gap: "clamp(16px, 3.5vw, 40px)",
-              flexWrap: "wrap",
-              alignItems: "baseline",
-              borderTop: `1px solid ${T.accentLight}`,
-              paddingTop: "clamp(28px, 4vw, 40px)",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: T.mono,
-                fontSize: "clamp(10px, 1.2vw, 11px)",
-                fontWeight: 500,
-                color: T.textMuted,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                flexShrink: 0,
-              }}
-            >
-              Get in touch
-            </span>
-            <a
-              href="mailto:preciousayomide147@gmail.com"
-              style={contactLink}
-            >
-              preciousayomide147@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/precious-ajayi-soul"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={contactLink}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://thermopresh.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={contactLink}
-            >
-              Substack
-            </a>
-          </div>
+          <Label>Proof strip</Label>
+          <h2 style={headingStyle}>Claims with qualifications.</h2>
+          <p style={introStyle}>
+            The portfolio separates measured outcomes, reported outcomes, published intellectual work and live implementation.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={80}>
+          <MetricStrip metrics={PROOF_METRICS} />
+        </ScrollReveal>
+      </section>
+
+      <section style={sectionStyle}>
+        <ScrollReveal>
+          <Label>Selected work</Label>
+          <h2 style={headingStyle}>Five situations where the work had to become usable.</h2>
+          <p style={introStyle}>
+            Each case study shows the real situation, the tension inside it, the work done, the evidence or artifact boundary and what changed.
+          </p>
+        </ScrollReveal>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 16,
+            marginTop: 30,
+          }}
+        >
+          {featuredStudies.map((study, index) => (
+            <ScrollReveal key={study.slug} delay={index * 60}>
+              <CaseStudyCard study={study} compact />
+            </ScrollReveal>
+          ))}
+        </div>
+        <ScrollReveal delay={280}>
+          <Link className="text-link" to="/work" style={{ marginTop: 24, display: "inline-block" }}>
+            See all selected work &rarr;
+          </Link>
+        </ScrollReveal>
+      </section>
+
+      <section style={sectionStyle}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "minmax(0, 0.8fr) minmax(300px, 1fr)",
+            gap: 42,
+            alignItems: "start",
+          }}
+          className="two-column"
+        >
+          <ScrollReveal>
+            <Label>Method</Label>
+            <h2 style={headingStyle}>The work sits between research and execution.</h2>
+            <p style={introStyle}>
+              The form changes—brief, proposal, editorial system, outreach programme—but the standard remains the same: the claim must be traceable to evidence.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <MethodTimeline steps={METHOD_STEPS} />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section style={sectionStyle}>
+        <ScrollReveal>
+          <Label>Selected engagements</Label>
+          <h2 style={headingStyle}>The kind of work this portfolio is built to attract.</h2>
+          <p style={introStyle}>
+            Tell me what decision, audience or body of work you are trying to move.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={80}>
+          <EngagementGrid items={SELECTED_ENGAGEMENTS} />
         </ScrollReveal>
       </section>
     </>
   );
 }
 
-/* ── Shared styles ── */
-
-const filledBtn = {
-  fontFamily: "'JetBrains Mono', 'IBM Plex Mono', monospace",
-  fontSize: "clamp(11px, 1.3vw, 12px)",
-  fontWeight: 500,
-  letterSpacing: "0.1em",
-  textTransform: "uppercase",
-  color: "#FAF8F5",
-  background: "#0A1628",
-  border: "none",
-  padding: "15px 30px",
-  cursor: "pointer",
-  whiteSpace: "nowrap",
-  minHeight: 50,
+const sectionStyle = {
+  padding: "76px 28px",
+  maxWidth: 1120,
+  margin: "0 auto",
 };
 
-const outlinedBtn = {
-  ...filledBtn,
-  color: "#0A1628",
-  background: "transparent",
-  border: "1.5px solid #C4973B",
-  padding: "14px 28px",
+const headingStyle = {
+  fontFamily: T.display,
+  fontSize: "clamp(34px, 5vw, 58px)",
+  lineHeight: 1,
+  letterSpacing: "-0.035em",
+  color: T.text,
+  maxWidth: 760,
+  marginBottom: 16,
+  fontWeight: 620,
 };
 
-const contactLink = {
-  fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  fontSize: "clamp(14px, 1.6vw, 15px)",
-  color: "#1A365D",
-  textDecoration: "none",
+const introStyle = {
+  fontFamily: T.body,
+  fontSize: 17,
+  color: T.textMuted,
+  lineHeight: 1.75,
+  maxWidth: 720,
+  marginBottom: 28,
 };
