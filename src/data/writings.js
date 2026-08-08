@@ -56,7 +56,7 @@ export const WRITINGS = [
     subtitle: "A short sample demonstrating concise, high-context email correspondence.",
     date: "2026",
     category: "INSTITUTIONAL",
-    url: "/work/minflix-creator-outreach",
+    url: "/work/elomiran-creator-outreach",
   },
   {
     title: "Bobo, You Finally Finished NYSC",

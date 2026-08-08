@@ -10,7 +10,7 @@ import { CASE_STUDIES } from "../data/caseStudies";
 import { METHOD_STEPS, POSITIONING, PROOF_METRICS, SELECTED_ENGAGEMENTS } from "../data/siteContent";
 
 const featuredStudies = CASE_STUDIES.filter((study) =>
-  ["piggyvest-decision-model", "limpiar-grant-proposals", "dutum-editorial-research-system", "minflix-creator-outreach"].includes(
+  ["piggyvest-decision-model", "limpiar-grant-proposals", "dutum-editorial-research-system", "elomiran-creator-outreach"].includes(
     study.slug
   )
 );

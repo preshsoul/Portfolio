@@ -42,10 +42,11 @@ const RESEARCH_ITEMS = [
     body: "A working paper on how organisations preserve judgement, difference and execution quality while adopting AI-shaped workflows.",
   },
   {
-    title: "The Zeitgeist Frontier Map",
-    status: "Private / available on request",
-    framing: "Stakeholder, source and distribution architecture for African scientific, industrial and policy frontiers.",
-    body: "A private research architecture for mapping people, sources, institutions and distribution pathways around emerging frontiers.",
+    title: "Cowrywise editorial and behavioural audit",
+    status: "Supporting independent analysis",
+    framing: "Independent audit of how a fintech used content to shape trust, education and user behaviour.",
+    body: "A three-year review of public editorial material, classified by topic, audience, behavioural function and product relationship. Best shown with a polished excerpt of the classification method.",
+    internalUrl: "/work/cowrywise-editorial-audit",
   },
 ];
 

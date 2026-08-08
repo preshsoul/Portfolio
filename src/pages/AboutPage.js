@@ -5,8 +5,8 @@ import { METHOD_STEPS, POSITIONING } from "../data/siteContent";
 
 const TIMELINE = [
   ["2026–present", "Executive Assistant & Brand Manager to the MD, Dutum Company Limited"],
-  ["2025–present", "Research, editorial and outreach work through Elómiran Consult"],
-  ["2025", "Grant writer, Limpiar — 13 proposals in five weeks; $30,000+ approved"],
+  ["2025–present", "Research, editorial and outreach work through Elomiran Consults"],
+  ["2024", "Grant writer, Limpiar — 13 proposals in five weeks; $30,000+ approved"],
   ["2025–2026", "Independent research and publishing — The Shape of Choice and Markov Chains for Marketing Decisions"],
   ["Earlier work", "Content strategy, SDR research, grant writing and campaign coordination across financial services, media and creative businesses"],
 ];
