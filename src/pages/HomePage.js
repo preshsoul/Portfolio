@@ -11,7 +11,7 @@ import { PROOF_ARTIFACTS } from "../data/proofArtifacts";
 import { METHOD_STEPS, POSITIONING, PROOF_METRICS, SELECTED_ENGAGEMENTS } from "../data/siteContent";
 
 const featuredStudies = CASE_STUDIES.filter((study) =>
-  ["piggyvest-decision-model", "limpiar-grant-proposals", "dutum-editorial-research-system", "elomiran-editorial-development"].includes(
+  ["piggyvest-decision-model", "all-at-once", "limpiar-grant-proposals", "dutum-editorial-research-system", "elomiran-consult-delivery"].includes(
     study.slug
   )
 );

@@ -76,11 +76,17 @@ export default function CaseStudyPage() {
           </p>
           {study.image && (
             <img
+              className={study.kind === "campaign" ? "case-study-hero" : undefined}
               src={study.image}
               alt={study.imageAlt || "Project cover"}
-              style={{ width: "min(300px, 100%)", marginTop: 30, border: `1px solid ${T.border}` }}
+              style={{
+                width: study.kind === "campaign" ? "100%" : "min(300px, 100%)",
+                marginTop: 30,
+                border: `1px solid ${T.border}`,
+              }}
             />
           )}
+          {study.coreLine && <p className="case-study-core-line">{study.coreLine}</p>}
         </ScrollReveal>
 
         <ScrollReveal delay={80}>
@@ -144,6 +150,28 @@ export default function CaseStudyPage() {
                 </ul>
               </section>
             </ScrollReveal>
+
+            {study.sections?.map((section, index) => (
+              <ScrollReveal key={section.title} delay={110 + index * 40}>
+                <section style={panelStyle}>
+                  <p style={sectionTitle}>{section.title}</p>
+                  <p style={bodyStyle}>{section.body}</p>
+                </section>
+              </ScrollReveal>
+            ))}
+
+            {study.gallery && (
+              <ScrollReveal delay={study.sections ? 240 : 120}>
+                <section aria-label={`${study.title} campaign stills`} className="case-study-gallery">
+                  {study.gallery.map((image) => (
+                    <figure key={image.src}>
+                      <img src={image.src} alt={image.alt} loading="lazy" />
+                      <figcaption>{image.caption}</figcaption>
+                    </figure>
+                  ))}
+                </section>
+              </ScrollReveal>
+            )}
 
             <ScrollReveal delay={120}>
               <section style={panelStyle}>

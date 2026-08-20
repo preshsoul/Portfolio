@@ -32,12 +32,6 @@ export const WRITINGS = [
     featured: true,
   },
   {
-    title: "AI, Diversity and Organisational Agility",
-    subtitle: "Working paper on small teams navigating AI without collapsing strategic judgement.",
-    date: "Working paper",
-    category: "RESEARCH",
-  },
-  {
     title: "Executive Editorial Systems for Infrastructure Finance",
     subtitle: "Building editorial architecture for corporate thought leadership.",
     date: "2026",
@@ -56,7 +50,7 @@ export const WRITINGS = [
     subtitle: "A short sample demonstrating concise, high-context editorial support.",
     date: "2026",
     category: "INSTITUTIONAL",
-    url: "/work/elomiran-editorial-development",
+    url: "/work/elomiran-consult-delivery",
   },
   {
     title: "Bobo, You Finally Finished NYSC",

@@ -27,13 +27,13 @@ export const PROOF_ARTIFACTS = [
     boundary: "Active professional work; only public or redacted artifacts should be shown.",
   },
   {
-    title: "Elomiran editorial brief and source map",
-    type: "Editorial research",
-    caseStudySlug: "elomiran-editorial-development",
-    proof: "LIVE",
+    title: "Elómiran delivery research and outreach map",
+    type: "Research and outreach system",
+    caseStudySlug: "elomiran-consult-delivery",
+    proof: "ACTIVE_PROFESSIONAL",
     summary:
-      "A structured research and briefing layer that keeps ghostwritten work accurate, voice-aware and ready for revision.",
-    boundary: "Live ghostwriting work; client materials and unpublished drafts remain confidential.",
+      "A structured research, qualification and follow-up layer for connecting opportunity research to client delivery.",
+    boundary: "Active agency work; client materials and internal delivery records remain confidential.",
   },
   {
     title: "The Shape of Choice diagrams",
