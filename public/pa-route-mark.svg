@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Precious Ajayi portfolio mark</title>
+  <rect width="512" height="512" fill="#123042"/>
+  <rect x="48" y="48" width="28" height="416" fill="#F0B323"/>
+  <path d="M112 394 408 98v84L196 394Z" fill="#CF482A"/>
+  <text x="106" y="277" fill="#F7F0E5" font-family="monospace" font-size="152" font-weight="700" letter-spacing="-28">00</text>
+</svg>

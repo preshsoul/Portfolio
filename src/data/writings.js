@@ -52,11 +52,11 @@ export const WRITINGS = [
     url: "/work/limpiar-grant-proposals",
   },
   {
-    title: "Selected Correspondence: Concise Outreach",
-    subtitle: "A short sample demonstrating concise, high-context email correspondence.",
+    title: "Selected Editorial Development",
+    subtitle: "A short sample demonstrating concise, high-context editorial support.",
     date: "2026",
     category: "INSTITUTIONAL",
-    url: "/work/elomiran-creator-outreach",
+    url: "/work/elomiran-editorial-development",
   },
   {
     title: "Bobo, You Finally Finished NYSC",

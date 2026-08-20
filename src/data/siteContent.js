@@ -3,7 +3,7 @@ export const POSITIONING = {
   identity: "I build the research, argument and working material behind decisions people need to defend.",
   heroHeadline: "Research, strategy and editorial operations for work that has to hold up.",
   heroSubheading:
-    "I turn research, operating detail and dispersed evidence into an argument, then into briefs, systems and writing people can use. Recent work covers infrastructure finance, financial behaviour, grant funding, creator acquisition and public-facing ideas.",
+    "I turn research, operating detail and dispersed evidence into an argument, then into briefs, systems and writing people can use. Recent work covers infrastructure finance, financial behaviour, grant funding, editorial development and public-facing ideas.",
   undercurrent:
     "Serious work often arrives with too much material, too little time, and no clean way to explain what should happen next. That is usually where I am most useful.",
   footerBio: "Researcher, strategist and writer based in Lagos.",

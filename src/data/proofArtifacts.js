@@ -27,13 +27,13 @@ export const PROOF_ARTIFACTS = [
     boundary: "Active professional work; only public or redacted artifacts should be shown.",
   },
   {
-    title: "Elomiran creator outreach pipeline",
-    type: "CRM architecture",
-    caseStudySlug: "elomiran-creator-outreach",
+    title: "Elomiran editorial brief and source map",
+    type: "Editorial research",
+    caseStudySlug: "elomiran-editorial-development",
     proof: "LIVE",
     summary:
-      "A creator discovery, qualification, message-angle and follow-up system designed to make outreach repeatable.",
-    boundary: "Live implementation; conversion claims should wait for measured results.",
+      "A structured research and briefing layer that keeps ghostwritten work accurate, voice-aware and ready for revision.",
+    boundary: "Live ghostwriting work; client materials and unpublished drafts remain confidential.",
   },
   {
     title: "The Shape of Choice diagrams",
