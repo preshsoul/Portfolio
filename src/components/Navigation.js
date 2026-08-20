@@ -1,20 +1,12 @@
-import {
-  BookOpen,
-  BriefcaseBusiness,
-  Mail,
-  PenLine,
-  Sparkles,
-  UserRound,
-} from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const NAV_ITEMS = [
-  { path: "/work", label: "Work", icon: BriefcaseBusiness },
-  { path: "/research", label: "Research", icon: Sparkles },
-  { path: "/writing", label: "Writing", icon: PenLine },
-  { path: "/products", label: "Products", icon: BookOpen },
-  { path: "/about", label: "About", icon: UserRound },
-  { path: "/connect", label: "Contact", icon: Mail, featured: true },
+  { path: "/work", label: "Work", number: "01" },
+  { path: "/research", label: "Research", number: "02" },
+  { path: "/writing", label: "Writing", number: "03" },
+  { path: "/products", label: "Products", number: "04" },
+  { path: "/about", label: "About", number: "05" },
+  { path: "/connect", label: "Connect", number: "06", featured: true },
 ];
 
 export default function Navigation() {
@@ -22,15 +14,15 @@ export default function Navigation() {
     <nav className="site-nav" aria-label="Primary navigation">
       <div className="nav-shell">
         <NavLink to="/" className="brand-link" aria-label="Precious Ajayi">
-          <span className="brand-mark" aria-hidden="true">PA</span>
+          <span className="brand-mark" aria-hidden="true">00</span>
           <span className="brand-copy">
             <span className="brand-name">Precious Ajayi</span>
-            <span className="brand-role">Research & editorial operations</span>
+            <span className="brand-role">Lagos / NG</span>
           </span>
         </NavLink>
 
         <div className="nav-links" aria-label="Portfolio sections">
-          {NAV_ITEMS.map(({ icon: Icon, ...item }) => (
+          {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
@@ -40,7 +32,7 @@ export default function Navigation() {
                   .join(" ")
               }
             >
-              <Icon aria-hidden="true" size={16} strokeWidth={1.8} />
+              <span aria-hidden="true" className="nav-link-number">{item.number}</span>
               <span className="nav-link-label">{item.label}</span>
             </NavLink>
           ))}

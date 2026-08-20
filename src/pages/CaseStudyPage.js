@@ -38,7 +38,7 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <article style={{ padding: "120px 28px 88px" }}>
+    <article className="case-study-page" style={{ padding: "120px 28px 88px" }}>
       <div style={{ maxWidth: 1040, margin: "0 auto" }}>
         <ScrollReveal>
           <Link className="text-link" to="/work">
@@ -74,6 +74,13 @@ export default function CaseStudyPage() {
           >
             {study.summary}
           </p>
+          {study.image && (
+            <img
+              src={study.image}
+              alt={study.imageAlt || "Project cover"}
+              style={{ width: "min(300px, 100%)", marginTop: 30, border: `1px solid ${T.border}` }}
+            />
+          )}
         </ScrollReveal>
 
         <ScrollReveal delay={80}>
@@ -94,7 +101,7 @@ export default function CaseStudyPage() {
                 key={label}
                 style={{
                   padding: 22,
-                  borderRadius: 18,
+                  borderRadius: 0,
                   background: T.cardAlt,
                   border: `1px solid ${T.border}`,
                 }}
@@ -151,7 +158,7 @@ export default function CaseStudyPage() {
               <section
                 style={{
                   padding: 26,
-                  borderRadius: 22,
+                  borderRadius: 0,
                   background: T.text,
                   color: T.bg,
                 }}
@@ -219,7 +226,7 @@ export default function CaseStudyPage() {
 
 const panelStyle = {
   padding: "clamp(26px, 4vw, 42px)",
-  borderRadius: 24,
+  borderRadius: 0,
   border: `1px solid ${T.border}`,
   background: T.card,
 };

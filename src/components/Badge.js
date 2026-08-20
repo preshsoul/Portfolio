@@ -11,7 +11,7 @@ export default function Badge({ children, color, bg, style = {} }) {
         color: color || T.text,
         background: bg || T.accentLight,
         padding: "4px 10px",
-        borderRadius: 4,
+        borderRadius: 0,
         display: "inline-block",
         ...style,
       }}

@@ -6,10 +6,10 @@ export default function Tag({ children }) {
       style={{
         fontFamily: T.mono,
         fontSize: 11,
-        color: T.textMuted,
-        border: `1px solid ${T.accentLight}`,
-        padding: "3px 10px",
-        borderRadius: 4,
+        color: T.text,
+        border: `1px solid ${T.border}`,
+        padding: "3px 7px",
+        borderRadius: 0,
       }}
     >
       {children}

@@ -9,16 +9,16 @@
   margin-top: 0 !important;
   margin-bottom: 2.5rem !important;
   line-height: 1.9 !important;
-  color: #4A5568 !important;
-  font-family: 'Newsreader', Georgia, serif !important;
+  color: #3D5558 !important;
+  font-family: 'Encode Sans', Arial, sans-serif !important;
 }
 
 .blog-content-area h1,
 .blog-content-area h2,
 .blog-content-area h3 {
   display: block !important;
-  font-family: 'Newsreader', Georgia, serif !important;
-  color: #0A1628 !important;
+  font-family: 'Encode Sans Condensed', 'Arial Narrow', sans-serif !important;
+  color: #242321 !important;
   margin-top: 5rem !important;
   margin-bottom: 1.75rem !important;
   line-height: 1.1 !important;
@@ -45,23 +45,23 @@
   display: block !important;
   margin: 4.5rem 0 !important;
   padding: 3rem !important;
-  background-color: #F0EDE8 !important;
-  border-left: 6px solid #C4973B !important;
+  background-color: #E8DFD0 !important;
+  border-left: 6px solid #CF482A !important;
   font-style: italic !important;
   font-size: 1.85rem !important;
   line-height: 1.4 !important;
-  color: #0A1628 !important;
+  color: #242321 !important;
   border-radius: 0 1rem 1rem 0 !important;
 }
 
 .blog-content-area strong {
   font-weight: 700 !important;
-  color: #0A1628 !important;
+  color: #242321 !important;
 }
 
 .blog-content-area img {
   display: block !important;
-  border-radius: 1.5rem !important;
+  border-radius: 0 !important;
   margin: 4rem 0 !important;
   width: 100% !important;
   height: auto !important;

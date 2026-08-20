@@ -22,7 +22,7 @@ describe('Navigation Component', () => {
 
   test('renders all nav links', () => {
     renderWithRouter();
-    ['Work', 'Research', 'Writing', 'About', 'Contact'].forEach((label) => {
+    ['Work', 'Research', 'Writing', 'Products', 'About', 'Connect'].forEach((label) => {
       expect(screen.getByRole('link', { name: label })).toBeInTheDocument();
     });
   });

@@ -1,48 +1,17 @@
-import T from "../lib/tokens";
-import ScrollReveal from "../components/ScrollReveal";
-import Label from "../components/Label";
 import ProductCard from "../components/ProductCard";
+import ScrollReveal from "../components/ScrollReveal";
+import { BUILDING } from "../data/building";
 import { PRODUCTS } from "../data/products";
 
 export default function ProductsPage() {
   return (
-    <section style={{ padding: "120px 28px 88px", maxWidth: 1120, margin: "0 auto" }}>
-      <ScrollReveal>
-        <Label>Products</Label>
-        <h1
-          style={{
-            fontFamily: T.display,
-            fontSize: "clamp(42px, 7vw, 78px)",
-            lineHeight: 0.98,
-            letterSpacing: "-0.045em",
-            color: T.text,
-            marginBottom: 18,
-            maxWidth: 820,
-          }}
-        >
-          Frameworks, field manuals and decision tools.
-        </h1>
-        <p
-          style={{
-            fontFamily: T.body,
-            fontSize: 18,
-            color: T.textMuted,
-            lineHeight: 1.75,
-            marginBottom: 40,
-            maxWidth: 700,
-          }}
-        >
-          Mathematical and strategic ideas translated into practical material: essays, worksheets, courses and operating tools. Rigour without false certainty.
-        </p>
-      </ScrollReveal>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
-        {PRODUCTS.map((p, i) => (
-          <ScrollReveal key={p.title} delay={i * 80}>
-            <ProductCard product={p} />
-          </ScrollReveal>
-        ))}
-      </div>
+    <section className="route-page route-page--products">
+      <ScrollReveal><header className="route-page-heading"><p>04 / Working objects</p><h1>Tools with a<br />point of view.</h1><span>Frameworks, field manuals and decision tools built to leave the abstract behind.</span></header></ScrollReveal>
+      <div className="product-grid">{PRODUCTS.map((product, index) => <ScrollReveal key={product.title} delay={index * 60}><ProductCard product={product} /></ScrollReveal>)}</div>
+      <section className="building-index">
+        <p>In motion / next objects</p>
+        <div>{BUILDING.map((item, index) => <article key={item.name}><span>0{index + 1} / {item.status}</span><h2>{item.name}</h2><small>{item.desc}</small></article>)}</div>
+      </section>
     </section>
   );
 }

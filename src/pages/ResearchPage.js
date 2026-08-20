@@ -1,143 +1,26 @@
-import T from "../lib/tokens";
-import Badge from "../components/Badge";
-import Label from "../components/Label";
+import { Link } from "react-router-dom";
 import ScrollReveal from "../components/ScrollReveal";
 
 const RESEARCH_ITEMS = [
-  {
-    title: "The Shape of Choice",
-    status: "Published",
-    framing: "Applied research book on constraints and decision spaces.",
-    body: "A 96-page, ten-chapter book examining constrained choice, state transitions, topology, fixed points, information capacity and organisational decision-making.",
-    url: "https://selar.com/b34jr22286",
-    image: "/tsoc-cover.jpeg",
-    alt: "The Shape of Choice book cover — deep navy background with gold and off-white typography",
-  },
-  {
-    title: "Markov Chains for Marketing Decisions",
-    status: "Published",
-    framing: "Framework for analysing customer movement, language and adoption.",
-    body: "A state-based framework for understanding why customer journeys stall and what replaces the funnel when behaviour is treated as movement across conditions.",
-    url: "https://selar.com/markov-market",
-    image: "/markov-cover.png",
-    alt: "Markov Chains for Marketing Decisions book cover by Precious Ajayi",
-  },
-  {
-    title: "PiggyVest decision model",
-    status: "Completed independent work",
-    framing: "Financial-behaviour analysis using state transitions.",
-    body: "Independent analysis of a published savings report covering 26,000+ respondents, translated into a five-state decision model and campaign architecture.",
-    internalUrl: "/work/piggyvest-decision-model",
-  },
-  {
-    title: "PL-5: Predictive Literacy",
-    status: "Ongoing",
-    framing: "A developing essay programme applying mathematical ideas to organisational and market decisions.",
-    body: "The programme explores how concepts such as percolation, catastrophe, optimal transport, Shannon channel capacity and Lyapunov stability can clarify strategic judgement. It should be read as a developing body of work, not a completed research library.",
-  },
-  {
-    title: "AI, diversity and organisational agility",
-    status: "Working paper",
-    framing: "Research on small teams navigating AI without collapsing strategic judgement.",
-    body: "A working paper on how organisations preserve judgement, difference and execution quality while adopting AI-shaped workflows.",
-  },
-  {
-    title: "Cowrywise editorial and behavioural audit",
-    status: "Supporting independent analysis",
-    framing: "Independent audit of how a fintech used content to shape trust, education and user behaviour.",
-    body: "A three-year review of public editorial material, classified by topic, audience, behavioural function and product relationship. Best shown with a polished excerpt of the classification method.",
-    internalUrl: "/work/cowrywise-editorial-audit",
-  },
+  { title: "The Shape of Choice", status: "Published", framing: "Applied research book on constraints and decision spaces.", body: "A ten-chapter book examining constrained choice, state transitions, topology, fixed points, information capacity and organisational decision-making.", url: "https://selar.com/b34jr22286", image: "/tsoc-cover.jpeg", alt: "The Shape of Choice book cover" },
+  { title: "Markov Chains for Marketing Decisions", status: "Published", framing: "Framework for analysing customer movement, language and adoption.", body: "A state-based framework for understanding why customer journeys stall and what replaces the funnel when behaviour is treated as movement across conditions.", url: "https://selar.com/markov-market", image: "/markov-cover.png", alt: "Markov Chains for Marketing Decisions book cover" },
+  { title: "PiggyVest decision model", status: "Completed independent work", framing: "Financial-behaviour analysis using state transitions.", body: "Independent analysis of a published savings report covering 26,000+ respondents, translated into a five-state decision model and campaign architecture.", internalUrl: "/work/piggyvest-decision-model" },
+  { title: "PL-5: Predictive Literacy", status: "Ongoing", framing: "A developing essay programme applying mathematical ideas to organisational and market decisions.", body: "The programme explores how mathematical concepts can clarify strategic judgement. It remains a developing body of work, not a completed research library." },
+  { title: "AI, diversity and organisational agility", status: "Working paper", framing: "Research on small teams navigating AI without collapsing strategic judgement.", body: "A working paper on how organisations preserve judgement, difference and execution quality while adopting AI-shaped workflows." },
+  { title: "Cowrywise editorial and behavioural audit", status: "Supporting independent analysis", framing: "Independent audit of how a fintech used content to shape trust, education and user behaviour.", body: "A three-year review of public editorial material, classified by topic, audience, behavioural function and product relationship.", internalUrl: "/work/cowrywise-editorial-audit" },
 ];
 
 export default function ResearchPage() {
   return (
-    <section style={{ padding: "120px 28px 88px", maxWidth: 1120, margin: "0 auto" }}>
-      <ScrollReveal>
-        <Label>Research</Label>
-        <h1
-          style={{
-            fontFamily: T.display,
-            fontSize: "clamp(42px, 7vw, 78px)",
-            lineHeight: 0.98,
-            letterSpacing: "-0.045em",
-            color: T.text,
-            marginBottom: 18,
-            maxWidth: 820,
-          }}
-        >
-          Published work, completed models and research still in development.
-        </h1>
-        <p
-          style={{
-            fontFamily: T.body,
-            fontSize: 18,
-            color: T.textMuted,
-            lineHeight: 1.75,
-            maxWidth: 720,
-            marginBottom: 42,
-          }}
-        >
-          The research page separates what is published, what is completed independent analysis and what remains a working programme.
-        </p>
-      </ScrollReveal>
-
-      <div style={{ display: "grid", gap: 18 }}>
-        {RESEARCH_ITEMS.map((item, index) => (
-          <ScrollReveal key={item.title} delay={index * 55}>
-            <article
-              style={{
-                display: "grid",
-                gridTemplateColumns: item.image ? "180px 1fr" : "1fr",
-                gap: 24,
-                padding: "clamp(24px, 4vw, 34px)",
-                borderRadius: 24,
-                border: `1px solid ${T.border}`,
-                background: T.card,
-                alignItems: "start",
-              }}
-              className="research-card"
-            >
-              {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  style={{
-                    width: "100%",
-                    borderRadius: 16,
-                    border: `1px solid ${T.border}`,
-                    background: T.cardAlt,
-                  }}
-                />
-              )}
-              <div>
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
-                  <Badge>{item.status}</Badge>
-                </div>
-                <h2 style={{ fontFamily: T.display, fontSize: "clamp(28px, 4vw, 42px)", color: T.text, marginBottom: 8 }}>
-                  {item.title}
-                </h2>
-                <p style={{ fontFamily: T.body, fontSize: 16, color: T.text, lineHeight: 1.65, marginBottom: 10 }}>
-                  {item.framing}
-                </p>
-                <p style={{ fontFamily: T.body, fontSize: 15, color: T.textMuted, lineHeight: 1.75, maxWidth: 740 }}>
-                  {item.body}
-                </p>
-                {(item.url || item.internalUrl) && (
-                  <a
-                    className="text-link"
-                    href={item.url || item.internalUrl}
-                    target={item.url ? "_blank" : undefined}
-                    rel={item.url ? "noopener noreferrer" : undefined}
-                    style={{ marginTop: 18, display: "inline-block" }}
-                  >
-                    {item.url ? "View public work" : "Read case study"} &rarr;
-                  </a>
-                )}
-              </div>
-            </article>
-          </ScrollReveal>
-        ))}
+    <section className="route-page route-page--research">
+      <ScrollReveal><header className="route-page-heading"><p>02 / Research map</p><h1>Ideas become<br />working material.</h1><span>Published work, completed models and research still gathering shape.</span></header></ScrollReveal>
+      <div className="research-map">
+        {RESEARCH_ITEMS.map((item, index) => {
+          const content = <><span>0{index + 1} / {item.status}</span><h2>{item.title}</h2><b>{item.framing}</b><p>{item.body}</p>{(item.url || item.internalUrl) && <em>{item.url ? "View public work ↗" : "Open case study ↗"}</em>}</>;
+          const props = item.url ? { href: item.url, target: "_blank", rel: "noopener noreferrer" } : item.internalUrl ? { to: item.internalUrl } : null;
+          const card = item.image ? <><img src={item.image} alt={item.alt} /><div>{content}</div></> : content;
+          return <ScrollReveal key={item.title} delay={index * 45}>{props ? item.url ? <a className="research-entry" {...props}>{card}</a> : <Link className="research-entry" {...props}>{card}</Link> : <article className="research-entry">{card}</article>}</ScrollReveal>;
+        })}
       </div>
     </section>
   );

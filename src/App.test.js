@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
 
 describe('App Component', () => {
@@ -17,8 +17,8 @@ describe('App Component', () => {
 
     const nav = screen.getByRole('navigation');
     expect(nav).toBeInTheDocument();
-    ['Work', 'Research', 'Writing', 'About', 'Contact'].forEach((label) => {
-      expect(screen.getByRole('link', { name: label })).toBeInTheDocument();
+    ['Work', 'Research', 'Writing', 'Products', 'About', 'Connect'].forEach((label) => {
+      expect(within(nav).getByRole('link', { name: label })).toBeInTheDocument();
     });
   });
 });

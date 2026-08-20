@@ -1,4 +1,3 @@
-import { ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const footerLinks = [
@@ -11,20 +10,18 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="footer-tape footer-tape-left" aria-hidden="true" />
-      <div className="footer-tape footer-tape-right" aria-hidden="true" />
+      <div className="footer-route footer-route-left" aria-hidden="true" />
+      <div className="footer-route footer-route-right" aria-hidden="true" />
       <div className="footer-shell">
         <div className="footer-heading">
-          <span className="footer-kicker">Let’s make useful things</span>
-          <h2>Curiosity, with a point of view.</h2>
-          <p>Researcher, strategist and writer based in Lagos.</p>
+          <span className="footer-kicker">Final frame / 06</span>
+          <h2>Make the work<br />move.</h2>
+          <p>Research, strategy and editorial operations for decisions that need more than a surface answer.</p>
         </div>
 
         <div className="footer-actions">
           <Link className="footer-contact" to="/connect">
-            <Mail aria-hidden="true" size={17} />
-            Start a conversation
-            <ArrowUpRight aria-hidden="true" size={16} />
+            Start a conversation <span aria-hidden="true">↗</span>
           </Link>
           <div className="footer-link-list" aria-label="Footer navigation">
             {footerLinks.map((link) => (

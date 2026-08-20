@@ -23,6 +23,6 @@ describe('Footer Component', () => {
 
   test('renders footer bio', () => {
     renderWithRouter();
-    expect(screen.getByText(/Researcher, strategist and writer based in Lagos/)).toBeInTheDocument();
+    expect(screen.getByText(/Research, strategy and editorial operations/)).toBeInTheDocument();
   });
 });

@@ -5,12 +5,12 @@ export default function Label({ children }) {
     <p
       style={{
         fontFamily: T.mono,
-        fontSize: 12,
-        fontWeight: 500,
+        fontSize: 11,
+        fontWeight: 600,
         color: T.accent,
-        letterSpacing: "0.12em",
+        letterSpacing: "0.1em",
         textTransform: "uppercase",
-        marginBottom: 16,
+        marginBottom: 14,
       }}
     >
       {children}

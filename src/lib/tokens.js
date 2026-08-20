@@ -1,30 +1,30 @@
 const T = {
   // Background
-  bg: "#FAF8F5",
-  bgAlt: "#F0EDE8",
+  bg: "#C8C0B2",
+  bgAlt: "#E8DFD0",
 
   // Text
-  text: "#0A1628",
-  textMuted: "#4A5568",
+  text: "#242321",
+  textMuted: "#3D5558",
 
   // Accent
-  accent: "#C4973B",
-  accentLight: "#E8D5A8",
-  accentMuted: "#E8D5A8",
+  accent: "#CF482A",
+  accentLight: "#F0B323",
+  accentMuted: "#4E8776",
 
   // Links
-  link: "#1A365D",
+  link: "#123042",
 
   // Borders & surfaces
-  border: "#E8D5A8",
-  white: "#FFFFFF",
-  card: "#FAF8F5",
-  cardAlt: "#F0EDE8",
+  border: "#284D57",
+  white: "#F7F0E5",
+  card: "#E8DFD0",
+  cardAlt: "#D9CFBF",
 
   // Typography
-  display: "'Newsreader', Georgia, 'Times New Roman', serif",
-  body: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  mono: "'JetBrains Mono', 'IBM Plex Mono', 'Courier New', monospace",
+  display: "'Encode Sans Condensed', 'Arial Narrow', sans-serif",
+  body: "'Encode Sans', Arial, sans-serif",
+  mono: "'Azeret Mono', 'Courier New', monospace",
 };
 
 export default T;

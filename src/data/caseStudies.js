@@ -138,6 +138,8 @@ export const CASE_STUDIES = [
     year: "2025",
     proof: "INTELLECTUAL",
     status: "Published intellectual work",
+    image: "/tsoc-cover.jpeg",
+    imageAlt: "The Shape of Choice book cover",
     summary:
       "Built a 96-page applied-analysis book examining constraints, choice, state transitions and organisational decision-making.",
     situation:
