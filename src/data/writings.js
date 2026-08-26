@@ -1,6 +1,5 @@
 export const WRITING_CATEGORY_LABELS = {
   All: "All",
-  ARTICLE_LAB: "Article lab",
   RESEARCH: "Research and analysis",
   INSTITUTIONAL: "Institutional writing",
   ESSAY: "Essays on people and culture",
@@ -9,13 +8,38 @@ export const WRITING_CATEGORY_LABELS = {
 
 export const WRITING_STATUS_LABELS = {
   PUBLISHED: "Published",
-  SEEKING_HOME: "Seeking a home",
+  SEEKING_HOME: "Original essay",
   WORKING_NOTE: "Working note",
   PITCH_READY: "Pitch-ready",
   ARCHIVE: "Archive",
 };
 
-export const WRITINGS = [
+const WRITING_BACKDROPS_BY_SLUG = {
+  "markov-chains-for-marketing-decisions": "/markov-cover.png",
+  "the-shape-of-choice": "/tsoc-cover.jpeg",
+  "piggyvest-decision-model": "/images/all-at-once/month-map.webp",
+  "cowrywise-editorial-audit": "/images/blog/positioning.jpg",
+  "executive-editorial-systems-for-infrastructure-finance": "/images/blog/hiring.jpg",
+  "thirteen-grant-proposals-narrative-excerpts": "/images/blog/funding.jpg",
+  "selected-editorial-development": "/images/blog/creator-economy.jpg",
+  "bobo-you-finally-finished-nysc": "https://substackcdn.com/image/fetch/$s_!uRKd!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F72151a08-8bae-4eea-ba89-6966a9901f21_858x1122.png",
+  "what-makes-beauty-make-sense": "https://substackcdn.com/image/fetch/$s_!8WKt!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2cd81d74-99d2-412f-9b7d-3148cf05be21_855x569.jpeg",
+  "you-should-have-a-friend": "https://substackcdn.com/image/fetch/$s_!u1Cx!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6dc0c3db-7d44-4654-aa92-6133c3fd8756_641x516.png",
+  "have-you-ever-seen-a-man-in-love": "https://substackcdn.com/image/fetch/$s_!U-8M!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16fa5c1b-e639-4ad7-820b-c8e6b78f1bb3_1290x935.jpeg",
+  "great-friend-horrible-lover": "https://substackcdn.com/image/fetch/$s_!F8LS!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1af04972-f70c-4219-8992-dec8d6eb7799_736x1026.jpeg",
+  "i-miss-smelling-flowers": "https://substackcdn.com/image/fetch/$s_!wMIu!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F995bf2e0-060c-451b-82b1-b19c56a3c1c0_390x446.png",
+  "what-it-is-like-to-be-a-man-who-loves-a-woman": "https://substackcdn.com/image/fetch/$s_!c0bm!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff965db1f-c52b-4e04-9bd9-6c4134da0536_1081x506.jpeg",
+  "is-everyone-an-avoidant-now": "https://substackcdn.com/image/fetch/$s_!qKmD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F74cea369-9f46-405e-955d-550d54cbc112_1280x959.jpeg",
+  "what-nysc-teaches-you-about-love": "https://substackcdn.com/image/fetch/$s_!3Tqj!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F87f94d5c-92eb-4576-b792-2db719d25e67_512x512.jpeg",
+  "you-should-be-a-gold-digger": "https://substackcdn.com/image/fetch/$s_!73Qf!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F560b93cb-c20d-4bdf-ad5f-bc34e8548e67_1000x808.jpeg",
+  "tales-of-an-underperforming-multipotentialite": "https://substackcdn.com/image/fetch/$s_!fZWZ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F99424eaa-efc3-4df8-b89c-82d471b6e5ec_1200x1515.jpeg",
+  "they-always-lie-about-banana-breads": "https://substackcdn.com/image/fetch/$s_!N-iP!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F04d3db01-cfd6-4052-b931-77c2dcf74310_303x454.webp",
+  "why-hyper-why-a-consumer": "https://substackcdn.com/image/fetch/$s_!Uj1O!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe7f7286f-3484-4a7f-b551-6d72d7e38f75_900x812.png",
+  "being-a-nigerian": "https://substackcdn.com/image/fetch/$s_!IeM0!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd2ba0d20-2657-4467-bd7f-fccb9e425674_1080x1350.jpeg",
+  "grief-is-forgetting": "https://substackcdn.com/image/fetch/$s_!9hQj!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc9bd7e0e-9813-4432-8125-1e613cf7583a_1920x2560.jpeg",
+};
+
+const RAW_WRITINGS = [
   {
     slug: "adidas-anthony-edwards-sports-marketing",
     legacySlugs: ["the-neighbourhood-and-the-superstar"],
@@ -27,7 +51,7 @@ export const WRITINGS = [
     date: "Aug 2026",
     publishedAt: "2026-08-26",
     updatedAt: "2026-08-26",
-    category: "ARTICLE_LAB",
+    category: "ESSAY",
     status: "SEEKING_HOME",
     format: "Long-form sports culture essay",
     readingTime: "30 min",
@@ -35,7 +59,6 @@ export const WRITINGS = [
     connections: ["Video essays", "Brand memory", "Athlete mythology", "Community and sport"],
     url: "/writing/adidas-anthony-edwards-sports-marketing",
     ctaLabel: "Read article",
-    startHere: true,
     featured: true,
     featuredReason: "A pitch-ready essay on Adidas, athlete mythology and how greatness is given somewhere to come from.",
     bodyPath: "/writing/adidas-anthony-edwards-sports-marketing.md",
@@ -137,7 +160,6 @@ export const WRITINGS = [
     tags: ["Decision models", "Marketing strategy", "State transitions"],
     url: "https://selar.com/markov-market",
     ctaLabel: "View book",
-    startHere: true,
     featured: true,
     featuredReason: "Best starting point for research-led strategy work.",
   },
@@ -244,7 +266,6 @@ export const WRITINGS = [
     tags: ["NYSC", "Waiting", "Milestones"],
     url: "https://thermopresh.substack.com/p/bobo-you-finally-finished-nysc",
     ctaLabel: "Read essay",
-    startHere: true,
     featured: true,
     featuredReason: "Best personal essay for voice, tenderness and cultural range.",
   },
@@ -439,6 +460,11 @@ export const WRITINGS = [
     ctaLabel: "Read note",
   },
 ];
+
+export const WRITINGS = RAW_WRITINGS.map((item) => ({
+  backdropImage: WRITING_BACKDROPS_BY_SLUG[item.slug] || item.image,
+  ...item,
+}));
 
 export const getWritingBySlug = (slug) =>
   WRITINGS.find((item) => item.slug === slug || item.legacySlugs?.includes(slug));

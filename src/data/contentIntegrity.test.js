@@ -22,6 +22,12 @@ describe("portfolio content integrity", () => {
     });
   });
 
+  test("every local writing backdrop image exists in public assets", () => {
+    WRITINGS.filter((item) => item.backdropImage?.startsWith("/")).forEach((item) => {
+      expect(fs.existsSync(path.join(process.cwd(), "public", item.backdropImage.slice(1)))).toBe(true);
+    });
+  });
+
   test("sitemap includes every owned writing article route", () => {
     const sitemap = fs.readFileSync(path.join(process.cwd(), "public", "sitemap.xml"), "utf8");
 
