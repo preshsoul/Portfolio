@@ -1,4 +1,4 @@
-I had seen the peach room long before I understood why I kept thinking about it. It was
+I had seen the peach room long before I understood why I kept thinking about it.
 
 Anthony Edwards is sitting alone in Adidas's _No Lie_ campaign, a lie detector somewhere beside him, answering questions which seem designed to give him opportunities to behave like a professional athlete being interviewed by a large company. Is this player better than you? What about that one? Are the AE 1s the best shoes in basketball? There is a familiar route available to him through every question. Praise the competition. Laugh. Say everybody is talented. Mention the work still to be done.
 
