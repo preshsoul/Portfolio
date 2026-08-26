@@ -1,5 +1,8 @@
 const React = require("react");
 
+let mockParams = {};
+let mockLocation = { pathname: "/", search: "", hash: "", key: "test" };
+
 function Router({ children }) {
   return React.createElement(React.Fragment, null, children);
 }
@@ -24,15 +27,25 @@ function Link({ children, to, ...props }) {
 }
 
 function useParams() {
-  return {};
+  return mockParams;
 }
 
 function useLocation() {
-  return { pathname: "/", search: "", hash: "", key: "test" };
+  return mockLocation;
+}
+
+function __setMockParams(params) {
+  mockParams = params;
+}
+
+function __setMockLocation(location) {
+  mockLocation = { ...mockLocation, ...location };
 }
 
 module.exports = {
   BrowserRouter: Router,
+  __setMockLocation,
+  __setMockParams,
   Link,
   MemoryRouter: Router,
   NavLink,

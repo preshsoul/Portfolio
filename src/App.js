@@ -12,6 +12,7 @@ import AboutPage from "./pages/AboutPage";
 import ConnectPage from "./pages/ConnectPage";
 import ProductsPage from "./pages/ProductsPage";
 import CaseStudyPage from "./pages/CaseStudyPage";
+import WritingArticlePage from "./pages/WritingArticlePage";
 
 export default function App() {
   return (
@@ -41,6 +42,7 @@ function PageRoutes() {
         <Route path="/work/:slug" element={<CaseStudyPage />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/writing" element={<WritingPage />} />
+        <Route path="/writing/:slug" element={<WritingArticlePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/connect" element={<ConnectPage />} />

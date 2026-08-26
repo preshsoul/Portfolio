@@ -7,6 +7,29 @@ import { WRITINGS } from "./writings";
 const caseStudySlugs = new Set(CASE_STUDIES.map((study) => study.slug));
 
 describe("portfolio content integrity", () => {
+  test("every owned writing link resolves to a writing article body", () => {
+    const writingRoutes = new Set(WRITINGS.filter((item) => item.body).map((item) => `/writing/${item.slug}`));
+    WRITINGS.filter((item) => item.bodyPath).forEach((item) => writingRoutes.add(`/writing/${item.slug}`));
+
+    WRITINGS.filter((item) => item.url?.startsWith("/writing/")).forEach((item) => {
+      expect(writingRoutes).toContain(item.url);
+    });
+  });
+
+  test("every writing bodyPath file exists in public assets", () => {
+    WRITINGS.filter((item) => item.bodyPath).forEach((item) => {
+      expect(fs.existsSync(path.join(process.cwd(), "public", item.bodyPath.slice(1)))).toBe(true);
+    });
+  });
+
+  test("sitemap includes every owned writing article route", () => {
+    const sitemap = fs.readFileSync(path.join(process.cwd(), "public", "sitemap.xml"), "utf8");
+
+    WRITINGS.filter((item) => item.url?.startsWith("/writing/")).forEach((item) => {
+      expect(sitemap).toContain(`https://thermopresh.vercel.app${item.url}`);
+    });
+  });
+
   test("every internal writing link resolves to a case study", () => {
     WRITINGS.filter((item) => item.url?.startsWith("/work/")).forEach((item) => {
       expect(caseStudySlugs).toContain(item.url.replace("/work/", ""));
