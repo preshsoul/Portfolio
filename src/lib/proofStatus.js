@@ -18,6 +18,14 @@ export const PROOF_STATUS = {
     color: "#F7F0E5",
     bg: "#123042",
   },
+  DESIGN_STAGE: {
+    key: "DESIGN_STAGE",
+    label: "Design-Stage Work",
+    short: "Design-Stage Work",
+    description: "Completed strategy or creative system without verified market-performance data attached.",
+    color: "#242321",
+    bg: "#E8DFD0",
+  },
   LIVE: {
     key: "LIVE",
     label: "Live Implementation",

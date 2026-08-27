@@ -53,4 +53,12 @@ describe("portfolio content integrity", () => {
       expect(fs.existsSync(path.join(process.cwd(), "public", study.image.slice(1)))).toBe(true);
     });
   });
+
+  test("every local case-study gallery image exists in the public assets", () => {
+    CASE_STUDIES.flatMap((study) => study.gallery || [])
+      .filter((image) => image.src?.startsWith("/"))
+      .forEach((image) => {
+        expect(fs.existsSync(path.join(process.cwd(), "public", image.src.slice(1)))).toBe(true);
+      });
+  });
 });

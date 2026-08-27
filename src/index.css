@@ -173,6 +173,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .case-study-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: var(--petrol); }
 .case-study-gallery figure { margin: 0; background: var(--concrete); }
 .case-study-gallery img { display: block; width: 100%; aspect-ratio: 1.4; object-fit: cover; }
+.case-study-gallery--poster img { aspect-ratio: 4 / 5; }
 .case-study-gallery figcaption { padding: 14px 16px 17px; color: var(--petrol); font-family: 'Azeret Mono', monospace; font-size: 10px; line-height: 1.55; letter-spacing: .04em; text-transform: uppercase; }
 .route-page--products .route-page-heading { color: var(--paper); }
 .route-page--products .route-page-heading > p { color: var(--yellow); }

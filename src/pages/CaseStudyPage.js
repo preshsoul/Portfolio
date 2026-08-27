@@ -98,7 +98,10 @@ export default function CaseStudyPage() {
 
             {study.gallery && (
               <ScrollReveal delay={study.sections ? 240 : 120}>
-                <section aria-label={`${study.title} campaign stills`} className="case-study-gallery">
+                <section
+                  aria-label={`${study.title} visual evidence`}
+                  className={`case-study-gallery ${study.galleryLayout ? `case-study-gallery--${study.galleryLayout}` : ""}`}
+                >
                   {study.gallery.map((image) => (
                     <figure key={image.src}>
                       <img src={image.src} alt={image.alt} loading="lazy" />

@@ -1,51 +1,164 @@
 export const CASE_STUDIES = [
   {
     slug: "piggyvest-decision-model",
-    title: "How a savings report covering 26,000+ respondents became a decision model",
+    title: "From 26,000+ savings responses to a decision model",
     shortTitle: "PiggyVest decision model",
     context: "Independent PiggyVest analysis",
     role: "Research and strategy",
     year: "2025",
     proof: "INTELLECTUAL",
-    status: "Completed independent work",
-    summary: "I analysed PiggyVest's published 2025 Savings Report, which covered more than 26,000 respondents, to explore how financial belief, capability and constraint could be represented as states rather than compressed into a conventional funnel.",
-    situation: "The report contained useful evidence about saving, debt, income stability, emergency funds, family obligations and financial outlook. The question was what could be represented as movement between conditions, and what evidence would be needed before transition probabilities could be estimated rather than assumed.",
-    workDone: ["Defined five behavioural states around financial belief and capability.", "Built a state-transition framework for reasoning about movement between those conditions.", "Identified constraint archetypes that could inhibit or accelerate movement.", "Developed intervention and campaign hypotheses around high-value transitions.", "Built simulation logic and an experimental structure for testing assumptions."],
-    deliverables: ["Five-state decision model", "Constraint archetypes", "Intervention map", "Campaign architecture", "Simulation logic", "Experimental design", "Longitudinal validation requirements"],
-    evidence: "Independent analysis of publicly available PiggyVest research. It was not commissioned or adopted by PiggyVest. The cross-sectional source can support a decision model, not observed individual transitions or causal effects.",
-    whatChanged: "A large public research asset became a structured decision system while keeping the difference between interpretation, hypothesis and empirical proof visible.",
+    status: "Completed analytical system",
+    image: "/images/piggyvest-decision-model/where-users-begin.jpeg",
+    imageAlt: "Chart from the PiggyVest decision model showing where users begin",
+    summary: "I wanted to understand saving as a changing condition rather than a clean funnel from awareness to conversion.",
+    situation:
+      "PiggyVest's Savings Reports contain a large body of evidence about how Nigerians save, stop saving, recover and respond to financial pressure. The obvious temptation was to turn those responses directly into predictions. The data could support something more useful, but only if its limits were respected.",
+    workDone: [
+      "Reorganised recurring behaviours into five working financial states.",
+      "Built a decision architecture around movement, persistence and relapse.",
+      "Connected financial constraints, trust, language, timing and product behaviour.",
+      "Separated observed evidence from assumptions that would require longitudinal data.",
+      "Translated the model into a financial-resilience pilot brief with 30/60/90-day measurement.",
+    ],
+    deliverables: [
+      "Markov-behavioural framework",
+      "Methodological defence brief",
+      "Five-state model",
+      "Intervention architecture",
+      "Experimental design",
+      "Financial-resilience pilot brief",
+    ],
+    evidence:
+      "The analytical system is complete and inspectable. The underlying report data covers 26,000+ respondents, but the model does not claim that cross-sectional survey data proves individual transition probabilities. Any transition estimates remain hypotheses until validated with repeated or behavioural data.",
+    whatChanged:
+      "A large public research asset became a structured decision system while keeping the difference between observed evidence, modelled inference and empirical proof visible.",
     tags: ["Financial behaviour", "Decision model", "Research synthesis", "State transitions"],
+    gallery: [
+      {
+        src: "/images/piggyvest-decision-model/where-users-begin.jpeg",
+        alt: "PiggyVest model chart showing initial user-state distribution",
+        caption: "Where users begin: an evidence-backed starting distribution, not a claim about individual movement.",
+      },
+      {
+        src: "/images/piggyvest-decision-model/state-movement.jpeg",
+        alt: "PiggyVest model chart showing state movement assumptions",
+        caption: "State movement is handled as an explicit hypothesis layer until longitudinal evidence exists.",
+      },
+      {
+        src: "/images/piggyvest-decision-model/vulnerability-radar.jpeg",
+        alt: "PiggyVest model radar chart showing vulnerability by state",
+        caption: "Vulnerability radar: which states are most exposed when pressure arrives.",
+      },
+      {
+        src: "/images/piggyvest-decision-model/intervention-simulation.jpeg",
+        alt: "PiggyVest model chart showing an intervention simulation",
+        caption: "A pilot frame converts the model into diagnosis, intervention and 30/60/90-day evaluation.",
+      },
+    ],
+    sections: [
+      {
+        title: "Evidence discipline",
+        body:
+          "The strongest part of the system is the boundary it keeps. Transition probabilities are labelled as observed, inferred, modelled or illustrative rather than quietly turning assumptions into facts.",
+      },
+      {
+        title: "Pilot shape",
+        body:
+          "The derived resilience brief turns the research into a practical pilot: diagnose the user's state, choose a bounded intervention and evaluate movement across 30, 60 and 90 days.",
+      },
+    ],
   },
   {
     slug: "all-at-once",
-    title: "All At Once: turning one balance into a view of several approaching financial futures",
+    title: "All At Once: one balance, many futures",
     shortTitle: "All At Once",
     context: "Independent PiggyVest campaign strategy",
     role: "Research, campaign strategy and creative systems",
     year: "2026",
-    proof: "INTELLECTUAL",
-    status: "Completed independent strategy and campaign development",
+    proof: "DESIGN_STAGE",
+    status: "Design-stage campaign architecture",
     kind: "campaign",
+    galleryLayout: "poster",
     image: "/images/all-at-once/hero.webp",
-    imageAlt: "All At Once campaign key visual",
+    imageAlt: "All At Once campaign key visual showing a salary alert surrounded by competing demands",
     coreLine: "One balance. Many futures.",
-    summary: "An independent campaign and product-utility concept built around the timing mismatch between incoming money and several approaching financial demands. One person, one visible balance and several near-future realities share the same frame before the first spending decision.",
-    situation: "A balance can look fully available in the present while already carrying several future claims: rent, school costs, family support, business restocking, healthcare, travel, repairs or a personal goal. The first claim can shape the month before the others are considered together.",
-    workDone: ["Built the problem definition from PiggyVest's public savings research and wider financial-timing research.", "Developed the behavioural hypothesis, creative law and public planning utility.", "Designed product-neutral choice architecture and campaign-specific measurement requirements.", "Developed the hero film, paid social, creator, contextual OOH, WhatsApp, editorial, product-surface and activation roles."],
-    deliverables: ["Campaign strategy", "Creative system", "Month Map utility", "Product-neutral choice architecture", "Channel system", "Measurement framework", "Campaign stills"],
-    evidence: "Completed independent strategic and campaign work. It was not commissioned, adopted or launched by PiggyVest. The public research supports the problem definition and campaign hypothesis, not a claim of improved financial outcomes.",
-    whatChanged: "AAO joins research, behavioural reasoning, creative direction, product utility and measurement without forcing them into one indistinguishable idea.",
+    summary:
+      "A financial decision rarely belongs to one version of a person's life. Rent, family, education, health and ambition can all be waiting for the same money.",
+    situation:
+      "The challenge was to translate the savings-state research into something emotionally immediate without reducing financial pressure to another generic save-more campaign.",
+    workDone: [
+      "Built the campaign around one person, one amount and several approaching financial worlds.",
+      "Separated expenses from checklist logic and placed them inside one continuous visual scene.",
+      "Defined three communication jobs: earn attention, expose the competing decision and provide a route into planning.",
+      "Separated the creative, behavioural and product layers so each part had a different job.",
+    ],
+    deliverables: [
+      "14-slide campaign system",
+      "Positioning and copy architecture",
+      "Visual direction",
+      "Behavioural logic",
+      "Product connection",
+      "Visual execution notes",
+      "Completed campaign stills",
+    ],
+    evidence:
+      "The strategic and creative system is complete enough to inspect from research through design. Campaign reach, conversion and product effects are not presented because no verified performance dataset is currently attached to the project.",
+    whatChanged:
+      "The campaign reframes salary arrival as a collision between present balance and future claims, then gives the user a planning route before the first claim consumes the month.",
     tags: ["Campaign strategy", "Financial behaviour", "Creative systems", "Product utility"],
     gallery: [
-      { src: "/images/all-at-once/arrival.webp", alt: "All At Once campaign still: the money has arrived", caption: "The money has arrived." },
-      { src: "/images/all-at-once/futures.webp", alt: "All At Once campaign still: more than one life inside an alert", caption: "There is more than one life inside an alert." },
-      { src: "/images/all-at-once/first-ask.webp", alt: "All At Once campaign still: the first thing that asks can decide the rest", caption: "The first thing that asks can decide the rest." },
-      { src: "/images/all-at-once/month-map.webp", alt: "All At Once campaign still: Month Map utility", caption: "Make the collision visible before the month arrives." },
+      {
+        src: "/images/all-at-once/meet-the-month.webp",
+        alt: "All At Once campaign title still reading meet the month before it meets you",
+        caption: "Meet the month before it meets you.",
+      },
+      {
+        src: "/images/all-at-once/arrival.webp",
+        alt: "All At Once campaign still showing a bank alert",
+        caption: "The money has arrived.",
+      },
+      {
+        src: "/images/all-at-once/futures.webp",
+        alt: "All At Once campaign still showing several versions of one person's financial life",
+        caption: "There is more than one life inside an alert.",
+      },
+      {
+        src: "/images/all-at-once/month-pressure.webp",
+        alt: "All At Once campaign still showing a salary alert and approaching obligations",
+        caption: "So has the month.",
+      },
+      {
+        src: "/images/all-at-once/resumption-list.webp",
+        alt: "All At Once campaign still listing rent, stock and school costs",
+        caption: "The plan you made for yourself arrives one request at a time.",
+      },
+      {
+        src: "/images/all-at-once/first-ask.webp",
+        alt: "All At Once campaign still showing a payment decision on a phone",
+        caption: "The first thing that asks can decide the rest.",
+      },
+      {
+        src: "/images/all-at-once/month-map.webp",
+        alt: "All At Once campaign still showing a Month Map decision",
+        caption: "The better question is what the money needs to carry.",
+      },
     ],
     sections: [
-      { title: "Creative system", body: "Every core execution follows one rule: one person, one amount and three worlds. The person stays constant; the worlds are legitimate approaching financial realities; the amount is the contested resource. The public line stays simple: see them all at once." },
-      { title: "The utility", body: "A Month Map asks what is coming, when it is coming and what money is expected before then. It makes trade-offs visible: protect part of the money, reduce a planned cost, move a flexible date, split a payment, add a contributor, keep a liquid floor or revise an assumption." },
-      { title: "Measurement", body: "The strategy separates attention, preparation, choice, product outcomes and welfare. It proposes pilot testing and a control or matched baseline before claims about impact or scale are made. A revised plan is adaptation, not failure." },
+      {
+        title: "Creative system",
+        body:
+          "Every core execution follows one rule: one person, one amount and several worlds. The person stays constant; the worlds are legitimate approaching financial realities; the amount is the contested resource.",
+      },
+      {
+        title: "The utility",
+        body:
+          "A Month Map asks what is coming, when it is coming and what money is expected before then. It makes trade-offs visible before the first decision narrows the rest of the month.",
+      },
+      {
+        title: "Measurement",
+        body:
+          "The strategy separates attention, preparation, choice, product outcomes and welfare. It proposes pilot testing and a control or matched baseline before claims about impact or scale are made.",
+      },
     ],
   },
   {
@@ -54,50 +167,165 @@ export const CASE_STUDIES = [
     shortTitle: "Limpiar grant strategy",
     context: "Limpiar",
     role: "Grant Writer",
-    year: "February–April 2024",
+    year: "February-April 2024",
     proof: "MEASURED",
     status: "Completed and measured",
-    summary: "Researched, developed and managed 13 tailored grant proposals within a five-week production cycle, contributing to more than $30,000 in approved funding.",
-    situation: "The challenge was volume without genericity. Each opportunity required its own eligibility review, funder fit, evidence, narrative and submission requirements while several deadlines were moving at once.",
-    workDone: ["Researched and screened funding opportunities.", "Evaluated eligibility and fit before committing proposal time.", "Adapted narratives, evidence and programme framing to individual funders.", "Managed the proposal calendar, submission workflow and approval records."],
-    deliverables: ["Opportunity tracker", "13 tailored proposals", "Funder-fit research", "Narrative adaptations", "Submission calendar", "Approval evidence archive"],
-    evidence: "13 proposals completed in five weeks, contributing to more than $30,000 in approved funding. The outcome is described as a contribution through the proposal cycle, not funding secured solely by me.",
-    whatChanged: "A high-pressure proposal cycle became a managed production system with tailored narratives, deadline control and a documented outcome boundary.",
+    summary:
+      "Good grant writing is partly writing. The rest is deciding where an organisation actually has a case worth making, then surviving several deadlines at once without submitting the same story thirteen times.",
+    situation:
+      "Limpiar needed to pursue multiple funding opportunities within a compressed window. Each opportunity came with different eligibility rules, priorities, evidence requirements and deadlines.",
+    workDone: [
+      "Researched funders and screened opportunities for fit.",
+      "Adapted the organisation's narrative to each programme.",
+      "Matched capabilities to what each funder was actually trying to finance.",
+      "Managed overlapping deadlines without turning the work into generic proposal copy.",
+    ],
+    deliverables: [
+      "13 tailored proposals",
+      "Funder research",
+      "Eligibility review",
+      "Narrative adaptation",
+      "Submission tracking",
+      "Approval evidence archive",
+    ],
+    evidence:
+      "The proposal cycle contributed to more than $30,000 in funding approvals. The outcome is described as a contribution through the proposal cycle, not funding secured solely by me.",
+    whatChanged:
+      "A compressed proposal window became a selective production system with tailored funder logic, deadline control and a clear measured outcome boundary.",
     tags: ["Grant writing", "Proposal strategy", "Funding research", "Deadline production"],
+    sections: [
+      {
+        title: "Outcome boundary",
+        body:
+          "The defensible portfolio claim is specific: 13 tailored proposals in five weeks and more than $30,000 in approvals. Expected AI benefits, staged projections and evaluation ideas are not presented as measured Limpiar outcomes.",
+      },
+    ],
   },
   {
     slug: "dutum-editorial-research-system",
-    title: "Executive research, brand operations and follow-through at Dutum",
-    shortTitle: "Dutum executive operations",
+    title: "Building an executive research system around infrastructure decisions",
+    shortTitle: "Dutum research system",
     context: "Dutum Company Limited",
     role: "Executive Assistant & Brand Manager to the Managing Director",
-    year: "2026–present",
+    year: "2026-present",
     proof: "ACTIVE_PROFESSIONAL",
-    status: "Active professional work",
-    summary: "I support the Managing Director across executive research, brand and editorial work, opportunity development and the operating follow-through required to turn decisions into completed work.",
-    situation: "The role sits between information and execution: an infrastructure question, a meeting, a prospective partnership, a manuscript section, a public argument or an internal workstream. The task is to find the relevant material, clarify the next decision, organise what follows and keep it moving.",
-    workDone: ["Conduct infrastructure, project-readiness and bankability research for executive use.", "Build research-backed LinkedIn and website editorial programmes.", "Verify factual and quantitative claims before publication.", "Support executive correspondence, briefs, proposals and manuscript development.", "Track meeting actions, opportunity pipelines, stakeholder research and cross-team follow-through."],
-    deliverables: ["Executive research briefs", "Editorial calendars", "Website and LinkedIn content tracks", "Claims-verification routines", "Meeting action trackers", "Opportunity and speaking pipelines", "Proposal and manuscript support"],
-    evidence: "Active employment-context work. Public articles and posts can be linked directly; internal correspondence, commercial documents, manuscript material and executive working files remain redacted or described only as necessary.",
-    whatChanged: "The useful unit is rarely a single document. It is the movement from question to evidence, decision, owner and next action.",
+    status: "Active operating system",
+    summary:
+      "Publishing more was never the real problem. The harder problem was keeping research, executive priorities, public writing and commercial decisions attached to the same version of the truth.",
+    situation:
+      "Dutum's MD office was operating across infrastructure research, LinkedIn, website publishing, speaking opportunities, commercial propositions and internal projects. Without a common evidence system, decisions made in one stream could easily become disconnected from what another stream was publishing or pursuing.",
+    workDone: [
+      "Built a working research and editorial architecture for the MD office.",
+      "Separated verified institutional facts, live operating evidence, strategic analysis, external proposals and unresolved assumptions.",
+      "Connected public content to a larger commercial and executive decision system.",
+      "Supported the production system around the 2026 State of Infrastructure Investment in Nigeria report.",
+    ],
+    deliverables: [
+      "Living executive source of truth",
+      "Source hierarchy",
+      "Claims controls",
+      "Website and LinkedIn editorial tracks",
+      "Research briefs",
+      "Infrastructure-report production system",
+    ],
+    evidence:
+      "The system is active professional infrastructure rather than a hypothetical framework. It is designed to support MD meetings, strategic memos, editorial decisions and current business-development work while keeping proposals and unverified claims visibly separate from approved facts.",
+    whatChanged:
+      "Research, editorial production and executive follow-through became part of one evidence-controlled operating system.",
     tags: ["Executive operations", "Infrastructure research", "Brand operations", "Editorial systems"],
+    sections: [
+      {
+        title: "Source of truth",
+        body:
+          "The system separates approved masters, live operating sources, strategic analysis and external/vendor material. Weak evidence remains marked as inference, proposal or verification-required rather than becoming fact by repetition.",
+      },
+      {
+        title: "Public discipline",
+        body:
+          "The infrastructure report exposes that discipline publicly by separating source-verified evidence, analyst estimates and conditional forecasts.",
+      },
+    ],
   },
   {
     slug: "elomiran-consult-delivery",
-    title: "Research, outreach and client delivery at Elómiran Consult",
+    title: "Turning agency delivery into a system people can inspect",
     shortTitle: "Elómiran Consult delivery",
     context: "Elómiran Consult",
     role: "Manager",
-    year: "September 2023–present",
+    year: "September 2023-present",
     proof: "ACTIVE_PROFESSIONAL",
-    status: "Active professional work",
-    summary: "I work across research, strategy, outreach and delivery, supporting client accounts from understanding an opportunity, business problem or audience through to the work required to reach, serve and follow up with them.",
-    situation: "Agency work rarely arrives as one neat discipline. A website may need stronger search visibility; an outreach brief needs audience research; a content programme can expose weaknesses in positioning, structure or follow-through. My role sits across those connections rather than inside one production lane.",
-    workDone: ["Research prospects, audiences, industries and opportunities for client and business-development briefs.", "Build qualification criteria, personalised outreach angles, follow-up logic and response classification.", "Support strategy, content, search and website work across client engagements.", "Coordinate work across research, writing, design, development and other specialist delivery.", "Support filmmaker acquisition for Minflix through targeted research and individual outreach."],
-    deliverables: ["Prospect and audience research", "Qualification criteria", "Personalised outreach angles", "Follow-up systems", "Website strategy and copy support", "SEO and content programmes", "Client research", "Account coordination"],
-    evidence: "Active agency work. Client outcomes are attached only where a baseline, period, source and attribution are available. Work delivered collectively through Elómiran distinguishes my contribution from that of designers, developers and other specialists.",
-    whatChanged: "The recurring skill is moving between research, positioning, acquisition and delivery without losing the connection between them.",
+    status: "Live implementation",
+    image: "/images/elomiran-consult/foundation-case-reach.png",
+    imageAlt: "Elómiran Consult deck slide showing the foundation, case and reach",
+    summary:
+      "Agency work becomes difficult to evaluate when strategy, writing, websites, client approvals and follow-up are all happening in different places.",
+    situation:
+      "Elómiran was delivering work across websites, search, content, outreach and creative production for clients in different markets. The challenge was to make the work more consistent without pretending every engagement had the same scope or commercial objective.",
+    workDone: [
+      "Introduced operating logic around diagnosis, scope, ownership, delivery and review.",
+      "Interrogated weak positioning before rewriting it.",
+      "Recorded responsibilities and dependencies across client work.",
+      "Separated activity from evidence of an actual client result.",
+      "Supported research and individual outreach systems, including creator acquisition work for Minflix.",
+    ],
+    deliverables: [
+      "Delivery scopes",
+      "Performance tracking",
+      "Website and positioning audits",
+      "Revised copy",
+      "Client-facing presentations",
+      "Research and outreach systems",
+      "Creator acquisition support",
+    ],
+    evidence:
+      "These systems are being used in live agency delivery. Results are attached only to individual projects where there is enough evidence to establish the baseline, period and outcome; unaudited conversion claims are deliberately excluded.",
+    whatChanged:
+      "The work became easier to inspect: diagnosis, scope, setup, delivery and review could be seen as a sequence rather than scattered agency activity.",
     tags: ["Agency delivery", "Outreach systems", "Search and content", "Account coordination"],
+    gallery: [
+      {
+        src: "/images/elomiran-consult/intro.png",
+        alt: "Elómiran Consult introduction slide",
+        caption: "Digital work for businesses that have something real to offer and need the right people to see it clearly.",
+      },
+      {
+        src: "/images/elomiran-consult/problem.png",
+        alt: "Elómiran Consult slide about why good work is hard to see",
+        caption: "The problem is often explanation, discovery and follow-through.",
+      },
+      {
+        src: "/images/elomiran-consult/foundation-case-reach.png",
+        alt: "Elómiran Consult slide showing foundation, case and reach",
+        caption: "The business has to become easier to find, understand and choose.",
+      },
+      {
+        src: "/images/elomiran-consult/diagnosis.png",
+        alt: "Elómiran Consult slide about learning what work has to do",
+        caption: "Before making anything, the team learns what the work has to do.",
+      },
+      {
+        src: "/images/elomiran-consult/customer-path.png",
+        alt: "Elómiran Consult slide showing a customer path",
+        caption: "Discovery, first impression, trust and enquiry have to agree.",
+      },
+      {
+        src: "/images/elomiran-consult/markets.png",
+        alt: "Elómiran Consult slide about client work across markets",
+        caption: "The details change. The job remains: make the work make sense to the people it needs.",
+      },
+    ],
+    sections: [
+      {
+        title: "Operating workflow",
+        body:
+          "The current Elómiran material defines the workflow as Diagnose, Scope, Set up, Deliver and Review, with progress and reporting tied to an agreed scope.",
+      },
+      {
+        title: "Audit value",
+        body:
+          "The forensic audit material is useful proof because it records what works, what is weak and whether to keep, change or remove an element.",
+      },
+    ],
   },
   {
     slug: "shape-of-choice",
@@ -110,31 +338,89 @@ export const CASE_STUDIES = [
     status: "Published intellectual work",
     image: "/tsoc-cover.jpeg",
     imageAlt: "The Shape of Choice book cover",
-    summary: "A 96-page, ten-chapter book examining constrained choice, state transitions, topology, fixed points, information capacity and organisational decision-making.",
-    situation: "The project began from a central question: how do constraints shape what people and organisations can choose, notice and sustain?",
-    workDone: ["Developed the research architecture across ten chapters.", "Synthesised ideas from constrained choice, Markov processes, topology, fixed points and information capacity.", "Typeset the book independently in LaTeX.", "Published the finished work through Selar."],
-    deliverables: ["96-page book", "Ten-chapter research architecture", "LaTeX typesetting", "Diagrams and conceptual models"],
-    evidence: "Published intellectual work available on Selar.",
+    summary:
+      "Much marketing assumes that changing behaviour means changing what someone wants. I became more interested in a different question: what if the preference stays largely stable and the available decision space changes instead?",
+    situation:
+      "Consumers rarely choose from every option objectively available to them. They choose from the smaller set they notice, understand, trust or believe is feasible. Some constraints are real. Others persist only because the person believes they are real.",
+    workDone: [
+      "Developed a formal framework around feasible sets, perceived sets and phantom constraints.",
+      "Followed the idea into attention, representation, transition systems and organisational decision-making.",
+      "Built practical methods including representation audits and transition-matrix diagnostics.",
+      "Authored, typeset and published the finished applied-analysis book.",
+    ],
+    deliverables: [
+      "Published applied-analysis book",
+      "Formal models",
+      "Case analysis",
+      "Decision diagrams",
+      "Representation audits",
+      "Transition-matrix diagnostics",
+    ],
+    evidence:
+      "The work exists as a completed published intellectual product rather than a proposed framework. Its arguments, assumptions and methods can be inspected directly rather than inferred from a summary slide.",
     url: "https://selar.com/b34jr22286",
-    whatChanged: "A broad set of mathematical and philosophical ideas became a readable applied framework for decision spaces.",
+    whatChanged:
+      "A broad question about constraint became a usable framework for auditing how decision spaces are shaped, narrowed and redesigned.",
     tags: ["Applied analysis", "Choice architecture", "Published book", "Decision theory"],
+    sections: [
+      {
+        title: "Core distinction",
+        body:
+          "The book formalises the difference between the objectively feasible set and the smaller set a person actually perceives as available, including phantom constraints that can govern behaviour without an objective counterpart.",
+      },
+      {
+        title: "Operational method",
+        body:
+          "Later sections turn the theory into a process for extracting transitions, assembling a matrix, identifying critical nodes and auditing downstream effects after intervention.",
+      },
+    ],
   },
   {
     slug: "cowrywise-editorial-audit",
-    title: "Reading three years of Cowrywise's public editorial output through a behavioural lens",
+    title: "Auditing what a fintech's public evidence can actually support",
     shortTitle: "Cowrywise audit",
     context: "Independent Cowrywise analysis",
     role: "Editorial and behavioural research",
     year: "2025",
     proof: "INTELLECTUAL",
-    status: "Completed independent analysis",
-    summary: "Independently reviewed three years of Cowrywise's public editorial material and classified it by topic, audience, product relationship and apparent behavioural function.",
-    situation: "The aim was to understand patterns visible in what Cowrywise repeatedly published: what users were being taught, where products appeared, which audience problems received sustained attention and where useful gaps remained. The work does not claim access to Cowrywise's internal strategy.",
-    workDone: ["Reviewed three years of publicly available editorial material.", "Classified pieces by topic, audience, product relationship and behavioural function.", "Mapped recurring themes and underdeveloped areas.", "Examined how education, reassurance and product familiarity appeared across the archive.", "Developed campaign and content hypotheses from the findings."],
-    deliverables: ["Content classification framework", "Editorial map", "Behavioural-function analysis", "Gap analysis", "Campaign hypotheses"],
-    evidence: "Independent analysis of public material. It describes observable editorial patterns and their apparent behavioural functions; it does not claim internal-management intent or causal product data.",
-    whatChanged: "A public content archive became a behavioural map of repeated themes, product relationships and underdeveloped areas.",
+    status: "Completed audit",
+    summary:
+      "Cowrywise has years of public writing, products, experiments and research. The interesting question was not whether there was enough material. There was too much. The question was which claims survived contact with their own evidence.",
+    situation:
+      "Marketing archives often get treated as a content library. Cowrywise's public record was richer: it contained evidence about how the organisation represented financial decisions, designed products, ran growth experiments and interpreted Nigerian money behaviour. But those different forms of evidence could not responsibly be treated as equivalent.",
+    workDone: [
+      "Froze the public archive and separated evidence by type and strength.",
+      "Audited published research and operating cases.",
+      "Traced the relationship between interpretation, behaviour and commercial value.",
+      "Moved from diagnosis into a bounded first application: the Irregular Income Window.",
+      "Developed three testable intervention specifications from the audit.",
+    ],
+    deliverables: [
+      "40-page public-evidence report",
+      "731-post public archive census",
+      "73-post close-reading corpus",
+      "Evidence and claims registers",
+      "Seven-state decision model",
+      "Supporting workbook",
+      "Three testable intervention specifications",
+    ],
+    evidence:
+      "The audit produces a complete, inspectable recommendation system without pretending public evidence can reveal private customer economics. Archive scale and close reading cannot establish who acted after exposure without customer data.",
+    whatChanged:
+      "A public content archive became an evidence-controlled recommendation system with a concrete first pilot area and a standard for stopping or redesigning what fails.",
     tags: ["Fintech", "Editorial audit", "Behavioural strategy", "Content classification"],
+    sections: [
+      {
+        title: "Evidence control",
+        body:
+          "The report documents the 731-post archive census, 73-post close-reading corpus and explicit system for separating source, evidence strength, permitted inference and commercial relevance.",
+      },
+      {
+        title: "Decision",
+        body:
+          "The resulting recommendation is concrete: build the shared evidence layer, pilot the Irregular Income Window, publish what happens and strengthen only interventions that improve a defined transition without unacceptable welfare or operating costs.",
+      },
+    ],
   },
 ];
 

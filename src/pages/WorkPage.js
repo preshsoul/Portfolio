@@ -8,6 +8,7 @@ import { PROOF_STATUS_LIST } from "../lib/proofStatus";
 const FILTERS = {
   All: "All work",
   MEASURED: "Measured",
+  DESIGN_STAGE: "Design-stage",
   INTELLECTUAL: "Published",
   ACTIVE_PROFESSIONAL: "Professional",
   LIVE: "Live",
