@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight, BookOpenText, Boxes, BriefcaseBusiness, LibraryBig, PenLine } from "lucide-react";
 import CaseStudyCard from "../components/CaseStudyCard";
 import EngagementGrid from "../components/EngagementGrid";
 import Label from "../components/Label";
@@ -17,10 +18,10 @@ const featuredStudies = CASE_STUDIES.filter((study) =>
 );
 
 const ROUTES = [
-  ["01", "Work", "/work"],
-  ["02", "Research", "/research"],
-  ["03", "Writing", "/writing"],
-  ["04", "Products", "/products"],
+  ["01", "Work", "/work", BriefcaseBusiness],
+  ["02", "Research", "/research", LibraryBig],
+  ["03", "Writing", "/writing", PenLine],
+  ["04", "Products", "/products", Boxes],
 ];
 
 export default function HomePage() {
@@ -39,9 +40,12 @@ export default function HomePage() {
           <div className="opening-bottom">
             <p>{POSITIONING.heroSubheading}</p>
             <div className="route-list" aria-label="Explore the portfolio">
-              {ROUTES.map(([number, label, to]) => (
+              {ROUTES.map(([number, label, to, Icon]) => (
                 <Link key={to} to={to}>
-                  <span>{number}</span>{label}<b aria-hidden="true">↗</b>
+                  <span>{number}</span>
+                  <span className="route-list-icon" aria-hidden="true"><Icon size={18} strokeWidth={1.8} /></span>
+                  <strong>{label}</strong>
+                  <b className="route-list-arrow" aria-hidden="true"><ArrowUpRight size={20} strokeWidth={1.8} /></b>
                 </Link>
               ))}
             </div>
@@ -85,7 +89,7 @@ export default function HomePage() {
             </ScrollReveal>
           ))}
         </div>
-        <Link className="route-link route-link--light" to="/work">All selected work <span>↗</span></Link>
+        <Link className="route-link route-link--light" to="/work">All selected work <span aria-hidden="true"><BookOpenText size={16} strokeWidth={1.8} /></span></Link>
       </section>
 
       <section className="home-artifacts page-band page-band--green">

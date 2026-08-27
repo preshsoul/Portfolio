@@ -13,6 +13,13 @@ const FILTERS = {
   LIVE: "Live",
 };
 
+const CASE_STUDY_FRAMEWORK = [
+  ["01", "Situation", "The pressure, constraint or audience reality the work had to answer."],
+  ["02", "Move", "The strategic choice that turned loose material into a usable system."],
+  ["03", "Artifact", "The proposal, campaign, editorial structure or operating tool that made it legible."],
+  ["04", "Proof", "A clear boundary between measured result, live work, professional output and analysis."],
+];
+
 export default function WorkPage() {
   const [filter, setFilter] = useState("All");
   const studies = filter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((study) => study.proof === filter);
@@ -25,6 +32,17 @@ export default function WorkPage() {
           <h1>See the move,<br />not just the result.</h1>
           <span>Research systems, proposals, editorial operations and independent analysis—with the proof boundary always visible.</span>
         </header>
+      </ScrollReveal>
+      <ScrollReveal delay={35}>
+        <div className="work-method-strip" aria-label="How to read these case studies">
+          {CASE_STUDY_FRAMEWORK.map(([number, title, body]) => (
+            <article key={title}>
+              <span>{number}</span>
+              <h2>{title}</h2>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
       </ScrollReveal>
       <ScrollReveal delay={50}>
         <div className="route-filter" aria-label="Filter work">
