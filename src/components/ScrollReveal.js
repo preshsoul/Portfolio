@@ -7,17 +7,31 @@ export default function ScrollReveal({ children, delay = 0 }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    let revealTimer;
+    const reveal = () => setVisible(true);
+
+    if (typeof IntersectionObserver === "undefined") {
+      reveal();
+      return undefined;
+    }
+
+    const fallbackTimer = window.setTimeout(reveal, Math.max(1200, delay + 800));
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay);
+          window.clearTimeout(fallbackTimer);
+          revealTimer = window.setTimeout(reveal, delay);
           obs.unobserve(el);
         }
       },
       { threshold: 0.1 }
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(revealTimer);
+      obs.disconnect();
+    };
   }, [delay]);
 
   return (

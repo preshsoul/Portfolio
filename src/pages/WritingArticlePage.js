@@ -124,15 +124,13 @@ export default function WritingArticlePage() {
       ))}
 
       <div className="writing-article-layout">
-        <ScrollReveal delay={80}>
-          {articleBody ? (
-            <MarkdownArticle source={articleContent} visuals={article.visuals} />
-          ) : (
-            <div className="article-body">
-              <p>{bodyError ? "This article could not be loaded." : "Loading article..."}</p>
-            </div>
-          )}
-        </ScrollReveal>
+        {articleBody ? (
+          <MarkdownArticle source={articleContent} visuals={article.visuals} />
+        ) : (
+          <div className="article-body">
+            <p>{bodyError ? "This article could not be loaded." : "Loading article..."}</p>
+          </div>
+        )}
 
         <aside className="writing-article-aside">
           <ScrollReveal delay={120}>
