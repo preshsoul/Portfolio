@@ -32,7 +32,7 @@ export const PROOF_STATUS = {
     short: "Live Implementation",
     description: "Active work with results pending or accumulating.",
     color: "#242321",
-    bg: "#4E8776",
+    bg: "#A9C3B7",
   },
   ACTIVE_PROFESSIONAL: {
     key: "ACTIVE_PROFESSIONAL",
@@ -40,7 +40,7 @@ export const PROOF_STATUS = {
     short: "Active Professional Work",
     description: "Ongoing employment-context responsibilities.",
     color: "#242321",
-    bg: "#4E8776",
+    bg: "#A9C3B7",
   },
   REPORTED: {
     key: "REPORTED",

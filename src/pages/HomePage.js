@@ -1,134 +1,137 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, BookOpenText, Boxes, BriefcaseBusiness, LibraryBig, PenLine } from "lucide-react";
-import CaseStudyCard from "../components/CaseStudyCard";
-import EngagementGrid from "../components/EngagementGrid";
-import Label from "../components/Label";
-import MethodTimeline from "../components/MethodTimeline";
-import MetricStrip from "../components/MetricStrip";
-import ProofPanel from "../components/ProofPanel";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import GatheringSituation from "../components/GatheringSituation";
+import HeroMaterialField from "../components/HeroMaterialField";
+import QuickAnswers from "../components/QuickAnswers";
 import ScrollReveal from "../components/ScrollReveal";
+import ThinkingField from "../components/ThinkingField";
 import { CASE_STUDIES } from "../data/caseStudies";
-import { PROOF_ARTIFACTS } from "../data/proofArtifacts";
-import { METHOD_STEPS, POSITIONING, PROOF_METRICS, SELECTED_ENGAGEMENTS } from "../data/siteContent";
 
-const featuredStudies = CASE_STUDIES.filter((study) =>
-  ["piggyvest-decision-model", "all-at-once", "limpiar-grant-proposals", "dutum-editorial-research-system", "elomiran-consult-delivery"].includes(
-    study.slug
-  )
-);
+const getStudy = (slug) => CASE_STUDIES.find((study) => study.slug === slug);
 
-const ROUTES = [
-  ["01", "Work", "/work", BriefcaseBusiness],
-  ["02", "Research", "/research", LibraryBig],
-  ["03", "Writing", "/writing", PenLine],
-  ["04", "Products", "/products", Boxes],
+const selectedSituations = [
+  {
+    study: getStudy("limpiar-grant-proposals"), title: "Limpiar",
+    headline: "Thirteen tailored grant proposals in five weeks.",
+    body: "Different funders needed different arguments. The work was to protect specificity under deadline pressure rather than submit the same organisational story thirteen times.",
+    artifact: "Funder research, fit decisions and proposal criteria; $30,000+ in approvals contributed to.",
+    fragments: ["13 proposals", "5 weeks", "funder research", "fit", "criteria", "$30,000+ approvals contributed to"],
+  },
+  {
+    study: getStudy("all-at-once"), title: "All At Once",
+    headline: "One balance. Many futures.",
+    body: "A salary balance can already belong to rent, family, education, health, pleasure and an unfinished future. The campaign system makes that collision visible, then creates a route into planning.",
+    artifact: "Behavioural research, positioning, copy and a fourteen-slide design-stage campaign system.",
+    fragments: ["salary", "rent", "family", "education", "health", "future"],
+    image: "/images/all-at-once/hero.webp",
+    imageAlt: "All At Once campaign visual showing a salary balance surrounded by competing demands",
+  },
+  {
+    study: getStudy("elomiran-consult-delivery"), title: "Elómiran Consult",
+    headline: "Make the work inspectable from diagnosis to delivery.",
+    body: "Different objectives, owners and definitions of success needed one visible operating sequence that could hold strategy, writing and client work together.",
+    artifact: "A live sequence across website, search, copy, outreach, approval and delivery.",
+    fragments: ["website", "search", "copy", "outreach", "client", "approval", "delivery"],
+    image: "/images/elomiran-consult/foundation-case-reach.png",
+    imageAlt: "Elómiran Consult working deck showing foundation, case and reach",
+  },
+];
+
+const evidence = [
+  ["13", "Tailored grant proposals", "MEASURED"],
+  ["$30,000+", "Funding approvals contributed to", "MEASURED"],
+  ["26,000+", "Savings responses analysed", "INDEPENDENT RESEARCH"],
+  ["731 / 73", "Cowrywise posts mapped / closely read", "INDEPENDENT RESEARCH"],
+  ["2", "Independently published books", "PUBLISHED"],
+];
+
+const usefulFor = [
+  ["Writing & Editorial", ["editorial development", "thought leadership", "long-form writing", "messaging", "complex material that needs a clearer form"]],
+  ["Research & Strategy", ["strategic briefs", "market / stakeholder research", "opportunity mapping", "evidence review", "campaign / product reasoning"]],
+  ["Communication & Campaigns", ["campaign thinking", "communication systems", "high-context outreach", "public-facing ideas", "translating strategy into material people actually encounter"]],
 ];
 
 export default function HomePage() {
   return (
     <>
-      <section className="home-opening">
-        <div className="opening-index" aria-hidden="true">PA / 2026 / 00</div>
-        <ScrollReveal>
-          <p className="opening-kicker">{POSITIONING.title}</p>
-          <h1>
-            <span>Work that</span>
-            <span className="opening-accent">holds up.</span>
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal delay={90}>
-          <div className="opening-bottom">
-            <p>{POSITIONING.heroSubheading}</p>
-            <div className="route-list" aria-label="Explore the portfolio">
-              {ROUTES.map(([number, label, to, Icon]) => (
-                <Link key={to} to={to}>
-                  <span>{number}</span>
-                  <span className="route-list-icon" aria-hidden="true"><Icon size={18} strokeWidth={1.8} /></span>
-                  <strong>{label}</strong>
-                  <b className="route-list-arrow" aria-hidden="true"><ArrowUpRight size={20} strokeWidth={1.8} /></b>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
+      <section className="home-opening" aria-labelledby="home-title">
+        <div className="opening-index">PA / Lagos / 2026</div>
+        <HeroMaterialField />
+        <div className="home-opening__declaration">
+          <p className="opening-kicker">Writing · Research · Strategy</p>
+          <h1 id="home-title">Work that<br /><span>matters to you.</span></h1>
+        </div>
+        <div className="opening-bottom opening-bottom--gentle">
+          <div><p>I work across writing, research and strategy, helping turn difficult material, loose ideas and real problems into things people can understand, use and care about.</p></div>
+          <a className="hero-action" href="#selected-situations">See selected situations <ArrowDown size={17} aria-hidden="true" /></a>
+        </div>
       </section>
 
-      <section className="home-statement page-band page-band--concrete">
-        <ScrollReveal>
-          <p className="section-number">01 / ENTRY NOTE</p>
-          <div className="statement-layout">
-            <h2>{POSITIONING.identity}</h2>
-            <p>{POSITIONING.undercurrent}</p>
-          </div>
-        </ScrollReveal>
+      <section id="selected-situations" className="page-band home-situations">
+        <header className="gentle-section-heading">
+          <p>01 / Selected situations</p>
+          <h2>Different material. Different forms of useful.</h2>
+          <span>Delivery under pressure, financial behaviour, and a live operating system.</span>
+        </header>
+        <div className="gathering-situation-list">
+          {selectedSituations.map((item) => <GatheringSituation key={item.study.slug} {...item} />)}
+        </div>
+        <div className="situation-proof-handoff" aria-hidden="true"><span>Measured</span><i /><span>Design-stage</span><i /><span>Active professional</span></div>
+        <Link className="route-link" to="/work">Browse the complete work index <ArrowUpRight size={16} aria-hidden="true" /></Link>
       </section>
 
-      <section className="home-evidence page-band page-band--yellow">
-        <ScrollReveal>
-          <div className="band-heading">
-            <Label>Evidence run</Label>
-            <p>Measured outcomes, reported outcomes, publishing and live implementation—kept visibly distinct.</p>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={70}>
-          <MetricStrip metrics={PROOF_METRICS} />
-        </ScrollReveal>
-      </section>
-
-      <section className="home-work page-band page-band--petrol">
-        <ScrollReveal>
-          <div className="band-heading band-heading--light">
-            <Label>Selected work</Label>
-            <h2>Situations where the thinking had to become useful.</h2>
-          </div>
-        </ScrollReveal>
-        <div className="home-case-grid">
-          {featuredStudies.map((study, index) => (
-            <ScrollReveal key={study.slug} delay={index * 60}>
-              <CaseStudyCard study={study} compact index={index + 1} />
+      <section id="evidence" className="page-band home-proof-ledger">
+        <header className="gentle-section-heading gentle-section-heading--compact">
+          <p>02 / Evidence</p><h2>A small proof ledger</h2>
+        </header>
+        <div className="proof-ledger">
+          {evidence.map(([value, label, status], index) => (
+            <ScrollReveal key={`${value}-${label}`} delay={index * 55}>
+              <article><p>{value}</p><h3>{label}</h3><span className={`evidence-state evidence-state--${status.toLowerCase().replace(" ", "-")}`}>{status}</span></article>
             </ScrollReveal>
           ))}
         </div>
-        <Link className="route-link route-link--light" to="/work">All selected work <span aria-hidden="true"><BookOpenText size={16} strokeWidth={1.8} /></span></Link>
       </section>
 
-      <section className="home-artifacts page-band page-band--green">
-        <ScrollReveal>
-          <div className="band-heading">
-            <Label>Working material</Label>
-            <h2>The artifacts are part of the argument.</h2>
+      <section id="how-i-think" className="page-band home-thinking">
+        <header className="home-section-identity home-section-identity--thinking">
+          <h2><span>03 /</span> How I think</h2>
+          <p>Loose material becomes useful when its limits and possible form become visible.</p>
+        </header>
+        <ThinkingField />
+      </section>
+
+      <section id="question" className="page-band home-observation home-question-note">
+        <header className="home-section-identity home-section-identity--question"><h2><span>04 /</span> A question I am thinking about</h2></header>
+        <div className="question-note__body">
+          <div className="question-note__reflection">
+            <p className="question-note__lede">Lately I keep returning to <strong>what survives the person who built it</strong>.</p>
+            <p>It appears in strange places.</p>
+            <p>A construction company trying to outlive its founder. Institutions whose processes contain more memory than their people realise. Old cities sitting on infrastructure everyone notices only when it stops working. Writers trying to make an idea survive the circumstances in which it was first thought.</p>
           </div>
-        </ScrollReveal>
-        <ScrollReveal delay={70}>
-          <ProofPanel artifacts={PROOF_ARTIFACTS.slice(0, 3)} />
-        </ScrollReveal>
-      </section>
-
-      <section className="home-method page-band page-band--rust">
-        <div className="method-layout">
-          <ScrollReveal>
-            <div className="band-heading band-heading--light">
-              <Label>Route</Label>
-              <h2>From too much material to a move someone can make.</h2>
-              <p>The form changes—brief, proposal, editorial system, outreach programme—but the standard stays intact.</p>
+          <div className="question-note__desk">
+            <p>Some other things occupying the desk:</p>
+            <div>
+              <article><h3>Simone Weil and attention.</h3><p>Whether attention is a discipline before it is a talent.</p></article>
+              <article><h3>Sport and image-making.</h3><p>How a single photograph, sentence or match can become the version of an athlete people remember.</p></article>
+              <article><h3>Institutional language.</h3><p>The point at which professional language clarifies responsibility, and the point at which it begins hiding it.</p></article>
+              <article><h3>Nigeria&apos;s ordinary systems.</h3><p>The unofficial arrangements that keep formal systems functioning, right up until they don&apos;t.</p></article>
             </div>
-          </ScrollReveal>
-          <ScrollReveal delay={70}>
-            <MethodTimeline steps={METHOD_STEPS} />
-          </ScrollReveal>
+          </div>
+          <div className="question-note__continue"><p>I write around some of these questions.</p><Link to="/writing">Enter the writing archive <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
         </div>
       </section>
 
-      <section className="home-engagements page-band page-band--concrete">
-        <ScrollReveal>
-          <div className="band-heading">
-            <Label>What I can carry</Label>
-            <h2>Bring the problem, the pressure and the material.</h2>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={70}>
-          <EngagementGrid items={SELECTED_ENGAGEMENTS} />
-        </ScrollReveal>
+      <section id="useful-for" className="page-band home-services">
+        <header className="gentle-section-heading gentle-section-heading--compact"><p>05 / Useful for</p><h2>Where could this person be useful to me?</h2></header>
+        <div className="useful-for-grid">
+          {usefulFor.map(([title, items], index) => <ScrollReveal key={title} delay={index * 70}><article><h3>{title}</h3><p>Useful for:</p><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></article></ScrollReveal>)}
+        </div>
+      </section>
+
+      <section id="quick-answers" className="page-band home-quick-answers">
+        <header className="gentle-section-heading gentle-section-heading--compact"><p>06 / Quick answers</p><h2>The practical questions.</h2></header>
+        <QuickAnswers />
       </section>
     </>
   );

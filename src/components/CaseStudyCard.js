@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import Tag from "./Tag";
 import ProofBadge from "./ProofBadge";
 
 export default function CaseStudyCard({ study, compact = false, index }) {
@@ -33,9 +32,7 @@ export default function CaseStudyCard({ study, compact = false, index }) {
         <p className="case-card-context">{study.context}</p>
         <h3>{study.title}</h3>
         <p className="case-card-summary">{study.summary}</p>
-        <div className="case-card-tags">
-          {study.tags.slice(0, 4).map((tag) => <Tag key={tag}>{tag}</Tag>)}
-        </div>
+        <p className="case-card-artifact"><b>Artifact</b>{study.deliverables?.[0] || "Inspect the working material in the case study."}</p>
         <span className="case-card-link">
           Read the case
           <b aria-hidden="true"><ArrowUpRight size={18} strokeWidth={1.8} /></b>

@@ -1,6 +1,6 @@
 const T = {
   // Background
-  bg: "#C8C0B2",
+  bg: "#E8EFED",
   bgAlt: "#E8DFD0",
 
   // Text

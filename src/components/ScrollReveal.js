@@ -2,11 +2,16 @@ import { useState, useEffect, useRef } from "react";
 
 export default function ScrollReveal({ children, delay = 0 }) {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const reduceMotion = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const [visible, setVisible] = useState(reduceMotion);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (reduceMotion) {
+      setVisible(true);
+      return undefined;
+    }
     let revealTimer;
     const reveal = () => setVisible(true);
 
@@ -32,7 +37,7 @@ export default function ScrollReveal({ children, delay = 0 }) {
       window.clearTimeout(revealTimer);
       obs.disconnect();
     };
-  }, [delay]);
+  }, [delay, reduceMotion]);
 
   return (
     <div

@@ -42,29 +42,6 @@ export const PROOF_METRICS = [
   },
 ];
 
-export const METHOD_STEPS = [
-  {
-    title: "Locate the decision.",
-    body: "Define what the work actually needs to answer.",
-  },
-  {
-    title: "Build the evidence base.",
-    body: "Separate useful evidence from plausible noise.",
-  },
-  {
-    title: "Make the argument.",
-    body: "Show how the recommendation follows from the evidence.",
-  },
-  {
-    title: "Build the working material.",
-    body: "Produce the brief, system, narrative, pipeline or proposal.",
-  },
-  {
-    title: "Record what happened.",
-    body: "Distinguish measured results, reported outcomes and work still in use.",
-  },
-];
-
 export const SELECTED_ENGAGEMENTS = [
   {
     title: "Research and decision briefs",

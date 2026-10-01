@@ -35,9 +35,9 @@ export default function WorkPage() {
         </header>
       </ScrollReveal>
       <ScrollReveal delay={35}>
-        <div className="work-method-strip" aria-label="How to read these case studies">
+        <div className="work-method-strip" role="list" aria-label="How to read these case studies">
           {CASE_STUDY_FRAMEWORK.map(([number, title, body]) => (
-            <article key={title}>
+            <article key={title} role="listitem">
               <span>{number}</span>
               <h2>{title}</h2>
               <p>{body}</p>
@@ -46,9 +46,10 @@ export default function WorkPage() {
         </div>
       </ScrollReveal>
       <ScrollReveal delay={50}>
-        <div className="route-filter" aria-label="Filter work">
+        <div className="filter-header"><p id="work-result-count" aria-live="polite">{studies.length} project{studies.length === 1 ? "" : "s"}</p></div>
+        <div className="route-filter" role="group" aria-label="Filter work" aria-describedby="work-result-count">
           {Object.entries(FILTERS).map(([key, label]) => (
-            <button key={key} type="button" onClick={() => setFilter(key)} className={filter === key ? "active" : ""}>{label}</button>
+            <button key={key} type="button" onClick={() => setFilter(key)} className={filter === key ? "active" : ""} aria-pressed={filter === key}>{label}</button>
           ))}
         </div>
       </ScrollReveal>

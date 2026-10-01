@@ -35,7 +35,7 @@ function PageRoutes() {
   const location = useLocation();
 
   return (
-    <main id="main-content" className="page-stage" key={location.pathname}>
+    <main id="main-content" className="page-stage" tabIndex="-1" key={location.pathname}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<WorkPage />} />

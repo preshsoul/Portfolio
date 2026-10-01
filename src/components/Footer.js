@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const footerLinks = [
   { label: "Work", to: "/work" },
@@ -8,14 +8,16 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const { pathname } = useLocation();
+  const quiet = pathname.startsWith("/work/") || pathname.startsWith("/writing/");
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer ${quiet ? "site-footer--quiet" : ""}`}>
       <div className="footer-route footer-route-left" aria-hidden="true" />
       <div className="footer-route footer-route-right" aria-hidden="true" />
       <div className="footer-shell">
         <div className="footer-heading">
-          <span className="footer-kicker">Final frame / 06</span>
-          <h2>Make the work<br />move.</h2>
+          <span className="footer-kicker">{quiet ? "Continue / when useful" : "Final frame"}</span>
+          <h2>{quiet ? <>A quieter place<br />to continue.</> : <>Make the work<br />move.</>}</h2>
           <p>Research, strategy and editorial operations for decisions that need more than a surface answer.</p>
         </div>
 
@@ -23,9 +25,9 @@ export default function Footer() {
           <Link className="footer-contact" to="/connect">
             Start a conversation <span aria-hidden="true">↗</span>
           </Link>
-          <div className="footer-link-list" aria-label="Footer navigation">
+          <div className="footer-link-list" role="list" aria-label="Footer links">
             {footerLinks.map((link) => (
-              <Link key={link.to} to={link.to}>{link.label}</Link>
+              <Link key={link.to} to={link.to} role="listitem">{link.label}</Link>
             ))}
           </div>
         </div>
